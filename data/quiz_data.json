@@ -1057,6 +1057,531 @@
       "simpleExplanation": "'Pilipinas' appears 3 times in the text.",
       "deepDive": "BagOfWordExercise.pdf Page 2: Index 30 ('Pilipinas') has count 3 in the 37-word vocabulary.",
       "googleQuery": "Pilipinas count 3 index 30 bag of words"
+    },
+    {
+      "id": 61,
+      "category": "domain1",
+      "question": "What is the primary difference between a 'Free Morpheme' and a 'Bound Morpheme'?",
+      "options": [
+        "Free morphemes can stand alone as independent words (e.g. 'buhay', 'house'); bound morphemes must attach to other morphemes (e.g. affixes like 'nag-', '-tion')",
+        "Free morphemes are only found in English; bound morphemes are only found in Tagalog",
+        "Free morphemes change meaning every year; bound morphemes never change",
+        "Free morphemes are always vowels; bound morphemes are always consonants"
+      ],
+      "answer": 0,
+      "simpleExplanation": "Free morphemes can stand on their own as words (like 'dog' or 'buhay'). Bound morphemes are stuck to other words as affixes (like 'un-' or '-an').",
+      "deepDive": "Presentation 2, Slide 7: Morphemes are categorized into Free (standalone lexical/functional words) and Bound (affixes that cannot occur in isolation).",
+      "googleQuery": "free morpheme vs bound morpheme linguistics"
+    },
+    {
+      "id": 62,
+      "category": "domain1",
+      "question": "What is a 'Circumfix' in morphological affixation?",
+      "options": [
+        "An affix that attaches simultaneously to both the beginning and end of a base root (e.g. Filipino 'ka-...-an' in 'kabayanihan')",
+        "An affix inserted into the middle of a syllable",
+        "An affix that deletes letters from the root word",
+        "An affix that only appears in capitalized words"
+      ],
+      "answer": 0,
+      "simpleExplanation": "A circumfix wraps around a word, attaching both in front and at the back at the same time (like 'ka-...-an' in 'ka-bayan-ihan').",
+      "deepDive": "Presentation 2, Slide 11 & 26: Affixation phenomena include prefixes (before), suffixes (after), infixes (inside), and circumfixes (surrounding base).",
+      "googleQuery": "circumfix morphology examples filipino"
+    },
+    {
+      "id": 63,
+      "category": "domain1",
+      "question": "In Kankanaey morphology (Miguel 2009), which word generated from the root 'gabyon' (hoe) is a verb meaning 'will use a hoe to dig an object'?",
+      "options": [
+        "gabyonen",
+        "gabyonan",
+        "ginabyon",
+        "kagabyon"
+      ],
+      "answer": 0,
+      "simpleExplanation": "'gabyonen' is a future-aspect verb meaning will use a hoe to dig an object, whereas 'gabyonan' refers to digging a portion of land.",
+      "deepDive": "Presentation 2, Slide 22 Table: 'gabyonen' (Verb): will use a hoe to dig an object. 'gabyonan' (Verb): to use a hoe to dig a portion of an object (typically land).",
+      "googleQuery": "gabyon gabyonen kankanaey morphology Dalos Miguel"
+    },
+    {
+      "id": 64,
+      "category": "domain1",
+      "question": "In Kankanaey morphology, what linguistic classification is given to 'ginabgabyon'?",
+      "options": [
+        "Adjective (referring to an object for which a hoe had been used)",
+        "Noun (miniature hoe)",
+        "Conjunction",
+        "Interjection"
+      ],
+      "answer": 0,
+      "simpleExplanation": "'ginabgabyon' is an adjective describing an object or soil area where a hoe had been used.",
+      "deepDive": "Presentation 2, Slide 22 Table: 'ginabgabyon' (Adjective): referring to an object for which a hoe had been used (combining infixation -in- and reduplication gab-).",
+      "googleQuery": "ginabgabyon kankanaey adjective morphology"
+    },
+    {
+      "id": 65,
+      "category": "domain1",
+      "question": "From the Kankanaey root 'gabyon', which formation is a compound incorporation representing a verb + pronoun meaning 'they will use a hoe'?",
+      "options": [
+        "Mangabyonda",
+        "Nangabyonak",
+        "Gabyonko",
+        "Gabyonmi"
+      ],
+      "answer": 0,
+      "simpleExplanation": "'Mangabyonda' combines verb prefix 'manga-' with root 'gabyon' and third-person plural pronoun 'da' (they) -> 'they will use a hoe'.",
+      "deepDive": "Presentation 2, Slide 24 Table: 'Mangabyonda' (verb + pronoun): They will use a hoe. 'Nangabyonak' = I used a hoe.",
+      "googleQuery": "Mangabyonda kankanaey compound incorporation"
+    },
+    {
+      "id": 66,
+      "category": "domain1",
+      "question": "From the Kankanaey root 'ali' (to come), which word form represents a verb past-perfect tense meaning 'had come'?",
+      "options": [
+        "inmal-ali",
+        "Inmali",
+        "Umaliali",
+        "Kaali"
+      ],
+      "answer": 0,
+      "simpleExplanation": "'inmal-ali' is past perfect ('had come'), while 'Inmali' is simple past ('came').",
+      "deepDive": "Presentation 2, Slide 25 Table: 'inmal-ali' (verb-past perfect): had come; 'Inmali' (verb-simple past): came.",
+      "googleQuery": "inmal-ali kankanaey verb past perfect"
+    },
+    {
+      "id": 67,
+      "category": "domain1",
+      "question": "In the Transformer architecture ('Attention Is All You Need'), where do the Queries (Q), Keys (K), and Values (V) originate in an Encoder layer?",
+      "options": [
+        "All three (Q, K, V) come from the output of the previous layer of the encoder (Self-Attention)",
+        "Q comes from the decoder; K and V come from the input sentence",
+        "Q, K, and V are randomly sampled from a Gaussian distribution",
+        "Q comes from the tokenizer; K comes from the embedding; V comes from the loss function"
+      ],
+      "answer": 0,
+      "simpleExplanation": "In encoder self-attention, Q, K, and V all come from the exact same place: the previous encoder layer!",
+      "deepDive": "Vaswani et al. (2017), Section 3.2.3: In an encoder self-attention layer, all keys, values, and queries come from the same place: the output of the previous layer in the encoder.",
+      "googleQuery": "transformer encoder self attention queries keys values origin"
+    },
+    {
+      "id": 68,
+      "category": "domain1",
+      "question": "In the Transformer DECODER, what are the sources of Q, K, and V in the 'Encoder-Decoder Attention' sub-layer?",
+      "options": [
+        "Queries (Q) come from the previous decoder layer; Keys (K) and Values (V) come from the final output of the encoder",
+        "Queries come from the encoder; Keys and Values come from the decoder",
+        "All three come from the target vocabulary",
+        "They are fixed identity matrices"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The decoder asks the questions (Queries), while the encoder provides the memory context (Keys and Values) from the input sentence.",
+      "deepDive": "Vaswani et al. (2017), Section 3.2.3: In encoder-decoder attention, queries come from the previous decoder layer, and memory keys and values come from the output of the encoder.",
+      "googleQuery": "encoder decoder attention cross attention Q K V"
+    },
+    {
+      "id": 69,
+      "category": "domain1",
+      "question": "What learning rate warmup and decay schedule was utilized in training the Transformer?",
+      "options": [
+        "Linear warmup for warmup_steps = 4000 followed by inverse square root decay proportional to step_num^-0.5",
+        "Constant learning rate of 0.01 throughout training",
+        "Exponential decay halving the learning rate every 10 steps",
+        "Step decay dropping by 90% every epoch"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The learning rate increases linearly for the first 4,000 warmup steps, then gradually decreases based on the inverse square root of the step number.",
+      "deepDive": "Vaswani et al. (2017), Section 5.3, Equation 3: lrate = d_model^-0.5 \u00b7 min(step_num^-0.5, step_num \u00b7 warmup_steps^-1.5) with warmup_steps = 4000.",
+      "googleQuery": "transformer learning rate schedule warmup steps 4000 inverse square root"
+    },
+    {
+      "id": 70,
+      "category": "domain1",
+      "question": "Which English POS tagset is characterized by tags such as 'NN1' (singular common noun), 'NN2' (plural common noun), 'VVO', and 'AJO'?",
+      "options": [
+        "CLAWS Tagset",
+        "Penn Treebank Tagset",
+        "Universal Tagset",
+        "Rabo Tagset"
+      ],
+      "answer": 0,
+      "simpleExplanation": "CLAWS uses numbered noun tags like NN1 and NN2, whereas Penn Treebank uses NN and NNS.",
+      "deepDive": "Presentation 1, Slide 43: 'CLAWS Tagset = {NN1, NN2, NPO, PNI, PNP, ..., VVO, VVD, ..., AJO, AJC, AJS...}'.",
+      "googleQuery": "CLAWS tagset NN1 NN2 AJO"
+    },
+    {
+      "id": 71,
+      "category": "domain1",
+      "question": "In the annotated Tagalog corpora discussed in Presentation 1, which tag had a frequency count of ZERO (least frequent)?",
+      "options": [
+        "VBOI",
+        "NNC",
+        "DTC",
+        "PMP"
+      ],
+      "answer": 0,
+      "simpleExplanation": "VBOI had the lowest (zero) frequency in the Tagalog corpus, while NNC had the highest.",
+      "deepDive": "Presentation 1, Slide 62: 'Least frequency tag (in fact zero): VBOI'. Most frequent tag: NNC.",
+      "googleQuery": "Tagalog corpora least frequent tag VBOI"
+    },
+    {
+      "id": 72,
+      "category": "domain1",
+      "question": "In probabilistic POS tagging with the Markov Assumption, what is a 'Bigram' assumption?",
+      "options": [
+        "The probability of the current tag depends ONLY on the immediately preceding tag P(t_i | t_{i-1})",
+        "The probability of a tag depends on all preceding tags in the entire book",
+        "Every word must contain at least two syllables",
+        "Only two tags exist in the entire language"
+      ],
+      "answer": 0,
+      "simpleExplanation": "A bigram tagger looks back just 1 tag: the chance of tag t_i depends only on tag t_{i-1}.",
+      "deepDive": "Presentation 1, Slide 54: The Markov Assumption simplifies the tag sequence probability. In a bigram model, P(t_i | t_1, ..., t_{i-1}) \u2248 P(t_i | t_{i-1}).",
+      "googleQuery": "Markov assumption bigram POS tagging P(t_i | t_{i-1})"
+    },
+    {
+      "id": 73,
+      "category": "domain1",
+      "question": "What is the primary role of 'Residual Connections' (Add & Norm) around Transformer sub-layers?",
+      "options": [
+        "To enable training of deeper networks by providing uninterrupted gradient backpropagation paths and preventing vanishing gradients",
+        "To remove stopwords before attention",
+        "To convert text from English to French",
+        "To reduce the number of GPUs needed from 8 to 1"
+      ],
+      "answer": 0,
+      "simpleExplanation": "Residual connections allow information and gradients to flow directly through layers without getting squashed or lost in deep models.",
+      "deepDive": "Vaswani et al. (2017), Section 3.1 & He et al. (2016): LayerNorm(x + Sublayer(x)) with residual connections preserves identity mappings and stabilizes deep network optimization.",
+      "googleQuery": "residual connections transformer gradient flow"
+    },
+    {
+      "id": 74,
+      "category": "domain2",
+      "question": "What software libraries and environment were used by Group 2 to develop the Cloud-Based RoBERTa SDG classifier?",
+      "options": [
+        "PyTorch and Hugging Face Transformers trained on Google Colab",
+        "TensorFlow 1.0 on local Windows 98",
+        "scikit-learn on a Raspberry Pi",
+        "Apache Mahout on Hadoop"
+      ],
+      "answer": 0,
+      "simpleExplanation": "They trained RoBERTa using PyTorch and Hugging Face Transformers on Google Colab.",
+      "deepDive": "Group 2 Presentation, Slide 5: Software Library: Hugging Face's Transformers; Deep Learning Framework: PyTorch; Development Environment: Google Colab.",
+      "googleQuery": "PyTorch Hugging Face Transformers Google Colab RoBERTa"
+    },
+    {
+      "id": 75,
+      "category": "domain2",
+      "question": "What are the three pillars of the United Nations 2030 Agenda encompassing the 17 SDGs discussed in Group 2's study?",
+      "options": [
+        "Social, Economic, and Environmental",
+        "Political, Military, and Cultural",
+        "Primary, Secondary, and Tertiary",
+        "Hardware, Software, and Network"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The 17 SDGs are organized across three core pillars: Social, Economic, and Environmental.",
+      "deepDive": "Group 2 Presentation, Slide 2 & Paper Section 1: 'UN 2030 Agenda: 17 SDGs across 3 Pillars (Social, Economic, Environmental)'.",
+      "googleQuery": "UN SDGs 3 pillars social economic environmental"
+    },
+    {
+      "id": 76,
+      "category": "domain2",
+      "question": "In Group 5's Baguio City social media study, what was the coherence score when topics were constrained to the 9 predefined topics?",
+      "options": [
+        "0.1023",
+        "0.4043",
+        "0.8999",
+        "0.0050"
+      ],
+      "answer": 1,
+      "simpleExplanation": "The coherence score reached 0.4043 when the model was limited to 9 predefined topics.",
+      "deepDive": "Group 5 Paper, Section 4.1 & Page 5: 'However, when the chosen amount of topics is limited to the predefined topics of 9, the coherence generated a score of 0.4043.'",
+      "googleQuery": "Baguio BERTopic topic coherence score 0.4043"
+    },
+    {
+      "id": 77,
+      "category": "domain2",
+      "question": "In Group 5's study, why did predefined topics like 'Waste Management' and 'Taxes/Budget' have no associated subtopics in the social media dataset?",
+      "options": [
+        "Because social media scrapers were blocked from reading them",
+        "Because these subjects were not extensively discussed or voiced out by citizens in the collected online comments",
+        "Because taxes are illegal in Baguio",
+        "Because the VADER lexicon deleted those words"
+      ],
+      "answer": 1,
+      "simpleExplanation": "People on Facebook and Twitter in Baguio simply did not talk much about taxes or waste management compared to tourism and traffic.",
+      "deepDive": "Group 5 Paper, Page 5: 'topics, such as \"Waste Management\" and \"Taxes Budget,\" did not have associated subtopics... suggesting that these particular subjects were not extensively discussed.'",
+      "googleQuery": "Baguio social media dataset waste management taxes absence"
+    },
+    {
+      "id": 78,
+      "category": "domain2",
+      "question": "Under Group 5's adapted VADER heuristics, in the sentence 'Mahal kita, pero ayaw na kitang makasama', which sentiment dominates?",
+      "options": [
+        "Negative sentiment, because the contrastive conjunction 'pero' shifts polarity to make the subsequent negative clause dominant",
+        "Positive sentiment, because 'Mahal kita' appears first",
+        "Completely neutral sentiment",
+        "The model crashes due to code-switching"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The word 'pero' (but) shifts the sentiment so the negative ending overrides the positive beginning.",
+      "deepDive": "Group 5 Paper, Section 3.4.1: The initial clause 'Mahal kita' expresses positivity, while 'pero ayaw na kitang makasama' expresses negativity due to 'pero', making negative the dominant sentiment.",
+      "googleQuery": "VADER polarity shift but pero sentiment analysis"
+    },
+    {
+      "id": 79,
+      "category": "domain2",
+      "question": "How many total degree modifier adverbs (pang-abay na pamaraan) were curated in Group 5's Tagalog/Ilocano lexicon?",
+      "options": [
+        "10 words",
+        "50 words",
+        "123 words",
+        "500 words"
+      ],
+      "answer": 2,
+      "simpleExplanation": "They compiled 123 degree modifier adverbs (like sobra, medyo, malaki) that change sentiment intensity.",
+      "deepDive": "Group 5 Paper, Section 3.4.1: 'In total, we were able to gather 123 words that positively and negatively modify the next word.'",
+      "googleQuery": "123 degree modifier adverbs pang-abay na pamaraan VADER"
+    },
+    {
+      "id": 80,
+      "category": "domain2",
+      "question": "In InfoSentiA (Group 4), which software architectural design pattern was selected for both the main web portal and sub-system?",
+      "options": [
+        "Model-View-Controller (MVC) pattern",
+        "Monolithic mainframe pattern",
+        "Peer-to-Peer file sharing pattern",
+        "Blackboard AI architecture"
+      ],
+      "answer": 0,
+      "simpleExplanation": "They used the MVC (Model-View-Controller) architecture for clean maintainability and fast development.",
+      "deepDive": "Group 4 Paper, Section 3.2.1: 'implementing it using the tested Model-View-Controller (MVC) software development design pattern... to support code refactoring and system maintainability.'",
+      "googleQuery": "InfoSentiA Model-View-Controller MVC architecture"
+    },
+    {
+      "id": 81,
+      "category": "domain2",
+      "question": "What database systems are utilized in InfoSentiA across its main system and Project Lengua sub-system?",
+      "options": [
+        "MySQL (RDBMS) for the main system, and MongoDB (NoSQL) for Project Lengua",
+        "Only Microsoft Access",
+        "Oracle Database on tape drives",
+        "SQLite exclusively"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The main portal uses MySQL for structured government records, and Project Lengua uses MongoDB for word/sentiment data.",
+      "deepDive": "Group 4 Paper, Section 3.2.1: The main system runs on LAMP (with MySQL), while Project Lengua runs on Node/Express and MongoDB.",
+      "googleQuery": "InfoSentiA MySQL MongoDB dual database architecture"
+    },
+    {
+      "id": 82,
+      "category": "domain2",
+      "question": "What visual representation is displayed in the InfoSentiA admin dashboard to summarize citizen sentiment on local legislation?",
+      "options": [
+        "An interactive 'Ordinance Pulse' Donut Chart displaying positive, negative, and neutral percentages",
+        "A black-and-white scatter plot",
+        "A 3D VR simulation of Baguio City Hall",
+        "A single text number without colors"
+      ],
+      "answer": 0,
+      "simpleExplanation": "It shows an 'Ordinance Pulse' donut chart showing the breakdown of positive, negative, and neutral reactions.",
+      "deepDive": "Group 4 Paper, Section 3.2.2 & Figure 5: 'admin module of the main system can now display the donut chart for the research division as shown on Figure 5 (Ordinance Pulse)'.",
+      "googleQuery": "InfoSentiA Ordinance Pulse donut chart sentiment analysis"
+    },
+    {
+      "id": 83,
+      "category": "domain2",
+      "question": "In Group 1's study on the Cordillera Administrative Region (CAR), which government agency provided official geographic and population data?",
+      "options": [
+        "Philippine Statistics Authority (PSA)",
+        "Department of National Defense (DND)",
+        "Bureau of Customs (BOC)",
+        "Bangko Sentral ng Pilipinas (BSP)"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The Philippine Statistics Authority (PSA) provided the official community and language statistics.",
+      "deepDive": "Group 1 Paper (Dalos Miguel et al., IJCSR 2024): Language data was sourced from the Philippine Statistics Authority (PSA) and verified with native speakers.",
+      "googleQuery": "Philippine Statistics Authority PSA Cordillera language mapping"
+    },
+    {
+      "id": 84,
+      "category": "domain2",
+      "question": "In Group 7's comparative benchmark of Tagalog POS taggers, what tagger achieved the highest accuracy (85.0%) on FAMILIAR training data?",
+      "options": [
+        "MBPOST (Memory-Based POS Tagger)",
+        "PTPOST4.1 (Probabilistic HMM Tagger)",
+        "Tag-Alog (Rule-Based Tagger)",
+        "TPOST (Template-Based Tagger)"
+      ],
+      "answer": 0,
+      "simpleExplanation": "MBPOST memorized the training data best (85.0%), but PTPOST4.1 generalized better to new unseen text (78.3%).",
+      "deepDive": "Dalos Miguel & Roxas (NNLPRS 2007): MBPOST achieved 85.0% accuracy on training data, while PTPOST4.1 achieved 78.3% on unseen test data.",
+      "googleQuery": "MBPOST memory-based POS tagger 85 percent training data"
+    },
+    {
+      "id": 85,
+      "category": "domain3",
+      "question": "In the SLU Bag of Words exercise, what is the frequency count of the word 'aking' in the source text of the pledge?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "6"
+      ],
+      "answer": 2,
+      "simpleExplanation": "'aking' appears 4 times in the Panatang Makabayan pledge.",
+      "deepDive": "BagOfWordExercise.pdf Page 1, Derivation: Index 1 ('aking') appears 4 times ('aking lupang sinilangan... Tahanan ng aking lahi... payo ng aking magulang... aking buhay').",
+      "googleQuery": "aking frequency count 4 Panatang Makabayan"
+    },
+    {
+      "id": 86,
+      "category": "domain3",
+      "question": "In the 44-word initial vocabulary of the pledge exercise, what is the frequency count of the preposition 'ng'?",
+      "options": [
+        "1",
+        "2",
+        "4",
+        "6"
+      ],
+      "answer": 2,
+      "simpleExplanation": "'ng' appears 4 times in the pledge text.",
+      "deepDive": "BagOfWordExercise.pdf Page 1: Index 31 ('ng') count = 4 ('Tahanan ng... payo ng... tuntunin ng... tungkulin ng').",
+      "googleQuery": "count of ng Panatang Makabayan bag of words 4"
+    },
+    {
+      "id": 87,
+      "category": "domain3",
+      "question": "In the post-stopword 37-dimensional vocabulary, what is the alphabetical index of the word 'iniibig'?",
+      "options": [
+        "Index 1",
+        "Index 9",
+        "Index 11",
+        "Index 30"
+      ],
+      "answer": 1,
+      "simpleExplanation": "In the 37-word list, 'iniibig' shifts from its original Index 11 up to Index 9 because 2 preceding stopwords ('ang' and 'at') were removed!",
+      "deepDive": "BagOfWordExercise.pdf Page 2 Table: Index 9 is 'iniibig'. (In the 44-word list it was Index 11; removing 'ang' [idx 3] and 'at' [idx 4] shifts it to Index 9).",
+      "googleQuery": "iniibig index 9 post-stopword 37 vocabulary"
+    },
+    {
+      "id": 88,
+      "category": "domain3",
+      "question": "In the 37-word filtered vocabulary of the Panatang Makabayan, how many words have a frequency count of exactly 1?",
+      "options": [
+        "10 words",
+        "25 words",
+        "35 words",
+        "37 words"
+      ],
+      "answer": 2,
+      "simpleExplanation": "Exactly 35 words have a count of 1. Only 'aking' (count 4) and 'Pilipinas' (count 3) appear more than once!",
+      "deepDive": "BagOfWordExercise.pdf Page 2: In the 37-word vocabulary, 'aking' (idx 1) = 4, 'Pilipinas' (idx 30) = 3, and all other 35 words have count 1 (35 + 1 + 1 = 37).",
+      "googleQuery": "Panatang Makabayan 35 words count 1 37 dimensions"
+    },
+    {
+      "id": 89,
+      "category": "domain3",
+      "question": "Why does the standard Bag of Words (BoW) model fail to distinguish between sentences like 'The dog bit the man' and 'The man bit the dog'?",
+      "options": [
+        "Because BoW completely discards word order, grammar, and syntactic roles, treating both sentences as identical bags of token counts",
+        "Because 'dog' and 'man' have identical ASCII codes",
+        "Because BoW requires all nouns to be capitalized",
+        "Because BoW converts all verbs to adjectives"
+      ],
+      "answer": 0,
+      "simpleExplanation": "BoW only counts words and throws away word order; both sentences have the exact same words, so they get the exact same vector!",
+      "deepDive": "Core BoW limitation: Discards positional and grammatical syntax. Both sentences generate vector {'dog': 1, 'bit': 1, 'the': 2, 'man': 1}.",
+      "googleQuery": "bag of words limitation word order dog bit man"
+    },
+    {
+      "id": 90,
+      "category": "domain3",
+      "question": "If P(A \u2229 B) = 0.15 and P(B) = 0.50, what is the conditional probability P(A | B)?",
+      "options": [
+        "0.075",
+        "0.30",
+        "0.65",
+        "1.00"
+      ],
+      "answer": 1,
+      "simpleExplanation": "P(A | B) = P(A and B) / P(B) = 0.15 / 0.50 = 0.30.",
+      "deepDive": "Presentation 3, Slide 6: P(A | B) = P(A \u2229 B) / P(B) = 0.15 / 0.50 = 0.30 (or 30%).",
+      "googleQuery": "conditional probability calculation 0.15 0.50"
+    },
+    {
+      "id": 91,
+      "category": "domain3",
+      "question": "In the fruit classification example (Presentation 3), what is the unnormalized numerator score for Banana given prior P(Banana) = 0.50, and likelihoods P(Long|Banana) = 0.8, P(Sweet|Banana) = 0.7, P(Yellow|Banana) = 0.9?",
+      "options": [
+        "0.252",
+        "0.500",
+        "0.012",
+        "0.999"
+      ],
+      "answer": 0,
+      "simpleExplanation": "Multiply the prior by all 3 likelihoods: 0.50 * 0.8 * 0.7 * 0.9 = 0.252.",
+      "deepDive": "Presentation 3, Slides 34\u201336: P(Banana | Long, Sweet, Yellow) \u221d P(Banana) * P(Long|Banana) * P(Sweet|Banana) * P(Yellow|Banana) = 0.50 * 0.8 * 0.7 * 0.9 = 0.252.",
+      "googleQuery": "naive bayes fruit classification banana likelihood calculation 0.252"
+    },
+    {
+      "id": 92,
+      "category": "domain3",
+      "question": "In Slide 49 of Presentation 3, which of the following is listed among the 8 target Philippine language categories for classification?",
+      "options": [
+        "Kapampangan",
+        "Spanish",
+        "Mandarin",
+        "Latin"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The 8 Philippine languages are: Bikol, Cebuano, Hiligaynon, Ilocano, Kapampangan, Pangasinan, Tagalog, and Waray.",
+      "deepDive": "Presentation 3, Slide 49: Categories: Bikol, Cebuano, Hiligaynon, Ilocano, Kapampangan, Pangasinan, Tagalog, Waray.",
+      "googleQuery": "Philippine languages naive bayes classification Dalos Miguel"
+    },
+    {
+      "id": 93,
+      "category": "domain3",
+      "question": "In Presentation 3, Slide 48, which language does the input text 'adda pay maysa nga awan' belong to?",
+      "options": [
+        "Ilocano",
+        "Tagalog",
+        "Waray",
+        "Cebuano"
+      ],
+      "answer": 0,
+      "simpleExplanation": "'adda pay maysa nga awan' is an Ilocano phrase meaning 'there is still one missing'.",
+      "deepDive": "Presentation 3, Slide 48: 'Determine the language for the text \"adda pay maysa nga awan\"' -> Classified as Ilocano based on unigrams 'adda', 'pay', 'maysa', 'nga', 'awan'.",
+      "googleQuery": "adda pay maysa nga awan ilocano language identification"
+    },
+    {
+      "id": 94,
+      "category": "domain3",
+      "question": "In n-gram language modeling, what are the word bigrams (n=2) for the phrase 'to be or not to be'?",
+      "options": [
+        "['to be', 'be or', 'or not', 'not to', 'to be']",
+        "['to', 'be', 'or', 'not']",
+        "['to be or', 'or not to']",
+        "['t', 'o', 'b', 'e']"
+      ],
+      "answer": 0,
+      "simpleExplanation": "Word bigrams take pairs of consecutive words: 'to be', 'be or', 'or not', 'not to', 'to be'.",
+      "deepDive": "Presentation 3, Slide 59: An n-word slice of a sentence. For n=2 (bigram): 'to be', 'be or', 'or not', 'not to', 'to be'.",
+      "googleQuery": "word bigram examples to be or not to be"
+    },
+    {
+      "id": 95,
+      "category": "domain3",
+      "question": "With Laplace (+1) smoothing, if a category has a total token count of 5,000 and the vocabulary has |V| = 1,000 unique words, what is the denominator for calculating P(w | C)?",
+      "options": [
+        "6,000 (Total count + |V|)",
+        "5,000",
+        "1,000",
+        "4,000"
+      ],
+      "answer": 0,
+      "simpleExplanation": "The denominator in Laplace smoothing adds the vocabulary size |V| to the total count: 5000 + 1000 = 6000.",
+      "deepDive": "Presentation 3, Slide 66 & Formula: Denominator = \u2211 Count(w', C) + |V| = 5000 + 1000 = 6000. This ensures all probabilities sum up to 1.0.",
+      "googleQuery": "laplace smoothing denominator total count plus vocabulary size"
     }
   ],
   "flashcards": [
@@ -1199,6 +1724,46 @@
       "category": "Domain 2",
       "front": "Group 1: How many CAR languages identified?",
       "back": "Identified 22 distinct indigenous languages across the Cordillera region using a relational database model."
+    },
+    {
+      "category": "Domain 1",
+      "front": "What is a Circumfix?",
+      "back": "An affix with two parts that attach around a base root simultaneously (e.g. Filipino 'ka-...-an' in 'kabayanihan')."
+    },
+    {
+      "category": "Domain 1",
+      "front": "Transformer: Q, K, V in Encoder vs. Decoder?",
+      "back": "Encoder: Q, K, V all come from previous encoder layer. Decoder Cross-Attention: Q comes from decoder, while K and V come from encoder output."
+    },
+    {
+      "category": "Domain 1",
+      "front": "Why Masked Self-Attention in Decoder?",
+      "back": "Masking out future tokens (-\u221e) preserves the autoregressive property, preventing positions from attending to subsequent future words during generation."
+    },
+    {
+      "category": "Domain 2",
+      "front": "Group 5 (Baguio): What is MMR and its diversity setting?",
+      "back": "Maximal Marginal Relevance (MMR) with diversity 0.8 ensures diverse keywords in BERTopic clusters by balancing document similarity with keyword variety."
+    },
+    {
+      "category": "Domain 2",
+      "front": "Group 4 (InfoSentiA): What scale does AFINN use?",
+      "back": "Integer scores ranging from -5 (extremely negative) to +5 (extremely positive) for sentiment valence."
+    },
+    {
+      "category": "Domain 2",
+      "front": "Group 2 (RoBERTa SDG): Lowest & Highest F1 goals?",
+      "back": "Highest F1 was SDG 7 Clean Energy (0.95). Lowest F1 was SDG 2 Zero Hunger (0.55) due to semantic category overlap with SDG 13 Climate Action."
+    },
+    {
+      "category": "Domain 3",
+      "front": "Panatang Makabayan: Counts of 'aking' & 'Pilipinas'?",
+      "back": "'aking' appears 4 times (Index 1). 'Pilipinas' appears 3 times (Index 30). All other 35 words in the 37-word vocabulary appear once."
+    },
+    {
+      "category": "Domain 3",
+      "front": "Laplace Smoothing Denominator Formula?",
+      "back": "Denominator = Total Token Count in Category + Vocabulary Size |V|. Guarantees smoothed probabilities sum to 1."
     }
   ],
   "bow_44": [
