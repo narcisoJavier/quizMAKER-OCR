@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600;700&family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2.1">
+  <link rel="stylesheet" href="css/style.css?v=2.2">
 </head>
 <body>
 
@@ -44,39 +44,50 @@
       <div class="hero-pill">🎯 Prelim Exam Preparation Portal</div>
       <h1>Natural Language Processing (CSE 30)</h1>
       <p>
-        Exhaustive exam reviewer strictly mapped to the prelim syllabus, lecture slides by <b>Dalos D. Miguel</b>, the <b>Bag of Words exercise</b>, class research studies (including <b>RoBERTa SDG</b>, <b>InfoSentiA</b>, <b>Baguio BERTopic</b>), and applied OCR architecture (<b>quizMAKER-OCR</b>).
+        Exhaustive exam reviewer strictly mapped to the prelim syllabus, lecture slides by <b>Dalos D. Miguel</b>, the <b>Bag of Words exercise</b>, and class research studies (including <b>RoBERTa SDG</b>, <b>InfoSentiA</b>, <b>Baguio BERTopic</b>).
       </p>
 
       <div class="hero-stats">
         <div class="stat-box">
-          <span class="stat-number">4</span>
+          <span class="stat-number">3</span>
           <span class="stat-label">Core Exam Domains</span>
         </div>
         <div class="stat-box">
-          <span class="stat-number">105</span>
+          <span class="stat-number">95</span>
           <span class="stat-label">Exam-Style Questions</span>
         </div>
         <div class="stat-box">
-          <span class="stat-number">44</span>
-          <span class="stat-label">Recall Flashcards</span>
+          <span class="stat-number">36</span>
+          <span class="stat-label">Active Flashcards</span>
         </div>
         <div class="stat-box">
           <span class="stat-number">Dual</span>
-          <span class="stat-label">Simple & Deep-Dive Info</span>
+          <span class="stat-label">Explanation Engine</span>
         </div>
       </div>
     </header>
 
-    <!-- CALL TO ACTION BUTTONS -->
-    <div style="display:flex; gap:0.85rem; margin-bottom:2.5rem; flex-wrap:wrap;">
-      <a href="quiz.html" class="btn btn-primary">
-        🚀 Launch Exam Simulator
+    <!-- ACTION CARDS -->
+    <div class="action-grid">
+      <a href="quiz.html" class="action-card">
+        <div class="action-icon">🎯</div>
+        <h3 class="action-title">Practice Examination</h3>
+        <p class="action-desc">Simulate the actual test with 95 randomized multiple-choice questions, instant feedback, and scoring.</p>
+        <div class="action-btn">Launch Quiz &rarr;</div>
       </a>
-      <a href="interactive-tools.html" class="btn btn-outline">
-        🧪 BoW & Naive Bayes Calculators
+
+      <a href="interactive-tools.html" class="action-card">
+        <div class="action-icon">🧪</div>
+        <h3 class="action-title">Interactive NLP Labs</h3>
+        <p class="action-desc">Experiment with the Panatang Makabayan 44 &rarr; 37 BoW reducer, Naive Bayes classifier, and Kankanaey morphology.</p>
+        <div class="action-btn">Open Labs &rarr;</div>
       </a>
-      <a href="flashcards.html" class="btn btn-outline">
-        ⚡ Active-Recall Flashcards
+
+      <a href="flashcards.html" class="action-card">
+        <div class="action-icon">⚡</div>
+        <h3 class="action-title">Active Recall Deck</h3>
+        <p class="action-desc">Master critical terminology, formulas, and slide citations with 36 interactive 3D flip flashcards.</p>
+        <div class="action-btn">Start Flashcards &rarr;</div>
       </a>
     </div>
 
@@ -87,11 +98,10 @@
         <p class="section-desc">Each topic features an intuitive simplified summary paired with an expandable technical deep dive.</p>
       </div>
       <div class="tabs-bar" style="margin-bottom:0;">
-        <button class="tab-btn active" data-filter="all">All Topics (4 Domains)</button>
+        <button class="tab-btn active" data-filter="all">All Topics (3 Domains)</button>
         <button class="tab-btn" data-filter="domain1">1. NLP & Morphology</button>
         <button class="tab-btn" data-filter="domain2">2. Class Research Studies</button>
         <button class="tab-btn" data-filter="domain3">3. BoW & Naive Bayes</button>
-        <button class="tab-btn" data-filter="domain4">4. Applied NLP: quizMAKER-OCR</button>
       </div>
     </div>
 
@@ -108,8 +118,8 @@
     <p style="margin-top:0.4rem; font-size:0.8rem;">Prepared for student review based on lecture presentations, exercises, and research materials.</p>
   </footer>
 
-  <script src="js/data.js?v=2.1"></script>
-  <script src="js/app.js?v=2.1"></script>
+  <script src="js/data.js?v=2.2"></script>
+  <script src="js/app.js?v=2.2"></script>
   <script>
     // Ensure toggleDeepDive is available globally immediately
     window.toggleDeepDive = window.toggleDeepDive || function (contentId, btn) {

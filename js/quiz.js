@@ -124,7 +124,6 @@
     const catLabel = q.category === 'domain1' ? 'Domain 1: NLP Concepts & Morphology'
       : q.category === 'domain2' ? 'Domain 2: Class Research Studies'
       : q.category === 'domain3' ? 'Domain 3: Bag of Words & Naive Bayes'
-      : q.category === 'domain4' ? 'Domain 4: Applied NLP: quizMAKER-OCR'
       : 'Domain Review';
 
     document.getElementById('quiz-category-tag').textContent = catLabel;

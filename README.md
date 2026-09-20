@@ -2,7 +2,7 @@
 
 An interactive, comprehensive, zero-dependency web reviewer and examination simulator for **CSE 30 (Natural Language Processing)** at Saint Louis University (SLU SAMCIS).
 
-Meticulously aligned with course lecture presentations by **Engr. Dalos D. Miguel**, class research presentations, the Panatang Makabayan Bag of Words exercise, and applied OCR tooling (**quizMAKER-OCR**).
+Meticulously aligned with course lecture presentations by **Engr. Dalos D. Miguel**, class research presentations, and the Panatang Makabayan Bag of Words exercise.
 
 **Live Reviewer:** [https://quizmaker-vacv8tip6-uznir.vercel.app](https://quizmaker-vacv8tip6-uznir.vercel.app)
 
@@ -10,13 +10,13 @@ Meticulously aligned with course lecture presentations by **Engr. Dalos D. Migue
 
 ## 🌟 Key Features
 
-- **105 Exam-Style Questions**: Spanning all 4 core exam domains with instant feedback, answer explanations, and automated Google Search links.
+- **95 Exam-Style Questions**: Spanning all 3 core exam domains with instant feedback, answer explanations, and automated Google Search links.
 - **Dual Explanation Architecture**: Every single topic offers an intuitive plain-English summary paired with an expandable **🔬 Deep Dive / Academic Lecture Notes** section with formal mathematical formulations and slide citations.
 - **Interactive Calculators & Simulators**:
   - **Tool 1: Bag of Words & Stopword Reducer** — Replicates the Panatang Makabayan 44 $\to$ 37 dimensional reduction exercise with live vector generation and vocabulary frequency tables.
   - **Tool 2: Naive Bayes Language Classifier** — Interactive probability calculator computing step-by-step prior, likelihood, Laplace (+1) smoothing, and denominator cancellation proof.
   - **Tool 3: Kankanaey Morphology Explorer** — Explores Dalos Miguel's (2009) Cordilleran morphology research (*gabyon*, *ali*, *talak*).
-- **44 Active Recall Flashcards**: 3D flip-card study deck with keyboard shortcuts (`Spacebar`, `Arrows`) and category filters.
+- **36 Active Recall Flashcards**: 3D flip-card study deck with keyboard shortcuts (`Spacebar`, `Arrows`) and category filters.
 - **Results & Retry Flow**: Follows the architecture diagram (`diagram.png`) with persistent scorecards and a targeted **"Retry Missed Questions"** mini-quiz mode.
 - **Zero Build Step & Offline Support**: Pure vanilla HTML5, CSS3, and modern ES6 JavaScript. No framework overhead, no node build steps, 100% offline-capable via `localStorage`.
 - **Dark / Light Mode**: Seamless theme toggling with system-preference detection and persistence.
@@ -70,14 +70,6 @@ Meticulously aligned with course lecture presentations by **Engr. Dalos D. Migue
   - **Denominator Cancellation Proof**: Constant scaling factor across all classes.
   - Language Identification across 8 Philippine languages (*"naimbag nga rabii"* $\to$ Ilocano).
   - Laplace (+1) Smoothing & "Others" fallback handling.
-
-### 4. Applied NLP Tooling: quizMAKER-OCR (10 Questions)
-- Developed by student author **Narciso Javier III** (Group 2).
-- OCR Document Ingestion & Text Extraction (Pytesseract bounding box extraction, provenance tracking via `source` field).
-- Cleaning & Modality Invariants: Pruning figure-dependent questions (Q53–Q55) and handwritten noise (Q110 acoustics); fixing single-string choice bugs into discrete arrays (Q33, Q38); asserting $answer \in choices$.
-- Client-Side State Architecture: Fisher-Yates shuffled question order serialized in `localStorage`, auto-persist hooks, and tactile keyboard shortcuts.
-- Error-Driven Pedagogy: Inline feedback, automated Google Search link generation with `SEARCH_SUFFIX`, skipped question queues, and targeted "Retry Incorrect" mini-quizzes.
-- Zero-Build Static Deployment: Single decoupled `app.js` engine powering multiple exams (`utilities.html`, `planning-exam.html`, `urban-planning.html`).
 
 ---
 
