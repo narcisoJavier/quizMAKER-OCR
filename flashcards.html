@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Active Recall Flashcards | CSE 30 NLP Reviewer</title>
+  <meta name="description" content="Active recall flashcards covering NLP & Morphology, Cloud-Based RoBERTa for SDGs, and Bag of Words & Naive Bayes.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">CSE 30</span>
+        <div>
+          <span class="brand-text">NLP Exam Reviewer</span>
+          <span class="brand-sub">SLU SAMCIS • Active Recall</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">📖 Study Guide</a></li>
+        <li><a href="quiz.html" class="nav-link">🎯 Practice Quiz</a></li>
+        <li><a href="interactive-tools.html" class="nav-link">🧪 Interactive Labs</a></li>
+        <li><a href="flashcards.html" class="nav-link active">⚡ Flashcards</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+          <span>🌙</span> Dark
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div style="max-width:750px; margin:0 auto;">
+
+      <div class="section-header" style="text-align:center; justify-content:center;">
+        <div>
+          <h1 class="section-title" style="justify-content:center;">⚡ Active Recall Flashcards</h1>
+          <p class="section-desc">Click card or press Spacebar to flip between question and answer.</p>
+        </div>
+      </div>
+
+      <!-- FILTER TABS -->
+      <div class="tabs-bar" style="justify-content:center; margin-bottom:2rem;">
+        <button class="tab-btn flash-filter-btn active" data-cat="all">All Domains</button>
+        <button class="tab-btn flash-filter-btn" data-cat="Domain 1">1. NLP & Morphology</button>
+        <button class="tab-btn flash-filter-btn" data-cat="Domain 2">2. RoBERTa SDG Study</button>
+        <button class="tab-btn flash-filter-btn" data-cat="Domain 3">3. BoW & Naive Bayes</button>
+      </div>
+
+      <!-- TOP INFO -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; font-weight:700; color:var(--text-secondary);">
+        <span id="fc-category-badge" class="quiz-category-tag">Domain 1</span>
+        <span id="fc-counter">Card 1 of 25</span>
+      </div>
+
+      <!-- FLASHCARD COMPONENT -->
+      <div class="flashcard-wrap" id="flashcard-container">
+        <div class="flashcard" id="active-flashcard">
+          <!-- FRONT -->
+          <div class="card-face card-front">
+            <span class="card-category" id="fc-front-category">Domain 1</span>
+            <div class="card-question" id="fc-question-text">Question loading...</div>
+            <div class="card-hint">💡 Tap or click anywhere to flip card</div>
+          </div>
+
+          <!-- BACK -->
+          <div class="card-face card-back">
+            <span class="card-category" style="color:var(--success);">Answer Key</span>
+            <div class="card-answer" id="fc-answer-text">Answer loading...</div>
+            <div class="card-hint">💡 Tap to flip back</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div style="display:flex; justify-content:center; align-items:center; gap:1rem; flex-wrap:wrap;">
+        <button id="fc-prev-btn" class="btn btn-outline">⬅️ Previous</button>
+        <button id="fc-flip-btn" class="btn btn-primary">🔄 Flip Card</button>
+        <button id="fc-next-btn" class="btn btn-outline">Next ➡️</button>
+        <button id="fc-shuffle-btn" class="btn btn-outline">🔀 Shuffle</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>CSE 30 Natural Language Processing • Saint Louis University (SLU SAMCIS)</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    (function() {
+      let cards = [];
+      let currentIndex = 0;
+      let isFlipped = false;
+
+      function init() {
+        const pool = (typeof FLASHCARDS !== 'undefined') ? FLASHCARDS : [];
+        cards = [...pool];
+        renderCard();
+
+        document.getElementById('flashcard-container').addEventListener('click', toggleFlip);
+        document.getElementById('fc-flip-btn').addEventListener('click', toggleFlip);
+        document.getElementById('fc-next-btn').addEventListener('click', nextCard);
+        document.getElementById('fc-prev-btn').addEventListener('click', prevCard);
+        document.getElementById('fc-shuffle-btn').addEventListener('click', shuffleCards);
+
+        // Filter tabs
+        document.querySelectorAll('.flash-filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.flash-filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.getAttribute('data-cat');
+            if (cat === 'all') {
+              cards = [...FLASHCARDS];
+            } else {
+              cards = FLASHCARDS.filter(c => c.category === cat);
+            }
+            currentIndex = 0;
+            renderCard();
+          });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (e.code === 'Space') {
+            e.preventDefault();
+            toggleFlip();
+          } else if (e.code === 'ArrowRight') {
+            nextCard();
+          } else if (e.code === 'ArrowLeft') {
+            prevCard();
+          }
+        });
+      }
+
+      function toggleFlip() {
+        isFlipped = !isFlipped;
+        const cardEl = document.getElementById('active-flashcard');
+        if (isFlipped) {
+          cardEl.classList.add('flipped');
+        } else {
+          cardEl.classList.remove('flipped');
+        }
+      }
+
+      function renderCard() {
+        if (!cards.length) return;
+        isFlipped = false;
+        document.getElementById('active-flashcard').classList.remove('flipped');
+
+        const card = cards[currentIndex];
+        document.getElementById('fc-category-badge').textContent = card.category;
+        document.getElementById('fc-front-category').textContent = card.category;
+        document.getElementById('fc-counter').textContent = `Card ${currentIndex + 1} of ${cards.length}`;
+        document.getElementById('fc-question-text').textContent = card.front;
+        document.getElementById('fc-answer-text').textContent = card.back;
+      }
+
+      function nextCard() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        renderCard();
+      }
+
+      function prevCard() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        renderCard();
+      }
+
+      function shuffleCards() {
+        for (let i = cards.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [cards[i], cards[j]] = [cards[j], cards[i]];
+        }
+        currentIndex = 0;
+        renderCard();
+      }
+
+      window.addEventListener('DOMContentLoaded', init);
+    })();
+  </script>
+</body>
+</html>

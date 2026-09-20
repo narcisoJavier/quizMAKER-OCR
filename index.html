@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSE 30: NLP Prelim Exam Reviewer | SLU SAMCIS</title>
+  <meta name="description" content="Comprehensive interactive exam reviewer for CSE 30 Natural Language Processing Prelim Exam covering NLP & Morphology, Class Studies (RoBERTa SDG), and Bag of Words & Naive Bayes.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">CSE 30</span>
+        <div>
+          <span class="brand-text">NLP Exam Reviewer</span>
+          <span class="brand-sub">SLU SAMCIS • Prelim Coverage</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">📖 Study Guide</a></li>
+        <li><a href="quiz.html" class="nav-link">🎯 Practice Quiz</a></li>
+        <li><a href="interactive-tools.html" class="nav-link">🧪 Interactive Labs</a></li>
+        <li><a href="flashcards.html" class="nav-link">⚡ Flashcards</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+          <span>🌙</span> Dark
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+
+    <!-- HERO BANNER -->
+    <header class="hero">
+      <div class="hero-pill">🎯 Prelim Exam Preparation Portal</div>
+      <h1>Natural Language Processing (CSE 30)</h1>
+      <p>
+        Exhaustive exam reviewer strictly mapped to the prelim syllabus, lecture slides by <b>Dalos D. Miguel</b>, the <b>Bag of Words exercise</b>, and the class research study on <b>Cloud-Based RoBERTa for SDGs</b>.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-box">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Core Exam Domains</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">60+</span>
+          <span class="stat-label">Exam-Style Questions</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Interactive Calculators</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number">Dual</span>
+          <span class="stat-label">Simple & Deep-Dive Info</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CALL TO ACTION BUTTONS -->
+    <div style="display:flex; gap:1rem; margin-bottom:2.5rem; flex-wrap:wrap;">
+      <a href="quiz.html" class="btn btn-primary" style="font-size:1rem; padding:0.8rem 1.6rem;">
+        🚀 Launch Interactive Exam Simulator
+      </a>
+      <a href="interactive-tools.html" class="btn btn-outline" style="font-size:1rem; padding:0.8rem 1.6rem;">
+        🧪 Open BoW & Naive Bayes Calculators
+      </a>
+      <a href="flashcards.html" class="btn btn-outline" style="font-size:1rem; padding:0.8rem 1.6rem;">
+        ⚡ Rapid Active-Recall Flashcards
+      </a>
+    </div>
+
+    <!-- DOMAIN FILTER TABS -->
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">📚 Comprehensive Topic Reviewer</h2>
+        <p class="section-desc">Each topic features an intuitive simplified summary paired with an expandable technical deep dive.</p>
+      </div>
+      <div class="tabs-bar" style="margin-bottom:0;">
+        <button class="tab-btn active" data-filter="all">All Topics</button>
+        <button class="tab-btn" data-filter="domain1">1. NLP Concepts & Morphology</button>
+        <button class="tab-btn" data-filter="domain2">2. RoBERTa SDG Study</button>
+        <button class="tab-btn" data-filter="domain3">3. Bag of Words & Naive Bayes</button>
+      </div>
+    </div>
+
+    <!-- MODULE CONTENT CONTAINER -->
+    <div id="modules-container">
+      <!-- Injected via app.js -->
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>CSE 30 : Special Topics 1 (Natural Language Processing) • Saint Louis University (SLU SAMCIS)</p>
+    <p style="margin-top:0.4rem; font-size:0.8rem;">Prepared for student review based on lecture presentations, exercises, and research materials.</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Render Reviewer Modules with Dual Explanation
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('modules-container');
+      if (!container || typeof REVIEWER_MODULES === 'undefined') return;
+
+      function renderModules(filter) {
+        container.innerHTML = '';
+        const activeModules = (filter === 'all') 
+          ? REVIEWER_MODULES 
+          : REVIEWER_MODULES.filter(m => m.id === filter);
+
+        activeModules.forEach(mod => {
+          const modGroup = document.createElement('section');
+          modGroup.className = 'module-group';
+          modGroup.id = mod.id;
+
+          let sectionsHtml = '';
+          mod.sections.forEach(sec => {
+            sectionsHtml += `
+              <div class="topic-card">
+                <h3 class="topic-title">${sec.title}</h3>
+                
+                <!-- SIMPLIFIED EXPLANATION -->
+                <div class="simplified-box">
+                  <span class="simplified-label">💡 Simplified / Plain English Summary</span>
+                  <p>${sec.simple}</p>
+                </div>
+
+                <!-- COLLAPSIBLE DEEP DIVE / COMPLEX EXPLANATION -->
+                <button class="deep-dive-toggle" onclick="toggleDeepDive('${sec.id}-details')">
+                  <span>🔬 Deep Dive / Academic Lecture Notes</span>
+                  <span>▼</span>
+                </button>
+                <div id="${sec.id}-details" class="deep-dive-content">
+                  ${sec.deepDive}
+                </div>
+              </div>
+            `;
+          });
+
+          modGroup.innerHTML = `
+            <div class="module-header">
+              <div class="module-title">
+                ${mod.title}
+                <span class="module-badge">${mod.badge}</span>
+              </div>
+              <p style="color:var(--text-secondary); margin-top:0.35rem; font-size:0.95rem;">${mod.summary}</p>
+            </div>
+            ${sectionsHtml}
+          `;
+          container.appendChild(modGroup);
+        });
+      }
+
+      renderModules('all');
+
+      // Filter tabs binding
+      const filterBtns = document.querySelectorAll('.tab-btn[data-filter]');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderModules(btn.getAttribute('data-filter'));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

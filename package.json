@@ -1,0 +1,12 @@
+{
+  "name": "nlp-prelim-exam-reviewer",
+  "version": "1.0.0",
+  "description": "Interactive Exam Reviewer for CSE 30 Natural Language Processing Prelim Exam at Saint Louis University",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": ["nlp", "exam-reviewer", "bag-of-words", "naive-bayes", "roberta", "morphology"],
+  "author": "SLU SAMCIS CSE 30",
+  "license": "MIT"
+}

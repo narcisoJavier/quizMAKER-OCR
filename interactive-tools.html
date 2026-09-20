@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive NLP Labs & Calculators | CSE 30 Reviewer</title>
+  <meta name="description" content="Interactive tools for Bag of Words stopword dimensionality reduction, Naive Bayes language classification, and Kankanaey morphology exploration.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">CSE 30</span>
+        <div>
+          <span class="brand-text">NLP Exam Reviewer</span>
+          <span class="brand-sub">SLU SAMCIS • Interactive Calculators</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">📖 Study Guide</a></li>
+        <li><a href="quiz.html" class="nav-link">🎯 Practice Quiz</a></li>
+        <li><a href="interactive-tools.html" class="nav-link active">🧪 Interactive Labs</a></li>
+        <li><a href="flashcards.html" class="nav-link">⚡ Flashcards</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+          <span>🌙</span> Dark
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">🧪 Interactive NLP Calculators & Simulators</h1>
+        <p class="section-desc">Hands-on interactive models demonstrating core mathematical and morphological concepts from the prelim exam.</p>
+      </div>
+    </div>
+
+    <!-- TOOL 1: BAG OF WORDS SANDBOX -->
+    <section class="tool-container" id="bow-tool">
+      <div class="tool-header">
+        <h2 class="tool-title">📦 Tool 1: Bag of Words & Stopword Dimensionality Reducer</h2>
+        <p class="tool-desc">
+          Directly simulates the <b>Panatang Makabayan</b> class exercise. Toggle stopword removal to observe how removing the 7 stopwords (<i>ang, at, ko, mga, nang, ng, sa</i>) compresses the vocabulary from <b>44 down to 37 dimensions</b>.
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="bow-input-text" class="form-label">Input Text Document:</label>
+        <textarea id="bow-input-text" class="form-control" rows="5">Iniibig ko ang Pilipinas, aking lupang sinilangan, Tahanan ng aking lahi, kinukupkop ako at tinutulungang Maging malakas, masipag at marangal Dahil mahal ko ang Pilipinas, Diringgin ko ang payo ng aking magulang, Susundin ko ang tuntunin ng paaralan, Tutuparin ko ang mga tungkulin ng isang mamamayang makabayan, Naglilingkod, nag-aaral at nagdarasal nang buong katapatan. Iaalay ko ang aking buhay, pangarap, pagsisikap Sa bansang Pilipinas.</textarea>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+        <label style="display:inline-flex; align-items:center; gap:0.6rem; cursor:pointer; font-weight:700;">
+          <input type="checkbox" id="bow-stopword-toggle" checked style="width:18px; height:18px;">
+          <span>Apply Stopword Removal (7 Stopwords: ang, at, ko, mga, nang, ng, sa)</span>
+        </label>
+        <div style="display:flex; gap:0.5rem;">
+          <button id="bow-run-btn" class="btn btn-primary btn-sm">⚡ Recalculate Vector</button>
+          <button id="bow-load-pledge-btn" class="btn btn-outline btn-sm">🔄 Reset Pledge Text</button>
+        </div>
+      </div>
+
+      <!-- STATS DISPLAY -->
+      <div class="hero-stats" style="margin-bottom:1.5rem;">
+        <div class="stat-box">
+          <span id="bow-total-tokens" class="stat-number">64</span>
+          <span class="stat-label">Total Document Tokens</span>
+        </div>
+        <div class="stat-box">
+          <span id="bow-vocab-size" class="stat-number">37</span>
+          <span class="stat-label">Vocabulary Dimensions</span>
+        </div>
+        <div class="stat-box">
+          <span id="bow-stopwords-status" class="stat-number" style="font-size:1.1rem; padding-top:0.35rem;">Applied</span>
+          <span class="stat-label">Stopword Filter</span>
+        </div>
+      </div>
+
+      <!-- VECTOR OUTPUT -->
+      <label class="form-label">Generated Bag of Words Vector Embedding:</label>
+      <div id="bow-vector-output" class="code-output">[Loading vector...]</div>
+
+      <!-- VOCABULARY TABLE -->
+      <div style="margin-top:1.5rem;">
+        <h4 style="margin-bottom:0.5rem;">Active Vocabulary & Frequency Counts:</h4>
+        <div style="max-height:280px; overflow-y:auto; border:1px solid var(--border-color); border-radius:var(--radius-sm);">
+          <table class="study-table" style="margin:0;">
+            <thead>
+              <tr>
+                <th style="width:60px;">Index</th>
+                <th>Vocabulary Word</th>
+                <th style="width:120px;">Frequency</th>
+              </tr>
+            </thead>
+            <tbody id="bow-vocab-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOL 2: NAIVE BAYES CALCULATOR -->
+    <section class="tool-container" id="naive-bayes-tool">
+      <div class="tool-header">
+        <h2 class="tool-title">🧮 Tool 2: Naive Bayes Language Classification Calculator</h2>
+        <p class="tool-desc">
+          Computes posterior language probabilities using the simplified formula from <b>Presentation 3</b>:
+          <code>L_hat = argmax [ P(Language) × ∏ P(word | Language) ]</code>. Visualizes why the denominator cancels out!
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="nb-preset-select" class="form-label">Load Class Lecture Example:</label>
+        <select id="nb-preset-select" class="form-control" style="margin-bottom:1rem;">
+          <option value="naimbag nga rabii">Slide 76: "naimbag nga rabii" (Ilocano test)</option>
+          <option value="ang mga ibon ay lumilipad">Slide 51: "ang mga ibon ay lumilipad" (Tagalog test)</option>
+          <option value="adda maysa nga ubing">Slide 52: "adda maysa nga ubing" (Ilocano test)</option>
+          <option value="ang mga tao ay masaya">Slide 53: "ang mga tao ay masaya" (Tagalog test)</option>
+        </select>
+
+        <label for="nb-input-sentence" class="form-label">Or Type Custom Sentence:</label>
+        <input type="text" id="nb-input-sentence" class="form-control" value="naimbag nga rabii">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem;">
+        <label style="display:inline-flex; align-items:center; gap:0.6rem; cursor:pointer; font-weight:700;">
+          <input type="checkbox" id="nb-laplace-toggle" checked style="width:18px; height:18px;">
+          <span>Enable Laplace (+1) Smoothing (Prevents 0.0 Zero Multiplications)</span>
+        </label>
+        <button id="nb-calc-btn" class="btn btn-primary btn-sm">⚡ Classify Sentence</button>
+      </div>
+
+      <!-- WINNER BADGE -->
+      <div id="nb-winner-badge" style="font-size:1.25rem; font-weight:800; color:var(--success); margin-bottom:1rem;">
+        🏆 Predicted Language: Ilocano
+      </div>
+
+      <!-- BREAKDOWN -->
+      <label class="form-label">Step-by-Step Probability Derivations:</label>
+      <div id="nb-breakdown-output">
+        <!-- Dynamically rendered -->
+      </div>
+    </section>
+
+    <!-- TOOL 3: KANKANAEY MORPHOLOGY EXPLORER -->
+    <section class="tool-container" id="morphology-tool">
+      <div class="tool-header">
+        <h2 class="tool-title">🌿 Tool 3: Kankanaey Morphological Phenomena Explorer</h2>
+        <p class="tool-desc">
+          Explore the indigenous Cordilleran morphology research by <b>Dalos Miguel (2009)</b>. Observe how a single root word serves as a semantic repository for inflections, derivations, and compound incorporations.
+        </p>
+      </div>
+
+      <div class="form-group" style="max-width:350px;">
+        <label for="morph-root-select" class="form-label">Select Kankanaey Root Word:</label>
+        <select id="morph-root-select" class="form-control">
+          <option value="gabyon">gabyon (Hoe - 50+ derivations)</option>
+          <option value="ali">ali (To come - verbal paradigm)</option>
+          <option value="talak">talak (Car &rarr; taltalak toy car)</option>
+        </select>
+      </div>
+
+      <table class="study-table">
+        <thead>
+          <tr>
+            <th>Kankanaey Word Formation</th>
+            <th>Category / Linguistic Phenomenon</th>
+            <th>English Translation</th>
+          </tr>
+        </thead>
+        <tbody id="morph-table-body">
+          <!-- Dynamically populated -->
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>CSE 30 Natural Language Processing • Saint Louis University (SLU SAMCIS)</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/tools.js"></script>
+</body>
+</html>

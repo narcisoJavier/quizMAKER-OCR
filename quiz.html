@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Exam Simulator | CSE 30 NLP Reviewer</title>
+  <meta name="description" content="Interactive exam simulator and quiz experience for CSE 30 NLP Prelim Exam with instant feedback, Google search integration, and retry missed questions.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span class="brand-badge">CSE 30</span>
+        <div>
+          <span class="brand-text">NLP Exam Reviewer</span>
+          <span class="brand-sub">SLU SAMCIS • Practice Simulator</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">📖 Study Guide</a></li>
+        <li><a href="quiz.html" class="nav-link active">🎯 Practice Quiz</a></li>
+        <li><a href="interactive-tools.html" class="nav-link">🧪 Interactive Labs</a></li>
+        <li><a href="flashcards.html" class="nav-link">⚡ Flashcards</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="theme-toggle-btn" class="theme-btn" aria-label="Toggle Dark/Light Mode">
+          <span>🌙</span> Dark
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="quiz-container">
+
+      <!-- CATEGORY SELECTOR TABS -->
+      <div class="tabs-bar" style="justify-content:center; margin-bottom:1.5rem;">
+        <button class="tab-btn category-filter-btn active" data-category="all">All Topics (60 Questions)</button>
+        <button class="tab-btn category-filter-btn" data-category="domain1">1. NLP & Morphology</button>
+        <button class="tab-btn category-filter-btn" data-category="domain2">2. RoBERTa SDG Study</button>
+        <button class="tab-btn category-filter-btn" data-category="domain3">3. BoW & Naive Bayes</button>
+      </div>
+
+      <!-- ACTIVE QUIZ VIEW -->
+      <div id="quiz-view">
+        <div class="quiz-top-bar">
+          <span id="quiz-category-tag" class="quiz-category-tag">Domain 1: NLP & Morphology</span>
+          <div style="display:flex; gap:1.5rem; font-weight:700; font-size:0.95rem;">
+            <span id="quiz-question-counter" style="color:var(--text-secondary);">Question 1 of 60</span>
+            <span id="quiz-score-live" style="color:var(--accent-primary);">Score: 0</span>
+          </div>
+        </div>
+
+        <div class="quiz-progress-wrap">
+          <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+        </div>
+
+        <!-- QUESTION CARD -->
+        <div class="quiz-card">
+          <h2 id="quiz-question-text" class="quiz-question-text">Loading question...</h2>
+
+          <div id="quiz-options-list" class="options-list">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- ANSWER FEEDBACK CARD (Architecture Diagram Component) -->
+          <div id="quiz-feedback-box" class="feedback-box">
+            <div id="feedback-status-text" class="feedback-status"></div>
+
+            <!-- SIMPLIFIED EXPLANATION -->
+            <div class="simplified-box" style="margin-bottom:0.75rem;">
+              <span class="simplified-label">💡 Simplified Explanation</span>
+              <p id="feedback-simple-text"></p>
+            </div>
+
+            <!-- COLLAPSIBLE DEEP DIVE -->
+            <button class="deep-dive-toggle" onclick="toggleDeepDive('feedback-deep-dive-text')">
+              <span>🔬 Detailed Academic Note / Lecture Slide Citation</span>
+              <span>▼</span>
+            </button>
+            <div id="feedback-deep-dive-text" class="deep-dive-content" style="margin-bottom:1rem;"></div>
+
+            <!-- ACTION BAR WITH SEARCH LINK -->
+            <div class="feedback-actions">
+              <button id="feedback-google-search-btn" class="search-google-btn">
+                <span>🔍</span> Search topic on Google
+              </button>
+              <button id="next-question-btn" class="btn btn-primary" style="display:none;">
+                Next Question ➡️
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTS & RETRY SCREEN (Architecture Diagram Component) -->
+      <div id="quiz-results-view" class="quiz-card scorecard" style="display:none;">
+        <div class="score-circle">
+          <span id="results-score-percent" class="score-percent">0%</span>
+          <span id="results-score-counts" class="score-counts">0 / 0</span>
+        </div>
+
+        <h2 style="font-size:1.75rem; margin-bottom:0.5rem;">Session Completed!</h2>
+        <p style="color:var(--text-secondary); max-width:500px; margin:0 auto 1.5rem;">
+          Great job! Review your performance or target your weak spots by retrying only the questions you missed.
+        </p>
+
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <button id="retry-missed-btn" class="btn btn-primary" style="display:none;">
+            🔄 Retry Missed Questions
+          </button>
+          <button id="restart-quiz-btn" class="btn btn-outline">
+            🏁 Restart Full Quiz
+          </button>
+          <a href="index.html" class="btn btn-outline">
+            📖 Back to Study Guide
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>CSE 30 Natural Language Processing • Saint Louis University (SLU SAMCIS)</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
