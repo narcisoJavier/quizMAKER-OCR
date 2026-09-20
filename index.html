@@ -140,9 +140,9 @@
                 </div>
 
                 <!-- COLLAPSIBLE DEEP DIVE / COMPLEX EXPLANATION -->
-                <button class="deep-dive-toggle" onclick="toggleDeepDive('${sec.id}-details')">
+                <button class="deep-dive-toggle" onclick="toggleDeepDive('${sec.id}-details', this)">
                   <span>🔬 Deep Dive / Academic Lecture Notes</span>
-                  <span>▼</span>
+                  <span class="toggle-arrow">▼</span>
                 </button>
                 <div id="${sec.id}-details" class="deep-dive-content">
                   ${sec.deepDive}
