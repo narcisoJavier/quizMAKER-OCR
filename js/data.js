@@ -2,95 +2,119 @@
 const REVIEWER_MODULES = [
   {
     "id": "domain1",
-    "title": "Domain 1: NLP Concepts & Morphology",
+    "title": "Domain 1: NLP Concepts, Morphology & Attention",
     "badge": "Core Theory",
-    "summary": "Covers foundational NLP definitions, linguistic hierarchy, morpheme classification, derivation vs. inflection, closure principle, incorporation, clitics, compounding, Kankanaey affixes, POS tagging approaches, tagsets (Rabo 59, Buban 65, Penn Treebank), and evaluation metrics.",
+    "summary": "Foundational NLP definitions, linguistic hierarchy, morpheme classification, derivation vs. inflection, the closure principle, incorporation, clitics, compounding, Kankanaey affixes, POS tagging approaches, Tagalog tagsets (Rabo 59, Buban 65, PTPOST), evaluation metrics, and the foundational Transformer architecture ('Attention Is All You Need').",
     "sections": [
       {
         "id": "nlp_fundamentals",
         "title": "1.1 What is NLP & Levels of Linguistic Analysis",
-        "simple": "Natural Language Processing (NLP) is AI that teaches computers how to read, understand, and generate human languages. Human language is analyzed across distinct hierarchical levels: sounds (Phonology), word structures (Morphology), dictionary definitions (Lexical), sentence grammar (Syntactic), literal meaning (Semantic), context/intent (Pragmatic), and multi-sentence flow (Discourse).",
-        "deepDive": "<b>Academic Definition:</b> NLP bridges computer science, artificial intelligence, and formal linguistics (Khurana et al., 2018).<br><br><b>The 7 Levels of Linguistic Analysis:</b><ol><li><b>Phonology:</b> The study of the sound system of a language and phonemes.</li><li><b>Morphology:</b> The study of word structure and the meaningful sub-components of words.</li><li><b>Lexical Level:</b> Analysis of words as discrete dictionary units (lexemes).</li><li><b>Syntactic Level:</b> Grammatical structure, parse trees, and phrase hierarchy governing how words combine into valid sentences.</li><li><b>Semantic Level:</b> Literal meaning of words and compositional meaning of phrases.</li><li><b>Discourse Level:</b> Meaning across multiple consecutive sentences (e.g. anaphoric reference, discourse relations).</li><li><b>Pragmatic Level:</b> Meaning in real-world communicative context, speaker intentions, and non-literal speech acts.</li></ol><b>Modern Paradigm:</b> Today, classical rule-based methods are integrated with large language models and <i>Retrieval-Augmented Generation (RAG)</i> to ground responses in verified corpora."
+        "simple": "Natural Language Processing (NLP) is AI that enables computers to read, analyze, and generate human language. It analyzes language across distinct hierarchical levels: speech sounds (Phonology), word construction (Morphology), vocabulary units (Lexical), grammar & parse trees (Syntactic), literal meanings (Semantic), conversational flow (Discourse), and real-world intent/context (Pragmatic).",
+        "deepDive": "<b>Academic Definition:</b> NLP bridges computer science, artificial intelligence, and formal linguistics (Khurana et al., 2018).<br><br><b>The 7 Levels of Linguistic Analysis:</b><ol><li><b>Phonology:</b> The sound system and phonemes of a spoken language.</li><li><b>Morphology:</b> Word structures, roots, and meaningful sub-components (morphemes).</li><li><b>Lexical Level:</b> Individual dictionary units (lexemes) and vocabulary properties.</li><li><b>Syntactic Level:</b> Grammatical structures, phrase hierarchies, and parse trees that govern valid sentence formation.</li><li><b>Semantic Level:</b> The literal, compositional meaning of words and propositions.</li><li><b>Discourse Level:</b> Meaning spanning multiple consecutive sentences (e.g., anaphoric references, conversational turns).</li><li><b>Pragmatic Level:</b> Meaning conditioned on real-world context, speaker intent, and non-literal speech acts.</li></ol><b>Modern Paradigm:</b> Classical rule-based techniques are now augmented with transformers and <i>Retrieval-Augmented Generation (RAG)</i> to ground model responses in validated corpora."
       },
       {
         "id": "core_nlp_tasks",
         "title": "1.2 Core NLP Tasks & Pipeline",
-        "simple": "NLP solves real problems by breaking text down into specific tasks: summarizing long texts (Automatic Summarization), tracking who 'he' or 'she' refers to (Co-reference Resolution), translating languages (Machine Translation), identifying names and places (NER), extracting text from photos/scans (OCR), and tagging words with parts of speech (POS Tagging).",
-        "deepDive": "<b>Key NLP Tasks (Lecture Overview):</b><ul><li><b>Automatic Summarization:</b> Generates a concise, coherent summary preserving core information. May be <i>extractive</i> (selecting key sentences) or <i>abstractive</i> (generating novel paraphrased text).</li><li><b>Co-reference Resolution:</b> Determining when multiple linguistic expressions refer to the same real-world entity (e.g., 'Maria entered. <u>She</u> sat down' &rarr; 'Maria' = 'She').</li><li><b>Discourse Analysis:</b> Modeling structure and relational semantics between sentences and conversational turns.</li><li><b>Morphological Segmentation:</b> Deconstructing polymorphemic words into constitutive root and affix morphemes.</li><li><b>Named Entity Recognition (NER):</b> Locating and classifying mentions of entities into predefined categories (Person, Organization, Location, Date).</li><li><b>Optical Character Recognition (OCR):</b> Converting pixels from printed/handwritten scanned documents into machine-encoded characters (e.g., Pytesseract).</li><li><b>Part of Speech (POS) Tagging:</b> Annotating every token with its grammatical category based on lexical definition and contextual syntactic function.</li></ul>"
+        "simple": "NLP solves problems through dedicated modular tasks: summarizing documents (Automatic Summarization), tracking pronouns (Co-reference Resolution), analyzing multi-sentence flow (Discourse Analysis), translating languages (Machine Translation), extracting entities like names and dates (NER), converting scan images to text (OCR), and labeling parts of speech (POS Tagging).",
+        "deepDive": "<b>Core NLP Tasks (Presentation 1, Slides 24\u201333):</b><ul><li><b>Automatic Summarization:</b> Generates a concise summary preserving core information. Can be <i>extractive</i> (selecting verbatim sentences) or <i>abstractive</i> (generating novel paraphrased text).</li><li><b>Co-reference Resolution:</b> Determining which linguistic expressions refer to the exact same real-world entity (e.g. 'Maria arrived. <u>She</u> sat down' &rarr; 'Maria' = 'She').</li><li><b>Discourse Analysis:</b> Modeling relationships and argumentative structures connecting sentences.</li><li><b>Morphological Segmentation:</b> Deconstructing polymorphemic words into their constituent roots and affixes.</li><li><b>Named Entity Recognition (NER):</b> Locating and classifying mentions of proper entities into predefined types (Person, Organization, Location, Date).</li><li><b>Optical Character Recognition (OCR):</b> Converting pixel data from scanned documents into machine-editable text (e.g. Pytesseract).</li><li><b>Part of Speech (POS) Tagging:</b> Assigning grammatical category tags to each token in a sentence based on syntax and lexicon.</li></ul>"
       },
       {
         "id": "morphology_foundations",
         "title": "1.3 Morphemes, Lexemes, Paradigms & Roots",
-        "simple": "A <b>morpheme</b> is the smallest puzzle piece of language that carries meaning (like 'un-', 'break', and '-able'). A <b>lexeme</b> is an abstract dictionary word (like SING). A <b>paradigm</b> is the whole family of different forms that lexeme can take ('sing', 'sang', 'sung', 'sings', 'singing'). The <b>root</b> is the core base word before any prefixes or suffixes are added.",
-        "deepDive": "<b>Formal Morphological Concepts (Spencer & Zwicky, 1998):</b><ul><li><b>Morpheme:</b> The minimal distinctive unit of grammar and meaning. Subdivided into:<ul><li><b>Free Morphemes:</b> Can stand alone as independent words (e.g., <i>dog</i>, <i>hoe</i>, <i>buhay</i>).</li><li><b>Bound Morphemes:</b> Cannot stand alone; must attach to other morphemes (affixes like <i>-ing</i>, <i>un-</i>, <i>-an</i>, <i>nag-</i>).</li><li><b>Lexical Morphemes:</b> Carry content meaning (nouns, verbs, adjectives).</li><li><b>Functional Morphemes:</b> Express grammatical relations (prepositions, conjunctions, articles).</li></ul></li><li><b>Lexeme:</b> An abstract unit of morphological analysis corresponding to a set of word forms that share a core semantic meaning and syntactic category (written in caps, e.g., RUN).</li><li><b>Paradigm:</b> The complete set of word forms that realize a single lexeme. Example: The paradigm of SING is <code>{sing, sang, sung, sings, singing}</code>.</li><li><b>Root (Lexeme's Root):</b> The indivisible central morpheme of a lexeme from which its paradigm is deduced.</li></ul>"
+        "simple": "A <b>morpheme</b> is the smallest meaningful unit of a language (like prefixes, suffixes, or roots). A <b>lexeme</b> is an abstract dictionary word (like SING). A <b>paradigm</b> is the entire family of forms realizing that lexeme ({sing, sang, sung, sings, singing}). The <b>root</b> is the core base morpheme before adding any affixes.",
+        "deepDive": "<b>Formal Morphological Units (Spencer & Zwicky, 1998; Presentation 2, Slides 7\u201310):</b><ul><li><b>Morpheme:</b> The minimal distinctive unit of grammar and meaning. Subdivided into:<ul><li><b>Free Morphemes:</b> Can stand alone as independent words (e.g. <i>dog</i>, <i>hoe</i>, <i>buhay</i>).</li><li><b>Bound Morphemes:</b> Must attach to another morpheme (affixes like <i>-ing</i>, <i>un-</i>, <i>-an</i>, <i>nag-</i>).</li><li><b>Lexical Morphemes:</b> Content words with referential meaning (nouns, verbs, adjectives).</li><li><b>Functional Morphemes:</b> Grammatical glue words (prepositions, conjunctions, articles).</li></ul></li><li><b>Lexeme:</b> An abstract unit of morphological analysis corresponding to a set of word forms sharing core semantics and grammatical category (conventionally capitalized, e.g. RUN).</li><li><b>Paradigm:</b> The complete set of word forms realizing a particular lexeme (e.g., the paradigm of SING is <code>{cantare', sing, sang, sung, sings, singing}</code>).</li><li><b>Root (Lexeme's Root):</b> The fundamental base morpheme from which a paradigm of phonological words is deduced.</li></ul>"
       },
       {
         "id": "derivation_vs_inflection",
         "title": "1.4 Derivation vs. Inflection & The Closure Principle",
-        "simple": "<b>Inflection</b> changes the grammar of a word (like tense or plural) without changing its part of speech or core meaning (e.g., <i>talk</i> &rarr; <i>talked</i>; both are verbs). <b>Derivation</b> creates a completely new word or changes its part of speech (e.g., noun <i>malice</i> &rarr; adjective <i>malicious</i>).<br><br><b>The Closure Principle:</b> Inflection shuts the door! Once you add an inflectional ending, you cannot add any more derivational affixes.",
-        "deepDive": "<b>Comprehensive Comparison:</b><table class='study-table'><thead><tr><th>Dimension</th><th>Inflection</th><th>Derivation</th></tr></thead><tbody><tr><td><b>Part of Speech Change</b></td><td>Never changes POS (Verb &rarr; Verb: <i>talk</i> &rarr; <i>talked</i>; Noun &rarr; Noun: <i>fear</i> &rarr; <i>fears</i>)</td><td>Frequently changes POS (Noun &rarr; Adj: <i>malice</i> &rarr; <i>malicious</i>; Verb &rarr; Noun: <i>sing</i> &rarr; <i>singer</i>)</td></tr><tr><td><b>Semantic Meaning</b></td><td>Preserves core concept; adjusts grammatical features (tense, aspect, number, person)</td><td>Creates a distinct semantic concept or new dictionary entry</td></tr><tr><td><b>Productivity</b></td><td>Highly productive and regular across grammatical paradigms</td><td>Variable productivity; often semantically idiosyncratic</td></tr><tr><td><b>Position</b></td><td>Applies at the outer edges of words</td><td>Applies closer to the root morpheme</td></tr></tbody></table><br><b>The Closure Principle in Morphology:</b><br><i>'Inflection closes words for further derivation, while derivation does not.'</i> (Spencer & Zwicky / Miguel). Derivational affixes must attach first; once inflectional affixes are attached to mark grammatical agreement/tense, the word is closed to subsequent derivational processes (e.g., <i>nation</i> &rarr; <i>national</i> [derivation] &rarr; <i>nationalize</i> [derivation] &rarr; <i>nationalized</i> [inflection]; you cannot say *<i>nationalized-tion</i>)."
+        "simple": "<b>Inflection</b> modifies a word's grammar (like tense or plural) without changing its part of speech or core meaning (<i>talk</i> &rarr; <i>talked</i>; both are verbs). <b>Derivation</b> creates a new word or changes its part of speech (noun <i>malice</i> &rarr; adjective <i>malicious</i>).<br><br><b>Closure Principle:</b> Inflection shuts the door! Once an inflectional suffix attaches, you cannot add further derivational affixes.",
+        "deepDive": "<b>Comprehensive Distinction (Presentation 2, Slides 12\u201315):</b><table class='study-table'><thead><tr><th>Dimension</th><th>Inflection</th><th>Derivation</th></tr></thead><tbody><tr><td><b>Part of Speech Change</b></td><td>Never changes POS (Verb &rarr; Verb: <i>fear</i> &rarr; <i>fears</i>, <i>talk</i> &rarr; <i>talked</i>)</td><td>Frequently changes POS (Noun &rarr; Adj: <i>malice</i> &rarr; <i>malicious</i>; Verb &rarr; Noun: <i>sing</i> &rarr; <i>singer</i>)</td></tr><tr><td><b>Semantic Meaning</b></td><td>Preserves core concept; modifies grammatical features (tense, aspect, number)</td><td>Produces a novel semantic concept or dictionary entry</td></tr><tr><td><b>Productivity</b></td><td>Highly regular and productive across grammatical paradigms</td><td>Variable productivity; often semantically idiosyncratic</td></tr><tr><td><b>Affix Position</b></td><td>Attaches at the outer perimeter of the word</td><td>Attaches closer to the root morpheme</td></tr></tbody></table><br><b>The Closure Principle in Morphology:</b><br><i>'Inflection closes words for further derivation, while derivation does not.'</i> (Presentation 2, Slide 15). Derivational affixes must attach first; once inflectional affixes attach to mark agreement/tense, the word is closed to subsequent derivational processes (e.g. <i>nation</i> &rarr; <i>national</i> [derivation] &rarr; <i>nationalize</i> [derivation] &rarr; <i>nationalized</i> [inflection]; *<i>nationalized-tion</i> is ungrammatical)."
       },
       {
         "id": "incorporation_clitics_compounding",
         "title": "1.5 Incorporation, Clitics & Compounding",
-        "simple": "<b>Incorporation:</b> Fusing a verb with an object or pronoun into a single word (like Kankanaey <i>kinanko</i> = 'ate' + 'I' &rarr; 'I ate it').<br><b>Clitics:</b> Words that cannot stand on their own phonologically and must lean onto neighbor words (like <i>'m</i> in <i>I'm</i> or Filipino <i>ba, na, pa</i>).<br><b>Compounding:</b> Putting two whole words together to mean one thing (like <i>Green House</i>, or Kankanaey <i>taltalak</i> = 'toy car').",
-        "deepDive": "<b>Linguistic Phenomena in Philippine & Global Context:</b><ul><li><b>Incorporation:</b> The syntactic concatenation of a verb head with another constituent (nominal argument, pronoun, or adverb) to form a single complex predicate realizing combined grammatical relations (Gerdts, 1998).<br><i>Kankanaey Examples:</i><ul><li><code>kinanko</code> = <code>kinan</code> (ate) + <code>ko</code> (I) &rarr; 'I ate it'.</li><li><code>edwani</code> = <code>ed</code> (in) + <code>nuwani</code> (present) &rarr; 'in the present time' (showing elision of 'nu').</li></ul></li><li><b>Clitics ('Enclitics'):</b> Syntactically independent words that lack independent phonological stress and therefore attach phonologically to an adjacent host word.<br><i>English Examples:</i> <code>'m</code> in <i>I'm</i>, <code>'s</code> in <i>he's</i>, <code>n't</code> in <i>don't</i>/<i>can't</i>.<br><i>Philippine Enclitics:</i> Second-position discourse particles such as <i>ba, na, pa, man, din, daw</i>.</li><li><b>Compounding:</b> Morphological combination of two or more independent lexical roots into a single compound lexeme with unified semantic interpretation.<br><i>English Example:</i> <i>Green House</i> (a building for plants, not simply a house colored green).<br><i>Kankanaey Example:</i> From root <code>talak</code> (car), partial reduplication forms <code>taltalak</code> (toy car / miniature vehicle).</li></ul>"
+        "simple": "<b>Incorporation:</b> Fusing a verb with an object or pronoun into a single word (Kankanaey <i>kinanko</i> = 'ate' + 'I' &rarr; 'I ate it').<br><b>Clitics:</b> Words that cannot stand on their own phonologically and must lean onto neighbor words (like <i>'m</i> in <i>I'm</i> or Filipino <i>ba, na, pa, din</i>).<br><b>Compounding:</b> Putting two whole words together to mean one thing (like <i>Green House</i>, or Kankanaey <i>taltalak</i> = 'toy car').",
+        "deepDive": "<b>Phenomena & Case Studies (Presentation 2, Slides 16\u201318):</b><ul><li><b>Incorporation:</b> The syntactic concatenation of a verb head with another constituent (nominal argument, pronoun, or adverb) to form a single complex predicate realizing combined grammatical relations (Gerdts, 1998).<br><i>Kankanaey Examples:</i><ul><li><code>kinanko</code> = <code>kinan</code> (ate) + <code>ko</code> (I) &rarr; 'I ate it'.</li><li><code>edwani</code> = <code>ed</code> (in) + <code>nuwani</code> (present) &rarr; 'in the present time' (showing elision of the 'nu' syllable).</li></ul></li><li><b>Clitics ('Enclitics'):</b> Syntactically independent words that lack phonological stress and therefore attach phonologically to an adjacent host word.<br><i>English Examples:</i> <code>'m</code> in <i>I'm</i>, <code>'s</code> in <i>he's</i>, <code>n't</code> in <i>don't</i>/<i>can't</i>.<br><i>Philippine Enclitics:</i> Second-position discourse particles such as <i>ba, na, pa, man, din, daw</i>.</li><li><b>Compounding:</b> Combination of two or more independent lexical roots into a single compound lexeme with unified semantic interpretation.<br><i>English Example:</i> <i>Green House</i> (a building for plants, not merely a house that is green).<br><i>Kankanaey Example:</i> From root <code>talak</code> (car), partial reduplication forms <code>taltalak</code> (toy car / miniature vehicle).</li></ul>"
       },
       {
         "id": "kankanaey_case_study",
         "title": "1.6 Kankanaey Morphology Case Study (Miguel 2009)",
-        "simple": "In Philippine indigenous languages like Kankanaey (Benguet), single root words can generate dozens of different words through prefixes, suffixes, infixes, and repetition! For example, the root word <b>gabyon</b> (a farming hoe) is a repository for over 50 distinct words, and <b>ali</b> (to come) generates complex tenses, companions, and actions.",
-        "deepDive": "<b>Research Foundation:</b> <i>Morphology Primer of the Kankanaey Language of Benguet Philippines</i> (Miguel, 2009). Nouns and verbs in Kankanaey serve as semantic repositories producing dozens of derivations, inflections, and compound incorporations.<br><br><b>Key Affixation Phenomena:</b><ul><li><b>Prefixation:</b> Adding morpheme before root (e.g., <code>igabyon</code> &rarr; will use the hoe).</li><li><b>Suffixation:</b> Adding morpheme after root (e.g., <code>gabyonan</code> &rarr; to use a hoe to dig an area).</li><li><b>Infixation:</b> Inserting morpheme inside root (e.g., <code>g-in-abyon</code> &rarr; hoe was used; <code>g-um-abyon</code> &rarr; will use a hoe).</li><li><b>Reduplication:</b> Repeating root syllables (e.g., <code>gab-gabyon</code> &rarr; miniature/toy hoe; <code>ginabgabyon</code>).</li><li><b>Compound Incorporation:</b> Concatenating roots and pronouns: <code>mangabyonda</code> ('they will use a hoe'), <code>nangabyonak</code> ('I used a hoe'), <code>gabyonko</code> ('my hoe').</li></ul><b>The Paradigm of 'ali' (to come):</b><ul><li><code>inmali</code> (Verb-simple past): came</li><li><code>inmal-ali</code> (Verb-past perfect): had come</li><li><code>inmaliali</code> (Verb-past continuous): had always been coming</li><li><code>kaali</code> (Adjective): referring to an object who came immediately</li><li><code>umal-ali</code> (Verb-present continuous): coming</li><li><code>umaliak</code> (Verb + pronoun): I come / I will come</li><li><code>makiali</code> (Verb-simple future): will come as a companion</li><li><code>kaanali</code> (Adjective): referring to objects who suddenly came</li></ul>"
+        "simple": "In indigenous Philippine languages like Kankanaey (Benguet), single root words act as giant semantic toolboxes! For example, the root word <b>gabyon</b> (a farming hoe) generates over 50 distinct inflected, derived, and incorporated words, and <b>ali</b> (to come) generates complex tenses, companions, and actions.",
+        "deepDive": "<b>Research Reference:</b> <i>Morphology Primer of the Kankanaey Language of Benguet Philippines</i> (Dalos Miguel, 2009). Nouns and verbs in Kankanaey serve as semantic repositories producing dozens of derivations, inflections, and compound incorporations.<br><br><b>Key Affixation Phenomena:</b><ul><li><b>Prefixation:</b> Adding morpheme before root (e.g. <code>igabyon</code> &rarr; will use the hoe).</li><li><b>Suffixation:</b> Adding morpheme after root (e.g. <code>gabyonan</code> &rarr; to use a hoe to dig an area).</li><li><b>Infixation:</b> Inserting morpheme inside root (e.g. <code>g-in-abyon</code> &rarr; hoe was used; <code>g-um-abyon</code> &rarr; will use a hoe).</li><li><b>Reduplication:</b> Repeating root syllables (e.g. <code>gab-gabyon</code> &rarr; miniature/toy hoe; <code>ginabgabyon</code>).</li><li><b>Compound Incorporation:</b> Concatenating roots and pronouns: <code>mangabyonda</code> ('they will use a hoe'), <code>nangabyonak</code> ('I used a hoe'), <code>gabyonko</code> ('my hoe').</li></ul><b>The Paradigm of 'ali' (to come):</b><ul><li><code>inmali</code> (Verb-simple past): came</li><li><code>inmal-ali</code> (Verb-past perfect): had come</li><li><code>inmaliali</code> (Verb-past continuous): had always been coming</li><li><code>kaal-ali</code> (Adjective): referring to an object who came recently</li><li><code>kaali</code> (Adjective): referring to an object who came immediately</li><li><code>umal-ali</code> (Verb-present continuous): coming</li><li><code>umaliak</code> (Verb + pronoun): I come / I will come</li><li><code>makiali</code> (Verb-simple future): will come as a companion</li><li><code>kaanali</code> (Adjective): referring to objects who suddenly came</li></ul>"
       },
       {
         "id": "pos_tagging_approaches",
         "title": "1.7 POS Tagging Approaches & Tagsets",
-        "simple": "Part-of-Speech (POS) tagging labels words as nouns, verbs, adjectives, etc. There are two main paradigms: <b>Supervised</b> (learns from human-labeled text) and <b>Unsupervised</b> (clusters untagged text automatically). It can be done using strict grammar rules (<b>Rule-Based</b>) or statistical chances (<b>Probabilistic / HMM</b>). In the Philippines, Rabo created a 59-tag set and Dr. Buban expanded it to 65 tags.",
-        "deepDive": "<b>POS Tagging Architectures:</b><ul><li><b>Supervised Tagging:</b> Utilizes a pre-annotated training corpus annotated by expert linguists. Extracts word frequencies, affix patterns, and tag n-gram transition probabilities.</li><li><b>Unsupervised Tagging:</b> Induces tag sets and dictionary clusters directly from raw untagged corpora using clustering algorithms (e.g. Expectation-Maximization, Baum-Welch).</li><li><b>Rule-Based POS Tagging:</b> Leverages human-crafted linguistic rule databases (e.g., Eric Brill's Transformation-Based Tagger). Rule example: <i>'If a word is preceded by a determiner (DTC) and followed by a noun (NNC), tag it as an adjective (JJD).'</i></li><li><b>Probabilistic POS Tagging (Hidden Markov Models - HMM):</b> Finds optimal tag sequence $\\hat{T} = \\arg\\max_T P(T|W) = \\arg\\max_T P(T)P(W|T)$. Employs the <i>Markov Assumption</i> where the probability of tag $t_i$ depends only on preceding tag $t_{i-1}$ (Bigram) or $t_{i-2}, t_{i-1}$ (Trigram). Combines:<ul><li><b>Lexical / Emission Probability:</b> $P(w_i | t_i)$ &mdash; chance of word $w$ given tag $t$.</li><li><b>Contextual / Transition Probability:</b> $P(t_i | t_{i-1})$ &mdash; chance of tag $t_i$ following tag $t_{i-1}$.</li></ul></li></ul><b>Standard Tagsets:</b><ul><li><b>Tagalog Tagsets:</b> Rabo (2004) Tagset = <b>59 tags</b>; Revised Tagalog Tagset by Dr. Buban = <b>65 tags</b>.</li><li><b>English Tagsets:</b> Penn Treebank (NN, NNS, NNP, NNPS, PRP, VB, VBD, JJ, RB); CLAWS Tagset (NN1, NN2, VVO, AJO); Universal Tagset.</li><li><b>Tag Distribution in Tagalog Corpora:</b> <code>NNC</code> (Common Noun) is the <b>highest frequency tag</b> and the most common default tag assigned to unknown words. <code>VBOI</code> has zero/lowest frequency.</li><li><b>Corpus Validity Factors:</b> Punctuation delimiters (. , ! ?), double quotes, ellipses, and ambiguous abbreviations with periods (e.g. 'Dr.', 'e.g.') which confound sentence boundary detection.</li></ul>"
+        "simple": "Part-of-Speech (POS) tagging labels words as nouns, verbs, adjectives, etc. It can be <b>Supervised</b> (learns from human-labeled text) or <b>Unsupervised</b> (clusters untagged text automatically). It can use grammar rules (<b>Rule-Based</b>) or statistical chances (<b>Probabilistic / HMM</b>). In Tagalog, Rabo created a 59-tag set and Dr. Buban expanded it to 65 tags.",
+        "deepDive": "<b>POS Tagging Architectures:</b><ul><li><b>Supervised Tagging:</b> Utilizes a pre-annotated training corpus annotated by expert linguists. Extracts word frequencies, affix patterns, and tag n-gram transition probabilities.</li><li><b>Unsupervised Tagging:</b> Induces tag sets and dictionary clusters directly from raw untagged corpora using clustering algorithms (e.g. Expectation-Maximization, Baum-Welch).</li><li><b>Rule-Based POS Tagging:</b> Leverages human-crafted linguistic rule databases (e.g. Eric Brill's Transformation-Based Tagger). Rule example: <i>'If a word is preceded by a determiner (DTC) and followed by a noun (NNC), tag it as an adjective (JJD).'</i></li><li><b>Probabilistic POS Tagging (Hidden Markov Models - HMM):</b> Finds optimal tag sequence $\\hat{T} = \\arg\\max_T P(T|W) = \\arg\\max_T P(T)P(W|T)$. Employs the <i>Markov Assumption</i> where the probability of tag $t_i$ depends only on preceding tag $t_{i-1}$ (Bigram) or $t_{i-2}, t_{i-1}$ (Trigram). Combines:<ul><li><b>Lexical / Emission Probability:</b> $P(w_i | t_i)$ &mdash; probability of word $w$ given tag $t$.</li><li><b>Contextual / Transition Probability:</b> $P(t_i | t_{i-1})$ &mdash; probability of tag $t_i$ following tag $t_{i-1}$.</li></ul></li></ul><b>Standard Tagsets:</b><ul><li><b>Tagalog Tagsets:</b> Rabo (2004) Tagset = <b>59 tags</b>; Revised Tagalog Tagset by Dr. Buban = <b>65 tags</b>.</li><li><b>English Tagsets:</b> Penn Treebank (NN, NNS, NNP, NNPS, PRP, VB, VBD, JJ, RB); CLAWS Tagset (NN1, NN2, VVO, AJO); Universal Tagset.</li><li><b>Tag Distribution in Tagalog Corpora:</b> <code>NNC</code> (Common Noun) is the <b>highest frequency tag</b> and the most common default tag assigned to unknown words. <code>VBOI</code> has zero/lowest frequency.</li><li><b>Corpus Validity Factors:</b> Punctuation delimiters (. , ! ?), double quotes, ellipses, and ambiguous abbreviations with periods (e.g. 'Dr.', 'e.g.') which confound sentence boundary detection.</li></ul>"
+      },
+      {
+        "id": "transformer_architecture",
+        "title": "1.8 Foundational Architecture: 'Attention Is All You Need' (Vaswani et al., 2017)",
+        "simple": "The Transformer revolutionized NLP by getting rid of slow step-by-step loops (RNNs/LSTMs) and convolutions completely! Instead, it connects every word in a sentence to every other word simultaneously using <b>Self-Attention</b>. This allows massive parallel training on GPUs and powers modern NLP models like BERT, RoBERTa, and GPT.",
+        "deepDive": "<b>Seminal Architecture (Vaswani et al., NIPS 2017):</b><br><br><b>Core Equations & Components:</b><ul><li><b>Scaled Dot-Product Attention:</b>$$\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right)V$$Where $Q$ (Query), $K$ (Key), and $V$ (Value) are vector matrices. The scaling factor $\\frac{1}{\\sqrt{d_k}}$ is essential: for large dimensions $d_k$, the dot products grow large in magnitude, pushing the softmax function into regions with extremely small gradients. Dividing by $\\sqrt{d_k}$ stabilizes gradient flow.</li><li><b>Multi-Head Attention:</b>$$\\text{MultiHead}(Q, K, V) = \\text{Concat}(\\text{head}_1, \\dots, \\text{head}_h)W^O$$$$\\text{where } \\text{head}_i = \\text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$$Employs $h = 8$ parallel attention heads with $d_k = d_v = d_{model}/h = 512/8 = 64$. Allows the model to jointly attend to information from different representation subspaces at different positions.</li><li><b>Encoder & Decoder Stacks:</b> Both consist of stacks of $N = 6$ identical layers:<ul><li><b>Encoder (2 sub-layers):</b> Multi-Head Self-Attention + Position-wise Feed-Forward Network (FFN). Each sub-layer uses residual connections followed by Layer Normalization: $\\text{LayerNorm}(x + \\text{Sublayer}(x))$. Model dimension $d_{model} = 512$.</li><li><b>Decoder (3 sub-layers):</b> Masked Multi-Head Self-Attention (masks future positions $-\\infty$ to enforce autoregressive property) + Encoder-Decoder Cross-Attention (Queries from decoder, Keys/Values from encoder) + Position-wise FFN.</li></ul></li><li><b>Position-wise Feed-Forward Network:</b>$$\\text{FFN}(x) = \\max(0, xW_1 + b_1)W_2 + b_2$$Inner layer dimension $d_{ff} = 2048$, with ReLU activation.</li><li><b>Sinusoidal Positional Encoding:</b> Injects sequence order without recurrence:$$PE_{(pos, 2i)} = \\sin(pos / 10000^{2i/d_{model}}), \\quad PE_{(pos, 2i+1)} = \\cos(pos / 10000^{2i/d_{model}})$$</li><li><b>Computational Complexity Advantage:</b> Self-attention layer connects all positions with <b>$O(1)$ sequential operations</b> and path length $O(1)$, compared to <b>$O(n)$ sequential operations</b> in recurrent layers (RNNs).</li><li><b>Benchmark Results:</b> Established state-of-the-art on WMT 2014 English-to-German (<b>28.4 BLEU</b>) and English-to-French (<b>41.8 BLEU</b>), trained in just 3.5 days on 8 P100 GPUs.</li></ul>"
       },
       {
         "id": "evaluation_metrics",
-        "title": "1.8 Evaluation Metrics in NLP",
-        "simple": "We test NLP models using 4 main metrics: <b>Accuracy</b> (percentage of all right answers), <b>Precision</b> (when the model predicts something, how often is it right?), <b>Recall</b> (out of all actual targets, how many did it catch?), and <b>F1-Score</b> (the balanced harmonic average of Precision and Recall). <b>Error Rate</b> is just $1 - \\text{Accuracy}$.",
-        "deepDive": "<b>Mathematical Formulations:</b><ul><li><b>Accuracy:</b> $\\frac{TP + TN}{TP + TN + FP + FN} = \\frac{\\text{Correct Predictions}}{\\text{Total Predictions}}$</li><li><b>Precision:</b> $\\frac{TP}{TP + FP}$ &mdash; Measures quality and avoidance of false alarms.</li><li><b>Recall (Sensitivity):</b> $\\frac{TP}{TP + FN}$ &mdash; Measures completeness and avoidance of missed targets.</li><li><b>F1-Measure:</b> $2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}$ &mdash; Harmonic mean penalizing extreme divergence between precision and recall.</li><li><b>Error Rate:</b> $1 - \\text{Accuracy} = \\frac{FP + FN}{\\text{Total}}$</li><li><b>Micro vs. Macro Averaging:</b> Micro pools global true positives and false positives (better for overall performance under class imbalance); Macro computes unweighted average metric across all individual classes.</li></ul>"
+        "title": "1.9 Evaluation Metrics in NLP",
+        "simple": "NLP models are evaluated using standard metrics: <b>Accuracy</b> (total correct divided by total), <b>Precision</b> (when it predicts a tag, how often is it right?), <b>Recall</b> (how many of the actual targets did it find?), and <b>F1-Score</b> (the harmonic mean balancing Precision and Recall). <b>Error Rate</b> is simply $1 - \\text{Accuracy}$. <b>BLEU</b> evaluates machine translation.",
+        "deepDive": "<b>Mathematical Formulations:</b><ul><li><b>Accuracy:</b> $\\frac{TP + TN}{TP + TN + FP + FN} = \\frac{\\text{Correct Predictions}}{\\text{Total Predictions}}$</li><li><b>Precision:</b> $\\frac{TP}{TP + FP}$ &mdash; Measures quality and absence of false alarms.</li><li><b>Recall (Sensitivity):</b> $\\frac{TP}{TP + FN}$ &mdash; Measures completeness and absence of missed targets.</li><li><b>F1-Measure:</b> $2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}}$ &mdash; Harmonic mean penalizing extreme imbalances.</li><li><b>Error Rate:</b> $1 - \\text{Accuracy} = \\frac{FP + FN}{\\text{Total}}$</li><li><b>BLEU (Bilingual Evaluation Understudy):</b> Geometric mean of modified n-gram precisions multiplied by a brevity penalty, used specifically for evaluating Machine Translation quality.</li></ul>"
       }
     ]
   },
   {
     "id": "domain2",
-    "title": "Domain 2: Class Studies on NLP (Cloud-Based RoBERTa for SDGs)",
-    "badge": "Research Study",
-    "summary": "Covers the class research study presented by Group 2: 'A Cloud-Based RoBERTa NLP for Assessing Academic Institutions' Contributions to Sustainable Development Goals' by Dalos Miguel, Jahn Crystan Abella et al., its problem motivation, methodology, BERT vs. RoBERTa comparison, LexDG regional lexicon, results, and deployment.",
+    "title": "Domain 2: Studies on NLP Presented by Class Groups",
+    "badge": "Research Studies",
+    "summary": "Covers all 8 academic research papers from Saint Louis University presented by class groups in CSE 30, with deep coverage of Group 2 (RoBERTa SDG), Group 4 (InfoSentiA), Group 5 (Baguio BERTopic + VADER), and Groups 1, 3, 6, 7, 8.",
     "sections": [
       {
-        "id": "sdg_motivation",
-        "title": "2.1 Research Background, Problem & Institutional Setting",
-        "simple": "Universities in the Philippines do a lot of research and community work for the 17 UN Sustainable Development Goals (SDGs). However, evaluating their reports by hand is slow, subjective, and prone to <b>'SDG-washing'</b> (making fake or exaggerated green claims). Existing rating tools like STARS only give broad ratings and cannot map specific text to individual SDGs. Furthermore, Philippine reports mix English with regional words like Ilocano.",
-        "deepDive": "<b>Paper Context:</b> <i>A Cloud-Based RoBERTa NLP for Assessing Academic Institutions' Contributions to Sustainable Development Goals</i> (Dalos Miguel, Jahn Crystan Abella, Rey John Agbayani, Joshua Daniel David, Darren Franz Domantay, Derek Isabelo, Hans Lloyd Reyes, Ariel Tarlit Jr., Maervin Villalobos / Group 2: Baladad, Cardenas, Domalanta, Javier, Menos, Sanchez, SLU 2026).<br><br><b>Key Problems Identified:</b><ul><li><b>High Document Volume & Subjectivity:</b> Manual analysis of institutional strategic plans, annual reports, and curricula by evaluators is slow, labor-intensive, and inconsistent.</li><li><b>Threat of 'SDG-Washing':</b> Institutions presenting superficial sustainability claims without verifiable, data-backed operational evidence.</li><li><b>Limitations of Existing Frameworks:</b> Systems like AASHE STARS provide macro-level institutional scoring but completely lack fine-grained, sentence-level multi-label mapping to the 17 individual UN SDGs.</li><li><b>The Philippine Linguistic Challenge:</b> Higher Education Institution (HEI) documents across the Philippines frequently blend English with regional and indigenous terms (e.g. Ilocano agricultural terms, Cordilleran terminology), which off-the-shelf Western NLP models fail to interpret correctly.</li></ul>"
+        "id": "group2_sdg_roberta",
+        "title": "2.1 Group 2: Cloud-Based RoBERTa for Academic Institutions' SDG Contributions",
+        "simple": "<b>Problem:</b> Universities produce tons of sustainability reports, but evaluating them by hand is slow, biased, and risks 'SDG-washing' (fake green claims). Existing tools like STARS only give broad ratings and cannot map text to the 17 individual UN SDGs.<br><b>Solution:</b> A cloud web app on Google Cloud (Vertex AI + Firestore) fine-tuning RoBERTa with TF-IDF, NLTK, and <b>LexDG</b> (a dictionary of regional Ilocano/Philippine words). Achieved <b>96.77% accuracy (0.74 F1)</b>, beating standard BERT and SVM. Taking away LexDG dropped F1 to 0.68!",
+        "deepDive": "<b>Full Paper Details:</b> <i>Dalos Miguel, Jahn Crystan Abella et al. / Group 2 (Baladad, Cardenas, Domalanta, Javier, Menos, Sanchez), SLU 2026. Presented at IEEE ISCI.</i><br><br><b>Key Architecture & Results:</b><ul><li><b>Dataset:</b> 748 documents across 15 Philippine HEIs collected via Selenium/BeautifulSoup web scraping and Pytesseract OCR for scanned PDFs. Multi-hot vector encoding for 17 SDGs.</li><li><b>Preprocessing:</b> NLTK tokenization, POS-assisted lemmatization, stopword removal, random oversampling for class imbalance. Split: 80% train / 10% val / 10% test.</li><li><b>LexDG:</b> Custom domain-specific lexicon of Philippine regional terms (Ilocano) to prevent misclassification of localized phrasing.</li><li><b>BERT vs. RoBERTa Matrix:</b> RoBERTa uses <b>dynamic masking</b> (vs. static), removes Next Sentence Prediction (NSP), trains on 160 GB data (vs. 16 GB), uses Byte-level BPE 50k vocab (vs. WordPiece 30k), and scales batch sizes up to 8,000.</li><li><b>Results:</b> 96.77% Weighted Accuracy, 0.80 Micro-Precision, 0.70 Micro-Recall, 0.74 Micro-F1. Outperformed Logistic Regression (0.64 F1), SVM (0.67 F1), and BERT (0.70 F1).</li><li><b>Ablation Study:</b> Removing LexDG dropped F1 from 0.74 to 0.68.</li><li><b>Deployment:</b> Google Cloud Platform (Vertex AI, Firestore, Flask API, Node.js frontend), estimated at \u20b12,700\u2013\u20b18,300/month.</li><li><b>Limitations:</b> Category overlap between SDG 2 (Zero Hunger, lowest F1 0.55) and SDG 13 (Climate Action) due to shared agricultural keywords. Highest F1 was SDG 7 (Clean Energy, 0.95 F1).</li></ul>"
       },
       {
-        "id": "sdg_methodology",
-        "title": "2.2 Data Pipeline, Multi-Hot Encoding & LexDG Lexicon",
-        "simple": "The team collected <b>748 documents from 15 Philippine universities</b> using web scrapers (Selenium/BeautifulSoup) and scanned PDF readers (Pytesseract OCR). Since one document can hit multiple SDGs, they used <b>multi-hot vector encoding</b>. They cleaned text with NLTK and solved class imbalance with random oversampling. Crucially, they built <b>LexDG</b>, a custom dictionary of regional and Ilocano terms.",
-        "deepDive": "<b>End-to-End Methodology:</b><ol><li><b>Data Collection:</b> 748 institutional documents (sustainability reports, strategic plans, academic curricula) collected from 15 Philippine HEIs via automated web scraping (Selenium + BeautifulSoup) and manual entry for firewalled repositories.</li><li><b>Optical Character Recognition (OCR):</b> Pytesseract OCR was employed to parse scanned non-searchable PDFs and image-based institutional reports into clean text.</li><li><b>Multi-Hot Vector Encoding:</b> Because a single document frequently addresses multiple SDGs simultaneously, target labels were formulated as 17-dimensional multi-hot binary vectors (e.g. <code>[0, 1, 0, 0, ..., 1, 0]</code>).</li><li><b>Data Preprocessing:</b> Handled via NLTK: tokenization, POS-tag-guided lemmatization (ensuring verbs and nouns are lemmatized according to syntactic role), stopword removal, and noise filtering (URLs, emails, numerals, punctuation).</li><li><b>Class Imbalance Remediation:</b> Addressed via <i>Random Oversampling</i>, duplicating minority SDG class instances in training splits to match majority representations. Final split: <b>80% Training / 10% Validation / 10% Testing</b>.</li><li><b>LexDG (Domain-Specific Lexicon):</b> A curated lexicon of Philippine regional and indigenous vocabulary (particularly Ilocano and Cordilleran terms) developed to preserve local contextual nuance during classification.</li></ol>"
+        "id": "group5_baguio_bertopic_vader",
+        "title": "2.2 Group 5: Extracting Topics & Sentiments from Baguio City Social Media Using BERTopic & VADER",
+        "simple": "<b>Problem:</b> Social media comments about Baguio City (tourism, traffic, weather, ordinances) are written in a mix of English, Tagalog, and Ilocano. Previous studies translated everything to English first, which ruined cultural slang and context!<br><b>Solution:</b> Group 5 combined <b>BERTopic</b> (to find the top discussion topics without translation) and a customized <b>dual-language VADER</b> sentiment tool with 123 degree words (like <i>sobra, medyo</i>) and contrast words (like Tagalog <i>pero</i>, Ilocano <i>ngem</i>). Achieved <b>72.74% binary accuracy (0.7734 F1)</b> on 500 hand-labeled comments.",
+        "deepDive": "<b>Full Paper Details:</b> <i>Lance Gabrielle Arevalo, Christian Gabriel Bayquen, Arian Carl Cayton, Jp De los Trinos, Jaime Fernandez (SLU SAMCIS, ICITE 2023).</i><br><br><b>Methodology & Pipeline:</b><ul><li><b>Data Sources:</b> Comments gathered via web scraping from Facebook, Twitter, Instagram, YouTube, and Reddit regarding Baguio City tourism, living, and governance.</li><li><b>Word-Lexicon Dataset:</b> Merged Tagalog & Ilocano words from R's Tidytext sentiment package and Kaggle 81-language sentiment lexicons, mapped to English VADER polarity scores (-1 to +1).</li><li><b>BERTopic Topic Modeling:</b> Preprocessing via tokenization, stopword removal, lowercasing. Embeddings from BERT clustered with class-based TF-IDF (c-TF-IDF). Uses <b>Maximal Marginal Relevance (MMR)</b> with diversity value 0.8 to prevent duplicate/plural keywords. Reduced 200\u2013300 raw topics to 100 via <code>reduce_topics()</code>, then merged into <b>15 governance topics</b> (Outlier 52%, Tourism 16%, Arts/Culture 10%, Infrastructure 8%, Parks & Rec 8%, Public Safety 8%, Public Transport 6%, Food 4%, Housing 3%, Community Dev 2%, Healthcare 1%, Environment 1%). Coherence score: 0.4043 for 9 predefined topics.</li><li><b>VADER Sentiment Heuristics (5 Rules Adapted):</b><ol><li><b>Capitalization:</b> ALL CAPS receives higher emotional weight ('I AM VERY HAPPY' > 'I am very happy').</li><li><b>Punctuation:</b> Amplifies score for multiple exclamation/question marks ('I like it!!!' > 'I like it.').</li><li><b>Degree Modifiers (123 words):</b> Adverbs of manner (<i>pang-abay na pamaraan</i>) that intensify (Tagalog <i>sobra, napaka, malaki</i>) or weaken (<i>medyo, bahagya</i>) sentiment.</li><li><b>Shift in Polarity Due to 'But':</b> Initial clause overridden by contrasting conjunctions: Tagalog <i>pero, ngunit, subalit, bagkus</i>; Ilocano <i>ngem</i> (e.g. 'Mahal kita, pero ayaw na kitang makasama' &rarr; negative dominates).</li><li><b>Negation (62 words):</b> Inverting polarity when negation particles appear (e.g. Tagalog <i>hindi, huwag</i>, English <i>not, never</i>; e.g. 'Hindi ka matinong kausap').</li></ol></li><li><b>Experimental Results on 500 Annotations:</b><ul><li><b>Binary Classification:</b> Accuracy: <code>72.74%</code>, Precision: <code>0.8700</code>, Recall: <code>0.7274</code>, F1-Score: <code>0.7734</code> (MAE: Positive 45.25, Negative 6.94; RMSE: Pos 63.82, Neg 20.61).</li><li><b>Multiclass Classification (Pos, Neg, Neutral):</b> Accuracy: <code>55.98%</code>, Precision: <code>0.6698</code>, F1-Score: <code>0.5822</code>. Model struggled with neutrality because human annotators tended to score slightly positive comments as neutral.</li></ul></li></ul>"
       },
       {
-        "id": "bert_vs_roberta",
-        "title": "2.3 Model Architecture: BERT vs. RoBERTa Matrix",
-        "simple": "The study used <b>RoBERTa</b>, which is a modern, highly optimized upgrade of Google's BERT model. RoBERTa wins because it uses <b>dynamic masking</b> (masks different words every round), throws away the unnecessary Next Sentence Prediction task, trains on <b>10x more data (160 GB vs 16 GB)</b> with massive batches, and uses a 50,000-word byte-pair tokenizer.",
-        "deepDive": "<b>Architectural Comparison Table (Slide 8 & Research Paper):</b><table class='study-table'><thead><tr><th>Feature</th><th>BERT (Devlin et al., 2018)</th><th>RoBERTa (Liu et al., 2019)</th></tr></thead><tbody><tr><td><b>Masking Strategy</b></td><td>Static Masking (tokens masked once during preprocessing)</td><td><b>Dynamic Masking</b> (tokens masked randomly on-the-fly across training epochs)</td></tr><tr><td><b>Next Sentence Prediction (NSP)</b></td><td>Included ($[CLS]$ predicts if Sentence B follows Sentence A)</td><td><b>Removed entirely</b> (demonstrated to hurt downstream classification performance)</td></tr><tr><td><b>Pre-training Data Size</b></td><td>16 GB (BooksCorpus + English Wikipedia)</td><td><b>160 GB</b> (adds CommonCrawl, OpenWebText, CC-News, Stories)</td></tr><tr><td><b>Batch Size & Training Steps</b></td><td>Smaller mini-batches (256 sequences) over fewer steps</td><td><b>Massive mini-batches</b> (up to 8,000 sequences) over extended steps</td></tr><tr><td><b>Tokenizer & Vocab Size</b></td><td>WordPiece (Vocabulary: ~30,000 tokens)</td><td><b>Byte-Level BPE</b> (Vocabulary: 50,000 tokens)</td></tr><tr><td><b>Benchmark Performance</b></td><td>Baseline benchmark for bidirectional transformers</td><td>Consistently outperforms BERT across GLUE, SQuAD, and RACE</td></tr></tbody></table><br><b>Frameworks Used:</b> PyTorch and Hugging Face Transformers trained on Google Colab with hyperparameter grid search."
+        "id": "group4_infosentia",
+        "title": "2.3 Group 4: InfoSentiA: Local Legislation System with Sentiment Analysis Feedback",
+        "simple": "<b>Problem:</b> The Baguio City Council (Sangguniang Panlungsod) struggled to gather citizen feedback on newly passed laws and ordinances because manual paper questionnaires were too slow and had low response rates.<br><b>Solution:</b> An e-governance portal called <b>InfoSentiA</b> that automatically posts city ordinances to Facebook using the Facebook Graph API, collects citizen comments, and feeds them into <b>Project Lengua</b>, an AFINN-based sentiment API (-5 to +5 scores). It draws live donut charts ('Ordinance Pulse') for city officials to see if the public supports or opposes a law.",
+        "deepDive": "<b>Full Paper Details:</b> <i>Christopher Edrian Espiritu, Mark Joshua Eslao, Dean Earl Donglawen, Charlene Fama, Jay Garcia, Sean Dustine Genove, Mary Anne Zheng, Mary Jane Zheng (SLU SAMCIS). Client: Research Division of the Sangguniang Panlungsod ng Baguio (RDSP) pursuant to RA 7160 (Local Government Code).</i><br><br><b>System Architecture & Implementation:</b><ul><li><b>Development Model:</b> Evolutionary Prototyping Model with client feedback loops and daily 15-minute standup meetings.</li><li><b>Two-Tier Software Architecture:</b><ol><li><b>Main System:</b> Responsive web portal built on the LAMP stack (Linux, Apache, MySQL, PHP/Laravel, Bootstrap, jQuery, Vue.js), deployed on Heroku PaaS. Provides document repositories, search/indexing for watermarked ordinances/resolutions, and questionnaire management.</li><li><b>Sub-System ('Project Lengua'):</b> Dedicated RESTful sentiment analysis microservice built on Node.js, Express, and MongoDB, deployed on Heroku. Exposes GET/POST API endpoints at <code>https://project-lengua.herokuapp.com/api</code>.</li></ol></li><li><b>Sentiment Analysis Engine:</b> Supervised text classification using the <b>AFINN lexicon</b> (Nielsen, 2011), rating words on a scale from <b>-5 (extremely negative) to +5 (extremely positive)</b>. API accepts word, dialect, and score parameters.</li><li><b>Facebook Graph API Integration:</b> When the RDSP admin uploads an approved city resolution, InfoSentiA automatically cross-posts it to the official Baguio City Facebook page. It then pulls citizen replies and comments for batch processing through Project Lengua.</li><li><b>Outputs:</b> Real-time sentiment distribution visualized as donut charts ('Ordinance Pulse') showing positive, negative, and neutral shares, with downloadable XLS statistical reports to guide legislative amendments or repeals.</li></ul>"
       },
       {
-        "id": "sdg_results_ablation",
-        "title": "2.4 Experimental Results, Baseline Comparison & LexDG Ablation",
-        "simple": "The fine-tuned RoBERTa model achieved <b>96.77% accuracy</b> with an F1-score of 0.74, beating Logistic Regression (0.64), SVM (0.67), and standard BERT (0.70). In their ablation study, when they took away <b>LexDG</b>, the F1-score plummeted from 0.74 down to 0.68\u2014proving that local regional dictionaries are vital for Philippine NLP!",
-        "deepDive": "<b>Model Performance Metrics:</b><ul><li><b>Weighted Accuracy:</b> <code>96.77%</code></li><li><b>Micro-Precision:</b> <code>0.80</code> | <b>Micro-Recall:</b> <code>0.70</code> | <b>Micro-F1:</b> <code>0.74</code></li><li><b>Macro-Average:</b> Precision: 0.80 | Recall: 0.69 | F1: 0.743</li></ul><br><b>Baseline Benchmark Comparison:</b><table class='study-table'><thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1-Score</th></tr></thead><tbody><tr><td>Logistic Regression</td><td>0.81</td><td>0.68</td><td>0.61</td><td>0.64</td></tr><tr><td>Support Vector Machine (SVM)</td><td>0.83</td><td>0.70</td><td>0.64</td><td>0.67</td></tr><tr><td>Standard BERT</td><td>0.88</td><td>0.74</td><td>0.66</td><td>0.70</td></tr><tr><td><b>Fine-Tuned RoBERTa (Proposed)</b></td><td><b>0.9677</b></td><td><b>0.80</b></td><td><b>0.70</b></td><td><b>0.74</b></td></tr></tbody></table><br><b>The LexDG Ablation Study:</b><br>To test the statistical necessity of the regional lexicon, an ablation experiment was performed without LexDG. The Micro-F1 score dropped significantly from <b>0.74 to 0.68</b>, proving that domain-specific regional lexicons prevent false negatives when parsing localized Philippine terminology."
+        "id": "group1_car_mapping",
+        "title": "2.4 Group 1: Language Mapping of the Cordillera (CAR) Using Relational Model",
+        "simple": "<b>Summary:</b> Group 1 mapped out the diverse indigenous languages of the Cordillera Administrative Region (CAR) to specific towns and provinces using a relational database model with PSA data and native speaker translations. They identified <b>22 distinct indigenous languages</b> across CAR and built a web prototype to preserve regional cultural heritage.",
+        "deepDive": "<b>Paper:</b> <i>Dalos D. Miguel, John Austin T. Andres, Heidi F. Batara et al. (IJCSR 2024).</i><br>Maps CAR languages (Benguet, Mountain Province, Ifugao, Kalinga, Apayao, Abra) to avoid language barriers and preserve indigenous heritage. Connected to Presentation 1, Slides 68\u201372."
       },
       {
-        "id": "sdg_cloud_limitations",
-        "title": "2.5 Cloud Deployment, Costs & Model Limitations",
-        "simple": "The app was deployed on <b>Google Cloud Vertex AI + Firestore</b> with a Node.js UI and Flask API, costing only \u20b12,700\u2013\u20b18,300/month. The two main limitations are <b>category overlap</b> (confusing SDG 2 Zero Hunger with SDG 13 Climate Action because both talk about farming and weather) and <b>data imbalance</b> in minority SDGs.",
-        "deepDive": "<b>Cloud Infrastructure Architecture:</b><ul><li><b>Model Serving:</b> Google Cloud Platform (GCP) Vertex AI endpoint.</li><li><b>Database:</b> Cloud Firestore (NoSQL document store for real-time institutional evaluation history).</li><li><b>API & Frontend:</b> RESTful Python Flask backend with a responsive Node.js / web user interface.</li><li><b>Operational Cost:</b> Estimated at <b>\u20b12,700 &ndash; \u20b18,300 per month</b> depending on inferencing throughput.</li></ul><b>Identified Limitations:</b><ul><li><b>Category Overlap:</b> Semantic entanglement between thematic goals. Most notably: <b>SDG 2 (Zero Hunger)</b> and <b>SDG 13 (Climate Action)</b> share heavy lexical overlap around agricultural sustainability, causing cross-classification confusion (SDG 2 recorded the lowest F1-score of 0.55). Highest performing was <b>SDG 7 (Affordable and Clean Energy)</b> with F1 of 0.95.</li><li><b>Data Imbalance Sensitivity:</b> SDGs with smaller document representation in training data yielded lower recall rates despite random oversampling.</li></ul>"
+        "id": "group3_moses_smt",
+        "title": "2.5 Group 3: Bi-directional Ilocano-English Translator Using Customized Moses SMT",
+        "simple": "<b>Summary:</b> Group 3 built an automated two-way translator between Ilocano and English using the open-source <b>Moses Statistical Machine Translation (SMT)</b> system with bilingual sentence pairs, GIZA++ word alignment, and n-gram language models.",
+        "deepDive": "<b>Paper:</b> <i>Dalos D. Miguel, J. Bautista, C. Bayla, K. Fianza et al. (NNLPRS 2015).</i><br>Customized Moses phrase-based statistical machine translation system using parallel bi-text corpora. Demonstrated that SMT can effectively translate low-resource Philippine regional languages without needing manual parsers."
+      },
+      {
+        "id": "group6_lexiloko",
+        "title": "2.6 Group 6: LexiLoko 2.0: Lexicon-Integrated NMT for Iloko Preservation",
+        "simple": "<b>Summary:</b> Group 6 digitized phased-out Mother Tongue (MTB-MLE) modules from DepEd-Pangasinan (4,065 words and 1,833 sentence pairs) to train a Transformer Neural Machine Translation model for Ilocano, using a <b>'lexicon-pointer'</b> to fix rare-word translation errors.",
+        "deepDive": "<b>Paper:</b> <i>Hannah Ragudos, Marius Glenn Nonato, Stephen Coloma, Leonhard Leung et al. (SLU SAMCIS).</i><br>Integrates a bilingual Iloko-English dictionary with pretrained Transformer NMT. The custom 'lexicon-pointer' mechanism dynamically looks up rare and out-of-vocabulary words during decoding to preserve endangered regional language vocabulary."
+      },
+      {
+        "id": "group7_tagalog_pos_taggers",
+        "title": "2.7 Group 7: Comparative Evaluation of Tagalog Part-of-Speech Taggers",
+        "simple": "<b>Summary:</b> Tested 4 different Tagalog POS taggers to see which works best on unseen text. <b>PTPOST4.1 (Hidden Markov Model)</b> won with <b>78.3% accuracy</b> on unseen test data, while MBPOST (Memory-based) did best (85.0%) on familiar training data. (This is the source of Slide 55 in Presentation 1!).",
+        "deepDive": "<b>Paper:</b> <i>Dalos D. Miguel and Rachel Edita O. Roxas (NNLPRS 2007).</i><br>Evaluated 4 taggers: PTPOST4.1 (Probabilistic HMM with Viterbi), MBPOST (Memory-based), Tag-Alog (Rule-based), and TPOST (Template-based n-gram). Established that probabilistic HMM models generalize best to unseen Tagalog text."
+      },
+      {
+        "id": "group8_kankanaey_adjectives",
+        "title": "2.8 Group 8: Modeling Kankanaey Adjective Inflections",
+        "simple": "<b>Summary:</b> Modeled how the indigenous Kankanaey language forms adjectives using prefixes, suffixes, infixes (like <i>-in-</i>, <i>-um-</i>), and word repetitions (reduplication like <i>talak</i> &rarr; <i>taltalak</i>). Proved that indigenous languages follow regular rules that computers can parse. (Forms the basis of Presentation 2!).",
+        "deepDive": "<b>Paper:</b> <i>Dalos D. Miguel (SLU, NNLPRS 2009).</i><br>Formalized computational morphological rules for Kankanaey affixes, including semantic repositories like <i>gabyon</i> (50+ words) and adjective intensity/habitual aspect derivations."
       }
     ]
   },
@@ -103,32 +127,32 @@ const REVIEWER_MODULES = [
       {
         "id": "bow_fundamentals",
         "title": "3.1 Bag of Words (BoW) Mechanics & Vector Space",
-        "simple": "<b>Bag of Words (BoW)</b> turns text into numbers for computers. It counts how many times each word from a master vocabulary appears in a sentence, while throwing away word order and grammar (like dumping words into a bag). Each sentence becomes a list of counts (a vector).",
-        "deepDive": "<b>Technical Formulation:</b> BoW represents text documents as fixed-length numeric vectors in a high-dimensional vector space $\\mathbb{R}^{|V|}$, where $|V|$ is the size of the predefined vocabulary.<br><br><b>Processing Steps:</b><ol><li><b>Text Normalization:</b> Lowercasing and tokenization.</li><li><b>Vocabulary Construction:</b> Unique tokens extracted, sorted (typically alphabetically), and indexed from $1$ to $|V|$.</li><li><b>Vectorization:</b> For any input document $D$, its vector $\\vec{v} = [c_1, c_2, \\dots, c_{|V|}]$ where $c_i$ is the occurrence frequency of vocabulary word $w_i$ in $D$.</li><li><b>Inherent Limitations:</b> Discards syntactic word order, ignores grammar, creates sparse matrices, and suffers from the curse of dimensionality.</li></ol>"
+        "simple": "<b>Bag of Words (BoW)</b> turns text into lists of numbers (vectors). It counts how many times each vocabulary word appears in a text while throwing away sentence grammar and word order (like throwing words into a bag).",
+        "deepDive": "<b>Technical Formulation:</b> BoW maps text documents into a fixed-length numeric vector space $\\mathbb{R}^{|V|}$, where $|V|$ is the size of the vocabulary.<br><br><b>Steps:</b><ol><li><b>Normalization:</b> Lowercasing and tokenization.</li><li><b>Vocabulary Construction:</b> Unique words indexed alphabetically from $1$ to $|V|$.</li><li><b>Vectorization:</b> For document $D$, vector $\\vec{v} = [c_1, c_2, \\dots, c_{|V|}]$ where $c_i$ is the count of word $w_i$.</li><li><b>Limitations:</b> Discards word order, ignores grammar, produces sparse vectors, and suffers from the curse of dimensionality.</li></ol>"
       },
       {
         "id": "slu_bow_exercise",
         "title": "3.2 The SLU Panatang Makabayan BoW Case Study",
-        "simple": "In our class exercise, we took the <i>Panatang Makabayan</i> text and built a 44-word vocabulary. Then we removed <b>7 stopwords</b> (<i>ang, at, ko, mga, nang, ng, sa</i>), reducing the vocabulary size down to <b>37 words</b>. Words are re-indexed alphabetically, so <i>aking</i> is Index 1 (count 4) and <i>Pilipinas</i> is Index 30 (count 3).",
-        "deepDive": "<b>Step-by-Step Breakdown of the CSE 30 Exercise:</b><br><br><b>Part 1: 44-Word Original Vocabulary:</b><br>Derived from lowercasing the Panatang Makabayan pledge (total 64 tokens across 44 unique vocabulary words).<br>Vector for the opening clause <i>'Iniibig ko ang Pilipinas'</i>:<ul><li>Index 3 (ang): count 1</li><li>Index 11 (iniibig): count 1</li><li>Index 15 (ko): count 1</li><li>Index 36 (Pilipinas): count 1</li><li>All other 40 dimensions are 0. Vector has 44 dimensions.</li></ul><br><b>Part 2: Full Text 44-Dimensional Vector:</b><br>Non-unit frequencies: <code>aking</code> (idx 1) = 4, <code>ang</code> (idx 3) = 6, <code>at</code> (idx 4) = 3, <code>ko</code> (idx 15) = 6, <code>ng</code> (idx 31) = 4, <code>Pilipinas</code> (idx 36) = 3. All other 38 vocabulary words appear exactly once.<br><br><b>Part 3: Stopword Removal & Dimensionality Reduction:</b><br>The 7 designated stopwords are removed: <code>{'ang', 'at', 'ko', 'mga', 'nang', 'ng', 'sa'}</code>.<br>Dimensionality drops: $|V| = 44 - 7 = \\mathbf{37\\text{ dimensions}}$.<br><br><b>Part 4: Re-Indexed 37-Word Vocabulary:</b><br>Remaining 37 words are sorted alphabetically and re-indexed 1 to 37:<ul><li><b>Index 1:</b> <code>aking</code> (count: 4)</li><li><b>Index 30:</b> <code>Pilipinas</code> (count: 3)</li><li>All remaining 35 words have count: 1</li><li>Resulting 37-D Vector: <code>[4, 1, 1, 1, ..., 3, 1, 1, 1, 1, 1, 1, 1]</code></li></ul><br><b>Part 5: Vector Inversion:</b><br>The sparse 37-D vector with 1s at Index 9 (<code>iniibig</code>) and Index 30 (<code>Pilipinas</code>) inverts back to the original clause <i>'Iniibig ko ang Pilipinas'</i> (which becomes <i>'Iniibig Pilipinas'</i> after stopword removal)."
+        "simple": "In our class exercise, we took the <i>Panatang Makabayan</i> text and built a 44-word vocabulary. Then we removed <b>7 stopwords</b> (<i>ang, at, ko, mga, nang, ng, sa</i>), reducing the vocabulary down to <b>37 words</b>. Words are re-indexed alphabetically, with <i>aking</i> at Index 1 (count 4) and <i>Pilipinas</i> at Index 30 (count 3).",
+        "deepDive": "<b>Step-by-Step Breakdown (BagOfWordExercise.pdf):</b><br><br><b>Part 1: 44-Word Initial Vocabulary:</b><br>Derived from lowercasing the pledge (total 64 tokens across 44 unique vocabulary words).<br>Vector for the opening clause <i>'Iniibig ko ang Pilipinas'</i>:<ul><li>Index 3 (ang): count 1</li><li>Index 11 (iniibig): count 1</li><li>Index 15 (ko): count 1</li><li>Index 36 (Pilipinas): count 1</li><li>All other 40 entries are 0. Vector has 44 dimensions.</li></ul><br><b>Part 2: Full Text 44-D Vector:</b><br>Non-unit counts: <code>aking</code> (idx 1)=4, <code>ang</code> (idx 3)=6, <code>at</code> (idx 4)=3, <code>ko</code> (idx 15)=6, <code>ng</code> (idx 31)=4, <code>Pilipinas</code> (idx 36)=3. All other 38 words appear once.<br><br><b>Part 3: Stopword Removal:</b><br>Remove 7 stopwords: <code>{'ang', 'at', 'ko', 'mga', 'nang', 'ng', 'sa'}</code>.<br>Dimensionality drops: $|V| = 44 - 7 = \\mathbf{37\\text{ dimensions}}$.<br><br><b>Part 4: Re-Indexed 37-Word Vocabulary:</b><br>Remaining 37 words sorted alphabetically:<ul><li><b>Index 1:</b> <code>aking</code> (count: 4)</li><li><b>Index 30:</b> <code>Pilipinas</code> (count: 3)</li><li>All other 35 words have count: 1</li><li>Resulting Vector: <code>[4, 1, 1, 1, ..., 3, 1, 1, 1, 1, 1, 1, 1]</code></li></ul><br><b>Part 5: Vector Inversion:</b><br>A sparse 37-D vector with 1s at Index 9 (<code>iniibig</code>) and Index 30 (<code>Pilipinas</code>) inverts back to the clause <i>'Iniibig ko ang Pilipinas'</i> (or stopword-free <i>'Iniibig Pilipinas'</i>)."
       },
       {
         "id": "conditional_probability_bayes",
         "title": "3.3 Conditional Probability & Bayes' Theorem",
-        "simple": "<b>Conditional probability</b> $P(A|B)$ is the chance of $A$ happening given that $B$ already happened: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$. <b>Bayes' Rule</b> lets us flip conditional probabilities around: $P(C|X) = \\frac{P(X|C)P(C)}{P(X)}$.",
-        "deepDive": "<b>Mathematical Definitions (Presentation 3, Slides 5-20):</b><br>$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$<br><b>Slide 16-18 Worked School Demographics Problem:</b><br>Given 100 school members (60 Male, 40 Female; 80 Students, 20 Teachers/Staff). Total Female Students = 32.<br>What is the probability a member is Female given they are a Student?<br>$$P(\\text{Female} | \\text{Student}) = \\frac{P(\\text{Female} \\cap \\text{Student})}{P(\\text{Student})} = \\frac{32/100}{80/100} = \\frac{32}{80} = 0.40\\text{ (or }2/5\\text{)}$$<br><b>Bayes' Rule:</b><br>$$P(Y|X) = \\frac{P(X|Y) \\cdot P(Y)}{P(X)}$$<br>Where $P(Y|X)$ is the posterior probability, $P(X|Y)$ is the likelihood, $P(Y)$ is the prior probability, and $P(X)$ is the marginal probability of the evidence."
+        "simple": "<b>Conditional probability</b> $P(A|B)$ is the chance of $A$ happening given that $B$ already happened: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$. <b>Bayes' Rule</b> lets us flip conditional probabilities: $P(C|X) = \\frac{P(X|C)P(C)}{P(X)}$.",
+        "deepDive": "<b>Mathematical Definitions (Presentation 3, Slides 5\u201320):</b><br>$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$<br><b>Worked Problem (Slides 16\u201318):</b><br>Out of 100 school members: 80 Students, 20 Teachers/Staff; 32 Female Students.<br>$$P(\\text{Female} | \\text{Student}) = \\frac{P(\\text{Female} \\cap \\text{Student})}{P(\\text{Student})} = \\frac{32/100}{80/100} = \\frac{32}{80} = 0.40\\text{ (or }2/5\\text{)}$$<br><b>Bayes' Rule:</b><br>$$P(Y|X) = \\frac{P(X|Y) \\cdot P(Y)}{P(X)}$$"
       },
       {
         "id": "naive_bayes_formula_cancellation",
         "title": "3.4 Naive Bayes Assumption & Denominator Cancellation",
-        "simple": "Naive Bayes assumes all words in a sentence are independent of each other (which is 'naive' because grammar links words, but it works surprisingly well in practice!).<br><br><b>Why drop the denominator?</b> When deciding which category wins, the denominator $P(X)$ is identical for every single candidate class! Since it doesn't change who wins, we can discard it completely to simplify math.",
-        "deepDive": "<b>The Naive Bayes Conditional Independence Assumption:</b><br>Assumes that each feature $X_i$ is conditionally independent of any other feature $X_j$ given category $C$:<br>$$P(X_1, X_2, \\dots, X_n | C) = \\prod_{i=1}^n P(X_i | C)$$<br><b>The Classification Formulation:</b><br>$$P(C | X_1, \\dots, X_n) = \\frac{P(C) \\prod_{i=1}^n P(X_i | C)}{P(X_1, \\dots, X_n)}$$<br><b>The Crucial Denominator Cancellation (Slides 45 & 74-79):</b><br>Because the denominator $P(X_1, \\dots, X_n)$ is completely independent of the category $C$ and identical across all candidate classes, it functions as a constant normalizing factor. Thus, when solving for the most probable class $\\hat{C}$ via the <i>argmax</i> function, the denominator is discarded:<br>$$\\hat{C} = \\arg\\max_{C \\in \\Gamma} \\left[ P(C) \\prod_{i=1}^n P(X_i | C) \\right]$$<br>This drastically reduces computational complexity without altering the ranking."
+        "simple": "Naive Bayes assumes all words in a sentence are completely independent of each other.<br><br><b>Why drop the denominator?</b> When deciding which class wins, the denominator $P(X)$ is identical for every candidate category. Because it divides everything by the exact same number, it never changes who wins, so we discard it completely!",
+        "deepDive": "<b>Conditional Independence Assumption:</b><br>$$P(X_1, X_2, \\dots, X_n | C) = \\prod_{i=1}^n P(X_i | C)$$<br><b>Full Formulation:</b><br>$$P(C | X_1, \\dots, X_n) = \\frac{P(C) \\prod_{i=1}^n P(X_i | C)}{P(X_1, \\dots, X_n)}$$<br><b>The Denominator Cancellation Proof (Slides 45 & 74\u201379):</b><br>Because the denominator $P(X_1, \\dots, X_n)$ is independent of category $C$ and identical across all candidate classes, it functions as a constant scaling factor. Therefore, for the <i>argmax</i> decision rule, the denominator is omitted:<br>$$\\hat{C} = \\arg\\max_{C \\in \\Gamma} \\left[ P(C) \\prod_{i=1}^n P(X_i | C) \\right]$$"
       },
       {
         "id": "language_identification_laplace",
         "title": "3.5 Language Identification & Laplace (+1) Smoothing",
-        "simple": "We can identify whether a sentence is Tagalog, Ilocano, or Bikol by multiplying word probabilities for each language and picking the highest score (Argmax). If a sentence has a new word never seen before, its probability would be 0, which would multiply and ruin the entire score! To fix this, we use <b>Laplace (+1) Smoothing</b> by adding 1 to all word counts so nothing ever equals zero.",
-        "deepDive": "<b>Multinomial Naive Bayes for Language Identification (Slides 47-79):</b><br>Given text $X = (w_1, w_2, \\dots, w_n)$ and target Philippine languages $\\Gamma = \\{\\text{Bikol, Cebuano, Hiligaynon, Ilocano, Kapampangan, Pangasinan, Tagalog, Waray}\\}$:<br>$$\\hat{L} = \\arg\\max_{L \\in \\Gamma} \\left[ P(L) \\times P(w_1|L) \\times P(w_2|L) \\times \\dots \\times P(w_n|L) \\right]$$<br><i>Worked Example from Slide 76:</i><br>$$P(\\text{Ilocano} | \\text{'naimbag', 'nga', 'rabii'}) \\propto P(\\text{Ilocano}) \\times P(\\text{'naimbag'}|\\text{Ilocano}) \\times P(\\text{'nga'}|\\text{Ilocano}) \\times P(\\text{'rabii'}|\\text{Ilocano})$$<br><br><b>Laplace (+1) Smoothing (Slide 66):</b><br>If a word $w_k$ is unseen in language $L$, $P(w_k|L) = 0$, causing the entire product $\\prod P(w_i|L) = 0$ regardless of other strong evidence.<br><i>Solution:</i> Add $1$ to the numerator and adjust the denominator by vocabulary size $|V|$:$$P_{\\text{Laplace}}(w|C) = \\frac{\\text{Count}(w, C) + 1}{\\sum_{w'} \\text{Count}(w', C) + |V|}$$Slide 66 also introduces an explicit <code>'Others'</code> category with frequency count 1 to handle out-of-vocabulary terms.<br><br><b>N-grams in Language Modeling:</b> Unigram ($n=1$), Bigram ($n=2$), Trigram ($n=3$). Can be character n-grams (slices of words) or word n-grams (slices of sentences)."
+        "simple": "We identify whether text is Ilocano, Tagalog, or Pangasinan by multiplying word likelihoods for each language and picking the highest score. If an unseen word has a chance of 0, multiplying by 0 would wipe out the whole score! We fix this using <b>Laplace (+1) Smoothing</b> by adding 1 to all word counts so nothing ever equals zero.",
+        "deepDive": "<b>Multinomial Naive Bayes Language Identification (Slides 47\u201379):</b><br>$$\\hat{L} = \\arg\\max_{L \\in \\Gamma} \\left[ P(L) \\prod_{i=1}^n P(w_i | L) \\right]$$<br><i>Example from Slide 76:</i><br>$$P(\\text{Ilocano} | \\text{'naimbag', 'nga', 'rabii'}) \\propto P(\\text{Ilocano}) \\times P(\\text{'naimbag'}|\\text{Ilocano}) \\times P(\\text{'nga'}|\\text{Ilocano}) \\times P(\\text{'rabii'}|\\text{Ilocano})$$<br><br><b>Laplace (+1) Smoothing:</b><br>$$P_{\\text{Laplace}}(w|C) = \\frac{\\text{Count}(w, C) + 1}{\\sum_{w'} \\text{Count}(w', C) + |V|}$$Slide 66 also introduces an explicit <code>'Others'</code> category with frequency count 1 to handle out-of-vocabulary words."
       }
     ]
   }
@@ -272,217 +296,262 @@ const QUIZ_QUESTIONS = [
   {
     "id": 10,
     "category": "domain1",
-    "question": "Which of the following describes the task of Co-reference Resolution in NLP?",
+    "question": "In 'Attention Is All You Need' (Vaswani et al., 2017), what is the formula for Scaled Dot-Product Attention?",
     "options": [
-      "Translating sentences between two distinct natural languages",
-      "Determining which words or expressions in a text refer to the exact same real-world entity",
-      "Extracting optical text characters from low-resolution images",
-      "Splitting words into root and inflectional affixes"
+      "Attention(Q, K, V) = softmax(QK^T / \u221ad_k) V",
+      "Attention(Q, K, V) = sigmoid(QK) / V",
+      "Attention(Q, K, V) = tanh(Q + K) W_v",
+      "Attention(Q, K, V) = argmax(Q \u00b7 K \u00b7 V)"
     ],
-    "answer": 1,
-    "simpleExplanation": "Co-reference resolution figures out when different words (like 'Dr. Jose Rizal' and 'he') are talking about the exact same person or thing.",
-    "deepDive": "Presentation 1, Slide 26 defines co-reference resolution as determining which words in a sentence or large text refer to the same object.",
-    "googleQuery": "coreference resolution NLP"
+    "answer": 0,
+    "simpleExplanation": "Attention multiplies Query by Key transpose, scales by dividing by \u221ad_k, applies softmax, and multiplies by Value.",
+    "deepDive": "Vaswani et al. (2017), Section 3.2.1, Equation 1: Attention(Q, K, V) = softmax(QK^T / \u221ad_k)V.",
+    "googleQuery": "scaled dot product attention formula transformer"
   },
   {
     "id": 11,
     "category": "domain1",
-    "question": "How many POS tags are defined in the original Tagalog tagset by Rabo (2004) versus the revised tagset by Dr. Buban?",
+    "question": "Why did Vaswani et al. divide the dot products by \u221ad_k in Scaled Dot-Product Attention?",
     "options": [
-      "36 tags (Rabo) vs 48 tags (Buban)",
-      "59 tags (Rabo) vs 65 tags (Buban)",
-      "100 tags (Rabo) vs 120 tags (Buban)",
-      "20 tags (Rabo) vs 25 tags (Buban)"
+      "To speed up matrix multiplication by 50%",
+      "To prevent the dot products from growing large in magnitude, which pushes softmax into regions with vanishingly small gradients",
+      "To convert negative values into positive values",
+      "To enforce recurrence across time steps"
     ],
     "answer": 1,
-    "simpleExplanation": "Rabo's 2004 Tagalog tagset has 59 tags, while Dr. Buban's revised Tagalog tagset expanded it to 65 tags.",
-    "deepDive": "Presentation 1, Slide 41: 'Tagalog tagset by Rabo (2004) - 59 tags; Revised Tagalog tagset by Dr. Buban - 65 tags.'",
-    "googleQuery": "Tagalog POS tagset Rabo Buban"
+    "simpleExplanation": "Without dividing by \u221ad_k, big numbers make the softmax output extremely flat with tiny gradients, ruining learning.",
+    "deepDive": "Vaswani et al. (2017), Section 3.2.1: For large values of d_k, dot products grow large, pushing softmax into regions where gradients are extremely small. Scaling by 1/\u221ad_k counteracts this.",
+    "googleQuery": "why scale by sqrt d_k in attention"
   },
   {
     "id": 12,
     "category": "domain1",
-    "question": "In probabilistic POS tagging using Hidden Markov Models (HMM), the probability P(wi | ti) is known as the:",
+    "question": "In the base Transformer model, how many attention heads (h) and layers (N) are used in the encoder and decoder?",
     "options": [
-      "Contextual / Transition probability",
-      "Lexical / Emission probability",
-      "Prior probability",
-      "Closure probability"
+      "h = 4 heads, N = 4 layers",
+      "h = 8 heads, N = 6 layers",
+      "h = 16 heads, N = 12 layers",
+      "h = 2 heads, N = 10 layers"
     ],
     "answer": 1,
-    "simpleExplanation": "P(word | tag) is the emission or lexical probability: the likelihood that a specific tag emits that specific word.",
-    "deepDive": "Presentation 1, Slides 53-55: Lexical probability represents P(w|t) while contextual/transition probability represents P(t_i | t_{i-1}).",
-    "googleQuery": "HMM POS tagging lexical emission transition probability"
+    "simpleExplanation": "The base Transformer has N = 6 layers and h = 8 attention heads (with d_k = d_v = 64, d_model = 512).",
+    "deepDive": "Vaswani et al. (2017), Sections 3.1 & 3.2.2: N = 6 identical layers for both encoder and decoder; h = 8 parallel attention heads, d_k = d_v = 512/8 = 64.",
+    "googleQuery": "base transformer parameters h=8 N=6 d_model=512"
   },
   {
     "id": 13,
     "category": "domain1",
-    "question": "Which POS tag was found to have the HIGHEST frequency in the annotated Tagalog corpora discussed in class?",
+    "question": "How does the Transformer represent sequence word order without using recurrent connections (RNNs)?",
     "options": [
-      "VBOI",
-      "NNC (Common Noun)",
-      "PRF",
-      "CCB"
+      "By using fixed or learned sinusoidal Positional Encodings added to input embeddings",
+      "By alphabetical sorting of tokens before feeding into the encoder",
+      "By running a hidden Markov model in parallel",
+      "By duplicating the input sequence 6 times"
     ],
-    "answer": 1,
-    "simpleExplanation": "NNC (Common Noun) is by far the most frequent tag in Tagalog corpora, and is also the default assigned to unknown words.",
-    "deepDive": "Presentation 1, Slide 62 & 63: 'Highest frequency tag: NNC'; and Slide 63 lists NNC as the first tag with greatest occurrence for unknown words. VBOI is least frequent / zero.",
-    "googleQuery": "Tagalog corpus POS tag frequency NNC"
+    "answer": 0,
+    "simpleExplanation": "It adds mathematical sine and cosine waves (Positional Encodings) to the word embeddings to mark their positions.",
+    "deepDive": "Vaswani et al. (2017), Section 3.5: Positional encodings using sine and cosine functions of different frequencies: PE(pos, 2i) = sin(pos / 10000^(2i/d_model)) are added to the input embeddings.",
+    "googleQuery": "sinusoidal positional encoding transformer"
   },
   {
     "id": 14,
     "category": "domain1",
-    "question": "Which of the following is considered a factor that can adversely affect the validity of an annotated corpus?",
+    "question": "What is the computational complexity advantage of a Self-Attention layer compared to a Recurrent layer (RNN) for sequence length n?",
     "options": [
-      "Abbreviations ending with periods being mistaken for sentence delimiters",
-      "Using utf-8 encoding for text files",
-      "Having a balanced ratio of nouns and verbs",
-      "Applying the Markov assumption"
+      "Self-attention requires O(n) sequential operations; RNN requires O(1)",
+      "Self-attention requires O(1) sequential operations; RNN requires O(n) sequential operations",
+      "Both require O(n^3) sequential operations",
+      "Self-attention cannot run on GPUs"
     ],
-    "answer": 0,
-    "simpleExplanation": "When abbreviations like 'Dr.' or 'e.g.' have periods, systems might mistakenly think the sentence ended there.",
-    "deepDive": "Presentation 1, Slide 61 lists factors affecting validity of annotated corpora: Sentence delimiters (period, ?, !), double quotes, ellipses, and abbreviation with periods.",
-    "googleQuery": "sentence boundary disambiguation abbreviations corpus validity"
+    "answer": 1,
+    "simpleExplanation": "Self-attention connects all words in parallel with O(1) sequential steps, while RNNs must process words one by one in O(n) steps.",
+    "deepDive": "Vaswani et al. (2017), Table 1: Self-attention has O(1) sequential operations and O(1) maximum path length, whereas Recurrent layers require O(n) sequential operations, precluding parallelization.",
+    "googleQuery": "self-attention vs recurrent per layer complexity O(1) sequential"
   },
   {
     "id": 15,
     "category": "domain1",
-    "question": "What is the Error Rate metric in NLP evaluation?",
+    "question": "How many tags are defined in Rabo's Tagalog tagset (2004) versus Dr. Buban's revised Tagalog tagset?",
     "options": [
-      "The ratio of True Positives to False Positives",
-      "The complement of Accuracy (1 - Accuracy)",
-      "The harmonic mean of Precision and Recall",
-      "The execution time per tagged token"
+      "36 vs 48 tags",
+      "59 vs 65 tags",
+      "100 vs 120 tags",
+      "20 vs 25 tags"
     ],
     "answer": 1,
-    "simpleExplanation": "Error Rate is simply the opposite of accuracy: 1 minus Accuracy.",
-    "deepDive": "Presentation 1, Slide 59 explicitly defines 'Error rates: Complement of Accuracy' (Error Rate = 1 - Accuracy = (FP + FN) / Total).",
-    "googleQuery": "error rate complement of accuracy"
+    "simpleExplanation": "Rabo's Tagalog tagset has 59 tags; Dr. Buban expanded it to 65 tags.",
+    "deepDive": "Presentation 1, Slide 41: 'Tagalog tagset by Rabo (2004) - 59 tags; Revised Tagalog tagset by Dr. Buban - 65 tags.'",
+    "googleQuery": "Tagalog POS tagset Rabo Buban"
   },
   {
     "id": 16,
     "category": "domain2",
-    "question": "What primary research motivation led Dalos Miguel et al. to develop the Cloud-Based RoBERTa tool for HEIs?",
+    "question": "In Group 5's study on Baguio City social media, why did the authors avoid translating Tagalog/Ilocano comments to English?",
     "options": [
-      "To replace human professors with automated AI grading agents",
-      "To overcome slow, subjective manual evaluation and combat 'SDG-washing' in university reports",
-      "To translate Cordilleran indigenous folklore into Spanish",
-      "To eliminate the use of Google Cloud Platform in Philippine colleges"
+      "Because Google Translate API was completely blocked in Baguio City",
+      "Because translating Tagalog or Taglish datasets to English causes significant loss of regional context and sentiment accuracy",
+      "Because English has no positive words for weather",
+      "Because BERTopic only accepts non-English text"
     ],
     "answer": 1,
-    "simpleExplanation": "Evaluating sustainability by hand is slow and biased, and universities often make exaggerated green claims (SDG-washing).",
-    "deepDive": "Research Paper Abstract & Section 1: HEI sustainability reporting suffers from inconsistencies, high manual review volume, and the threat of 'SDG-washing' (superficial green claims without measurable proof).",
-    "googleQuery": "SDG-washing higher education institutions NLP"
+    "simpleExplanation": "Translating local slang and regional comments to English strips away cultural meaning and emotional tone.",
+    "deepDive": "Arevalo, Bayquen et al. (Group 5, Section 1.1 Gap): Previous approaches required translation of Tagalog datasets to English, resulting in loss of context and sentiment accuracy. Group 5 utilized a native mix of Tagalog and Ilocano lexicons.",
+    "googleQuery": "Baguio city social media sentiment analysis BERTopic VADER"
   },
   {
     "id": 17,
     "category": "domain2",
-    "question": "What major limitation of the existing STARS (Sustainability Tracking, Assessment & Rating System) was highlighted in the study?",
+    "question": "What auxiliary algorithm was used with BERTopic in Group 5's study to prevent duplicate/plural keywords and maximize keyword diversity?",
     "options": [
-      "It only works on iOS mobile devices",
-      "It measures broad sustainability but lacks fine-grained, individual SDG mapping",
-      "It is restricted solely to European primary schools",
-      "It cannot read digital PDF files"
+      "Maximal Marginal Relevance (MMR) with a diversity value of 0.8",
+      "Principal Component Analysis (PCA)",
+      "K-Means Clustering with k=50",
+      "Brill's Transformation Rules"
     ],
-    "answer": 1,
-    "simpleExplanation": "STARS only gives a general overall sustainability score; it cannot map text to each of the 17 individual SDGs.",
-    "deepDive": "NLP-Presentation Slide 3 & Paper Section 1: 'Systems like STARS measure broad sustainability but lack fine-grained, individual SDG mapping, limiting meaningful benchmarking.'",
-    "googleQuery": "STARS sustainability tracking limitations individual SDG mapping"
+    "answer": 0,
+    "simpleExplanation": "Maximal Marginal Relevance (MMR) was used with a diversity setting of 0.8 to pick varied, non-repetitive keywords.",
+    "deepDive": "Group 5 Paper, Section 3.3.2: 'MaximalMarginalRelevance class... facilitates the selection of keywords that maximize their diversity... We set the diversity value to 0.8.'",
+    "googleQuery": "BERTopic Maximal Marginal Relevance MMR diversity"
   },
   {
     "id": 18,
     "category": "domain2",
-    "question": "How many institutional documents were collected, and from how many Philippine HEIs, in the RoBERTa SDG study?",
+    "question": "How many final researcher-defined governance topics did Group 5 merge their BERTopic clusters into, and which topic had the highest percentage?",
     "options": [
-      "100 documents from 3 HEIs",
-      "748 documents from 15 HEIs",
-      "5,000 documents from 50 HEIs",
-      "74 documents from 1 HEI"
+      "5 topics; Tourism had 90%",
+      "15 distinct topics; Outlier had the highest distribution at 52%",
+      "50 topics; Traffic had 60%",
+      "9 topics; Healthcare had 40%"
     ],
     "answer": 1,
-    "simpleExplanation": "The dataset consisted of 748 documents collected across 15 Philippine higher education institutions.",
-    "deepDive": "NLP-Presentation Slide 6 & Paper Section 2.1: '748 documents collected from 15 Philippine HEIs' across sustainability reports, strategic plans, and policies.",
-    "googleQuery": "Philippine HEI SDG classification 748 documents"
+    "simpleExplanation": "They merged 100 topics into 15 governance themes; 'Outlier' was highest at 52% (general comments), followed by Tourism at 16%.",
+    "deepDive": "Group 5 Paper, Sections 3.3.3 & 4.1, Table 1: Merged into 15 distinct topics. Outlier comprised 0.52 (52%), Tourism/Travel 0.16 (16%), Arts/Culture 0.10 (10%), Infrastructure 0.08 (8%).",
+    "googleQuery": "Baguio social media BERTopic 15 governance topics outlier 52%"
   },
   {
     "id": 19,
     "category": "domain2",
-    "question": "Why did the researchers use 'Multi-Hot Vector Encoding' rather than standard single-label classification for the SDGs?",
+    "question": "Which of the following is NOT one of the 5 VADER sentiment heuristics adapted in Group 5's study?",
     "options": [
-      "Because multi-hot encoding automatically removes stopwords",
-      "Because an institutional document or policy can align with multiple SDGs simultaneously",
-      "Because PyTorch only supports multi-hot vectors",
-      "Because multi-hot encoding compresses text into 37 dimensions"
+      "Capitalization (e.g. 'I AM VERY HAPPY')",
+      "Punctuation (e.g. 'I like it!!!')",
+      "Shift in Polarity due to 'But' (Tagalog pero, ngunit; Ilocano ngem)",
+      "Phonetic Rhyme Analysis"
     ],
-    "answer": 1,
-    "simpleExplanation": "A single university project or paper can hit multiple goals at once (e.g. poverty AND clean water), so it needs multi-label (multi-hot) tags.",
-    "deepDive": "NLP-Presentation Slide 6: 'Labels annotated per SDG using multi-hot vector encoding (documents can align with multiple SDGs).'",
-    "googleQuery": "multihot vector encoding multilabel text classification"
+    "answer": 3,
+    "simpleExplanation": "The 5 heuristics are: Capitalization, Punctuation, Degree Modifiers, Shift in Polarity due to 'But', and Negation. Rhyme analysis is not one of them.",
+    "deepDive": "Group 5 Paper, Section 3.4.1: The 5 VADER heuristics are Capitalization, Punctuation, Degree Modifiers (123 adverbs), Shift in Polarity due to 'But' (incorporating pero, ngunit, subalit, bagkus, and ngem), and Negation (62 words).",
+    "googleQuery": "VADER sentiment analysis 5 heuristics social media"
   },
   {
     "id": 20,
     "category": "domain2",
-    "question": "What is 'LexDG' and why was it specifically developed for this Philippine study?",
+    "question": "In Group 5's evaluation on 500 hand-annotated Baguio comments, what were the Binary Sentiment classification results?",
     "options": [
-      "A cloud database for storing student grades",
-      "A custom domain-specific lexicon incorporating regional/indigenous terms (e.g. Ilocano) to preserve local context",
-      "A replacement for Python's NLTK tokenizer",
-      "A hardware GPU accelerator provided by Google Cloud"
+      "Accuracy: 72.74%, Precision: 87.00%, Recall: 72.74%, F1-Score: 0.7734",
+      "Accuracy: 99.00%, Precision: 99.00%, F1-Score: 0.99",
+      "Accuracy: 50.00%, Precision: 50.00%, F1-Score: 0.50",
+      "Accuracy: 60.00%, Precision: 60.00%, F1-Score: 0.60"
     ],
-    "answer": 1,
-    "simpleExplanation": "LexDG is a specialized dictionary of regional Philippine words (like Ilocano) so the AI doesn't misinterpret local terms.",
-    "deepDive": "Paper Section 3.2 & Presentation Slide 7: 'LexDG lexicon developed for regional/indigenous terms (e.g., Ilocano) to preserve local context' in Philippine HEI reports.",
-    "googleQuery": "domain-specific lexicon regional terms text classification"
+    "answer": 0,
+    "simpleExplanation": "The binary classifier reached 72.74% accuracy, 87% precision, and an F1-score of 0.7734.",
+    "deepDive": "Group 5 Paper, Section 4.2 & Section 7: Binary classification achieved Accuracy: 0.7274 (72.74%), Precision: 0.8700 (87.00%), Recall: 0.7274, F1-Score: 0.7734.",
+    "googleQuery": "Baguio VADER binary accuracy 72.74% precision 87%"
   },
   {
     "id": 21,
     "category": "domain2",
-    "question": "Which of the following correctly describes the masking strategy difference between BERT and RoBERTa?",
+    "question": "What is the primary objective of Group 4's research project, 'InfoSentiA'?",
     "options": [
-      "BERT uses dynamic masking; RoBERTa uses static masking",
-      "BERT uses static masking (masked once beforehand); RoBERTa uses dynamic masking (masked randomly on-the-fly during training)",
-      "Neither model uses masking",
-      "Both models mask 100% of input tokens simultaneously"
+      "To build an online gaming leaderboard for SLU students",
+      "To create a local legislation dissemination and feedback system with sentiment analysis for the Baguio City Council",
+      "To generate automated police citations for traffic violations",
+      "To transcribe radio broadcasts into Kankanaey"
     ],
     "answer": 1,
-    "simpleExplanation": "BERT masks words once before training (static), whereas RoBERTa dynamically masks different words in every training epoch.",
-    "deepDive": "Presentation Slide 8 & Paper Section 1.1: BERT uses Static Masking (words masked once during preprocessing), whereas RoBERTa uses Dynamic Masking (words masked randomly on the fly during training).",
-    "googleQuery": "BERT static masking vs RoBERTa dynamic masking"
+    "simpleExplanation": "InfoSentiA is an e-governance website for Baguio City that publishes ordinances and uses sentiment analysis to understand citizen comments.",
+    "deepDive": "Espiritu, Eslao et al. (Group 4 Abstract & Section 1): InfoSentiA provides an electronic repository of local government ordinances and resolutions for the Sangguniang Panlungsod ng Baguio, analyzing public feedback via sentiment analysis.",
+    "googleQuery": "InfoSentiA local legislation information dissemination sentiment analysis"
   },
   {
     "id": 22,
     "category": "domain2",
-    "question": "What did RoBERTa do with the 'Next Sentence Prediction' (NSP) task used in original BERT?",
+    "question": "In InfoSentiA (Group 4), what is 'Project Lengua'?",
     "options": [
-      "Increased its training weight tenfold",
-      "Removed it entirely, because eliminating NSP improves downstream task performance",
-      "Replaced it with Part-of-Speech tagging",
-      "Used it exclusively on testing splits"
+      "A hardware server installed inside Baguio City Hall",
+      "A dedicated RESTful API microservice running on Node.js/Express/MongoDB that performs AFINN-based sentiment analysis",
+      "A mobile camera app for reading street signs",
+      "A speech-to-text model for Ilocano"
     ],
     "answer": 1,
-    "simpleExplanation": "RoBERTa completely removed Next Sentence Prediction because researchers found it actually harmed classification performance.",
-    "deepDive": "Presentation Slide 8: Under RoBERTa, NSP is 'No (Removed entirely since it affects the downstream performance)'. Liu et al. (2019) showed removing NSP matches or slightly improves performance.",
-    "googleQuery": "RoBERTa removed next sentence prediction NSP"
+    "simpleExplanation": "Project Lengua is the sentiment analysis API backend that scores comments from -5 to +5 using the AFINN dictionary.",
+    "deepDive": "Group 4 Paper, Section 3.2.1 & Figure 3: Project Lengua is the Node/Express/MongoDB subsystem exposing a REST API that scores tokens from -5 to +5 using AFINN scoring.",
+    "googleQuery": "Project Lengua AFINN sentiment analysis API"
   },
   {
     "id": 23,
     "category": "domain2",
-    "question": "What tokenizer type and vocabulary size are utilized by RoBERTa compared to BERT?",
+    "question": "How does InfoSentiA (Group 4) automatically publish ordinances and gather citizen feedback from social media?",
     "options": [
-      "BERT: WordPiece (30k tokens); RoBERTa: Byte-level Byte-Pair Encoding (50k tokens)",
-      "BERT: BPE (50k tokens); RoBERTa: WordPiece (30k tokens)",
-      "BERT: Character unigram (1k tokens); RoBERTa: Word n-gram (100k tokens)",
-      "Both use identical 30,000 WordPiece tokenizers"
+      "Via the Twitter Firehose API",
+      "Via the Facebook Graph API integrated directly into the admin module",
+      "Through manual copy-pasting by city hall clerks",
+      "Via automated phone calls to citizens"
     ],
-    "answer": 0,
-    "simpleExplanation": "BERT uses WordPiece with 30,000 tokens, while RoBERTa uses a larger 50,000 token Byte-level BPE tokenizer.",
-    "deepDive": "Presentation Slide 8: BERT uses WordPiece (Vocabulary size: 30,000 tokens) while RoBERTa uses Byte-level Byte-Pair Encoding / BPE (Vocabulary size: 50,000 tokens).",
-    "googleQuery": "RoBERTa byte-level BPE vs BERT WordPiece"
+    "answer": 1,
+    "simpleExplanation": "It connects directly to Facebook via the Facebook Graph API to auto-post ordinances and fetch comments.",
+    "deepDive": "Group 4 Paper, Section 3.1.1 & Table 1: Facebook Graph Integration Module connects via Facebook Graph API for auto-posting legislations and collecting citizen comments.",
+    "googleQuery": "Facebook Graph API local legislation citizen feedback"
   },
   {
     "id": 24,
     "category": "domain2",
-    "question": "What overall Weighted Accuracy and Micro-F1 Score did the fine-tuned RoBERTa model achieve in the study?",
+    "question": "In Group 7's study ('Comparative Evaluation of Tagalog Part-of-Speech Taggers'), which tagger achieved the highest accuracy on unseen test data?",
+    "options": [
+      "PTPOST4.1 (Probabilistic HMM Tagger) with 78.3% accuracy",
+      "MBPOST (Memory-Based Tagger)",
+      "Tag-Alog (Rule-Based Tagger)",
+      "TPOST (Template-Based Tagger)"
+    ],
+    "answer": 0,
+    "simpleExplanation": "PTPOST4.1 (the Hidden Markov Model tagger) scored the highest accuracy (78.3%) on unseen test data.",
+    "deepDive": "Dalos Miguel & Roxas (2007) / Presentation 1 Slide 55: PTPOST4.1 (HMM-based) achieved the highest average accuracy (78.3%) when tested on data not part of the training set. MBPOST won on training data (85.0%).",
+    "googleQuery": "Comparative Evaluation Tagalog POS Taggers PTPOST4.1 78.3"
+  },
+  {
+    "id": 25,
+    "category": "domain2",
+    "question": "What is the primary innovation of Group 6's paper ('LexiLoko 2.0') for Iloko Machine Translation?",
+    "options": [
+      "It replaced all neural networks with regex rules",
+      "It integrated a 4,065-word DepEd MTB-MLE lexicon with a 'lexicon-pointer' mechanism to resolve rare-word translation errors",
+      "It translated English solely into Spanish",
+      "It eliminated the need for training data"
+    ],
+    "answer": 1,
+    "simpleExplanation": "LexiLoko 2.0 uses a 'lexicon-pointer' to look up rare words in a bilingual dictionary during neural translation.",
+    "deepDive": "Ragudos, Nonato et al. (Group 6): LexiLoko 2.0 combines 4,065 lexical entries and 1,833 parallel sentences from phased-out MTB-MLE modules with a pretrained Transformer and a custom lexicon-pointer system to handle out-of-vocabulary terms.",
+    "googleQuery": "LexiLoko 2.0 lexicon integrated neural machine translation Iloko"
+  },
+  {
+    "id": 26,
+    "category": "domain2",
+    "question": "In Group 1's study on the Cordillera Administrative Region (CAR), how many indigenous languages were identified using the relational model?",
+    "options": [
+      "5 languages",
+      "12 languages",
+      "22 languages",
+      "50 languages"
+    ],
+    "answer": 2,
+    "simpleExplanation": "Group 1 identified 22 distinct indigenous languages across the Cordillera region.",
+    "deepDive": "Dalos Miguel, Andres, Batara (Group 1, IJCSR 2024): The relational model mapped languages to municipalities and identified 22 distinct languages spoken across CAR.",
+    "googleQuery": "Language Mapping Cordillera Administrative Region 22 languages"
+  },
+  {
+    "id": 27,
+    "category": "domain2",
+    "question": "What overall Weighted Accuracy and Micro-F1 Score did the fine-tuned RoBERTa model achieve in Group 2's SDG study?",
     "options": [
       "70.0% Accuracy, 0.50 F1",
       "96.77% Weighted Accuracy, 0.74 Micro-F1",
@@ -495,64 +564,19 @@ const QUIZ_QUESTIONS = [
     "googleQuery": "RoBERTa SDG classification SLU 96.77%"
   },
   {
-    "id": 25,
-    "category": "domain2",
-    "question": "In the ablation study, what happened to the RoBERTa model's F1-score when 'LexDG' was removed?",
-    "options": [
-      "It increased from 0.74 to 0.85",
-      "It stayed exactly the same",
-      "It dropped from 0.74 to 0.68",
-      "It dropped to zero"
-    ],
-    "answer": 2,
-    "simpleExplanation": "Without the regional dictionary (LexDG), the F1-score dropped from 0.74 down to 0.68, showing how vital local terms are.",
-    "deepDive": "Presentation Slide 12: 'The LexDG Factor (Ablation Study): When tested without the custom localized lexicon (LexDG), the model's F1-score dropped from 0.74 to 0.68.'",
-    "googleQuery": "ablation study lexicon impact F1 score drop"
-  },
-  {
-    "id": 26,
-    "category": "domain2",
-    "question": "Which cloud infrastructure stack was used to deploy the real-time institutional evaluation system?",
-    "options": [
-      "Amazon Web Services (AWS) Lambda and DynamoDB",
-      "Google Cloud Platform (Vertex AI, Firestore) with Flask and Node.js",
-      "Microsoft Azure Cognitive Services only",
-      "Local Raspberry Pi cluster"
-    ],
-    "answer": 1,
-    "simpleExplanation": "It was deployed on Google Cloud (Vertex AI for AI inference and Firestore for database storage), with Flask and Node.js.",
-    "deepDive": "Presentation Slide 5 & 13: Google Cloud Platform (Vertex AI and Firestore), with Flask RESTful API and Node.js web application environment.",
-    "googleQuery": "Google Cloud Vertex AI Firestore NLP deployment"
-  },
-  {
-    "id": 27,
-    "category": "domain2",
-    "question": "What is the estimated monthly cloud operational cost of the deployed SDG assessment system?",
-    "options": [
-      "\u20b1500 \u2013 \u20b11,000 / month",
-      "\u20b12,700 \u2013 \u20b18,300 / month",
-      "\u20b150,000 \u2013 \u20b1100,000 / month",
-      "Completely free with zero operational costs"
-    ],
-    "answer": 1,
-    "simpleExplanation": "The estimated monthly cloud cost on GCP is between \u20b12,700 and \u20b18,300.",
-    "deepDive": "Presentation Slide 13 explicitly states: 'providing a scalable and cost-effective solution (estimated at \u20b12,700\u2013\u20b18,300/month)'.",
-    "googleQuery": "GCP Vertex AI Firestore cost monthly Philippine peso"
-  },
-  {
     "id": 28,
     "category": "domain2",
-    "question": "Why did the RoBERTa model occasionally misclassify SDG 2 (Zero Hunger) as SDG 13 (Climate Action)?",
+    "question": "In Group 2's ablation study, what happened when the custom localized lexicon 'LexDG' was removed?",
     "options": [
-      "Due to an accidental bug in Python's random number generator",
-      "Due to semantic category overlap, as both goals share agricultural and environmental sustainability terms",
-      "Because SDG 2 was excluded from the training dataset",
-      "Because RoBERTa does not support multi-label classification"
+      "The F1-score increased from 0.74 to 0.85",
+      "The F1-score stayed exactly the same",
+      "The F1-score dropped from 0.74 down to 0.68",
+      "The model refused to compile"
     ],
-    "answer": 1,
-    "simpleExplanation": "Both Zero Hunger and Climate Action talk heavily about farming, crops, and weather, creating semantic overlap.",
-    "deepDive": "Presentation Slide 13: 'Challenge 1 - Category Overlap: The model occasionally struggled with semantically similar goals, such as misclassifying SDG 2 (Zero Hunger) and SDG 13 (Climate Action) because they share terms like \"agriculture\" and \"sustainability\".'",
-    "googleQuery": "SDG 2 Zero Hunger and SDG 13 Climate Action semantic overlap"
+    "answer": 2,
+    "simpleExplanation": "Without LexDG, the F1-score plummeted from 0.74 to 0.68, proving the necessity of local dictionaries for Philippine NLP.",
+    "deepDive": "Group 2 Paper & Presentation Slide 12: 'The LexDG Factor (Ablation Study): When tested without the custom localized lexicon (LexDG), the model's F1-score dropped from 0.74 to 0.68.'",
+    "googleQuery": "LexDG ablation study F1 score drop 0.74 to 0.68"
   },
   {
     "id": 29,
@@ -767,112 +791,262 @@ const QUIZ_QUESTIONS = [
   {
     "id": 43,
     "category": "domain1",
-    "question": "Which of the following is an example of an enclitic in Filipino grammar?",
+    "question": "In 'Attention Is All You Need', what is the function implemented by each Position-wise Feed-Forward Network (FFN)?",
     "options": [
-      "The prefix 'nag-' in 'naglalaro'",
-      "Particles like 'pa', 'na', 'ba', and 'din'",
-      "The root word 'bahay'",
-      "The conjunction 'subalit'"
+      "FFN(x) = max(0, xW1 + b1)W2 + b2",
+      "FFN(x) = sigmoid(xW1) + tanh(xW2)",
+      "FFN(x) = softmax(xW1) \u00b7 xW2",
+      "FFN(x) = xW1 + xW2 + b"
     ],
-    "answer": 1,
-    "simpleExplanation": "Filipino enclitic particles like 'pa', 'na', and 'ba' lean on the word before them for stress.",
-    "deepDive": "Presentation 2, Slide 17 discusses clitics. In Philippine languages, particles such as 'ba', 'na', 'pa', and 'din' are classical enclitics.",
-    "googleQuery": "Philippine enclitic particles ba na pa din"
+    "answer": 0,
+    "simpleExplanation": "The position-wise FFN consists of two linear transformations with a ReLU activation in between: max(0, xW1 + b1)W2 + b2.",
+    "deepDive": "Vaswani et al. (2017), Section 3.3, Equation 2: FFN(x) = max(0, xW1 + b1)W2 + b2. Inner layer dimension d_ff = 2048, input/output dimension d_model = 512.",
+    "googleQuery": "position-wise feed-forward network transformer equation"
   },
   {
     "id": 44,
     "category": "domain1",
-    "question": "What is 'Morphological Segmentation' in NLP pipelines?",
+    "question": "Why is the Self-Attention sub-layer in the Transformer DECODER modified with masking (setting to -\u221e)?",
     "options": [
-      "Removing punctuation from a sentence",
-      "Separating a word into its individual morphemes and identifying their classes",
-      "Translating foreign idioms into English",
-      "Grouping sentences into paragraphs"
+      "To prevent rightward information flow and preserve the autoregressive property (preventing positions from attending to subsequent positions)",
+      "To discard words with low frequencies",
+      "To speed up floating point operations on TPUs",
+      "To automatically translate words into French"
     ],
-    "answer": 1,
-    "simpleExplanation": "It's chopping a word into its meaningful pieces (roots, prefixes, suffixes).",
-    "deepDive": "Presentation 1, Slide 29: 'Morphological segmentation refers to separating a word into individual morphemes and identifying the class of the morphemes.'",
-    "googleQuery": "morphological segmentation NLP definition"
+    "answer": 0,
+    "simpleExplanation": "Masking prevents the decoder from cheating by looking ahead at future words during generation.",
+    "deepDive": "Vaswani et al. (2017), Section 3.2.3: In decoder self-attention, masking out (setting to -\u221e) all connections to subsequent positions preserves the auto-regressive property so predictions for position i can depend only on known outputs at positions less than i.",
+    "googleQuery": "transformer masked self attention autoregressive property"
   },
   {
     "id": 45,
     "category": "domain1",
-    "question": "Which level of linguistic analysis is concerned with the study of speech sounds and phonemes?",
+    "question": "What BLEU score did the big Transformer achieve on the WMT 2014 English-to-German translation task?",
     "options": [
-      "Semantics",
-      "Phonology",
-      "Pragmatics",
-      "Syntax"
+      "15.2 BLEU",
+      "28.4 BLEU (establishing a new state-of-the-art by >2.0 BLEU)",
+      "45.0 BLEU",
+      "10.0 BLEU"
     ],
     "answer": 1,
-    "simpleExplanation": "Phonology deals with speech sounds.",
-    "deepDive": "Presentation 1, Slide 35: Terminologies in NLP list Phonology as the linguistic study of sounds, distinct from morphology, syntax, and semantics.",
-    "googleQuery": "phonology definition linguistics"
+    "simpleExplanation": "Transformer (big) achieved 28.4 BLEU on English-to-German, beating all previous models and ensembles by over 2.0 BLEU.",
+    "deepDive": "Vaswani et al. (2017), Section 6.1 & Table 2: Transformer (big) establishes a new state-of-the-art BLEU score of 28.4, outperforming all previous models including ensembles by more than 2.0 BLEU.",
+    "googleQuery": "attention is all you need WMT 2014 english german 28.4 BLEU"
   },
   {
     "id": 46,
-    "category": "domain1",
-    "question": "What does RAG stand for in modern Natural Language Processing?",
+    "category": "domain2",
+    "question": "In InfoSentiA (Group 4), what scale of sentiment polarity scoring is utilized by the AFINN-based Project Lengua API?",
     "options": [
-      "Recursive Autoregressive Grammar",
-      "Retrieval-Augmented Generation",
-      "Robust Automated Grading",
-      "Random Affix Generator"
+      "Scores from 0 to 100",
+      "Integer valence ratings ranging from -5 (extremely negative) to +5 (extremely positive)",
+      "Only binary 0 or 1",
+      "Continuous radians from -pi to +pi"
     ],
     "answer": 1,
-    "simpleExplanation": "RAG stands for Retrieval-Augmented Generation (fetching facts from documents before generating an answer).",
-    "deepDive": "Presentation 1, Slide 23 highlights 'Current Approach: Retrieval Augmented Generation (RAG)'.",
-    "googleQuery": "Retrieval Augmented Generation RAG NLP"
+    "simpleExplanation": "AFINN scores words as integers from -5 (very negative) up to +5 (very positive).",
+    "deepDive": "InfoSentiA Paper (Espiritu et al.), Section 3.2.2 & Figure 3: The score is based on the AFINN scoring system, ranging from -5 to +5.",
+    "googleQuery": "AFINN sentiment lexicon scoring scale -5 to +5"
   },
   {
     "id": 47,
     "category": "domain2",
-    "question": "Which SDG recorded the HIGHEST individual F1-score (0.95) in the RoBERTa classification study?",
+    "question": "In InfoSentiA (Group 4), what government branch and law form the mandate of the client line agency (RDSP)?",
     "options": [
-      "SDG 1 (No Poverty)",
-      "SDG 2 (Zero Hunger)",
-      "SDG 7 (Affordable and Clean Energy)",
-      "SDG 13 (Climate Action)"
+      "Department of Transportation under Republic Act 4136",
+      "Sangguniang Panlungsod ng Baguio pursuant to Section 16 of RA 7160 (Local Government Code of 1991)",
+      "Baguio General Hospital under DOH guidelines",
+      "DepEd Baguio Division under K-12 Act"
     ],
-    "answer": 2,
-    "simpleExplanation": "SDG 7 (Clean Energy) had the clearest distinct technical keywords, earning a 0.95 F1-score.",
-    "deepDive": "Paper Section 3.3, Table: SDG 7 (Affordable and Clean Energy) achieved Precision: 0.94, Recall: 0.97, and F1-score: 0.95 (Accuracy: 0.9938).",
-    "googleQuery": "SDG 7 clean energy highest F1 score RoBERTa"
+    "answer": 1,
+    "simpleExplanation": "The client is the Research Division of the Sangguniang Panlungsod ng Baguio under RA 7160 (Local Government Code).",
+    "deepDive": "InfoSentiA Paper, Section 1: The Sangguniang Panlungsod ng Baguio is mandated pursuant to Section 16 of Republic Act no. 7160 (Local Government Code of 1991). The Research Division (RDSP) performs legislative monitoring and evaluation.",
+    "googleQuery": "Sangguniang Panlungsod Baguio RA 7160 local government code"
   },
   {
     "id": 48,
     "category": "domain2",
-    "question": "What method was used to address class imbalance among underrepresented SDGs in the training dataset?",
+    "question": "In Group 5's Baguio social media study, what contrastive conjunction in Ilocano was specifically integrated into the VADER polarity-shift heuristic?",
     "options": [
-      "Dropping all minority classes",
-      "Random Oversampling (duplicating minority SDG instances)",
-      "Reducing model learning rate to zero",
-      "Converting multi-hot vectors to single-hot vectors"
+      "'ngem' (equivalent to Tagalog 'pero' / English 'but')",
+      "'ken' (and)",
+      "'tapno' (in order to)",
+      "'agsapa' (morning)"
     ],
-    "answer": 1,
-    "simpleExplanation": "Random oversampling was used: making copies of documents in rare SDGs so the model sees them enough times.",
-    "deepDive": "Presentation Slide 7: 'Class imbalance addressed via random oversampling (minority SDG classes duplicated to match majority).'",
-    "googleQuery": "random oversampling class imbalance NLP"
+    "answer": 0,
+    "simpleExplanation": "The Ilocano word 'ngem' means 'but' and signals a shift in sentiment where the second clause takes priority.",
+    "deepDive": "Arevalo et al. (Group 5), Section 3.4.1: 'The words pero, ngunit, subalit, bagkus for Tagalog and ngem for Ilocano were incorporated in the Vader Sentiment Analysis' for polarity shift.",
+    "googleQuery": "Ilocano ngem contrastive conjunction sentiment analysis"
   },
   {
     "id": 49,
     "category": "domain2",
-    "question": "What OCR software library was used to extract text from scanned, non-editable institutional reports?",
+    "question": "In Group 5's Baguio study, which topic had the second-highest distribution (16%) among governance themes?",
     "options": [
-      "BeautifulSoup",
-      "Selenium",
-      "Pytesseract",
-      "NLTK"
+      "Environment",
+      "Tourism / Travel Destinations",
+      "Healthcare",
+      "Taxes and Budget"
     ],
-    "answer": 2,
-    "simpleExplanation": "Pytesseract was used for OCR to read scanned PDF pages.",
-    "deepDive": "Presentation Slide 6: 'OCR (Pytesseract) used to extract text from scanned/image-based (non-editable) files.'",
-    "googleQuery": "Pytesseract OCR PDF extraction"
+    "answer": 1,
+    "simpleExplanation": "Tourism/Travel Destinations was second highest at 16% (after the general Outlier category at 52%).",
+    "deepDive": "Group 5 Paper, Table 1: Outlier = 0.52 (52%), Tourism/Travel Destinations = 0.16 (16%), Arts and Culture = 0.10 (10%).",
+    "googleQuery": "Baguio BERTopic distribution tourism 16%"
   },
   {
     "id": 50,
+    "category": "domain2",
+    "question": "Why did Group 5's multiclass sentiment model achieve lower accuracy (55.98%) than their binary model (72.74%)?",
+    "options": [
+      "Because the model crashed on negative words",
+      "Because human annotators frequently labeled slightly positive comments as neutral, creating ambiguity and diluting multiclass boundaries",
+      "Because Baguio has no tourist reviews",
+      "Because BERTopic cannot run multiclass analysis"
+    ],
+    "answer": 1,
+    "simpleExplanation": "Distinguishing neutral comments from slightly positive ones is tough, and human annotators often labeled mildly positive comments as neutral.",
+    "deepDive": "Group 5 Paper, Section 4.2 & 5: When manually labeling sentiments, researchers had a tendency to assign neutral labels even if a comment was slightly positive, causing lower multiclass accuracy (55.98%).",
+    "googleQuery": "multiclass sentiment analysis neutral category ambiguity annotator bias"
+  },
+  {
+    "id": 51,
+    "category": "domain2",
+    "question": "In Group 6's paper (LexiLoko 2.0), how did the researchers source their 4,065 lexical entries and 1,833 parallel sentences?",
+    "options": [
+      "By scraping English Wikipedia",
+      "By digitizing phased-out Mother Tongue-Based Multilingual Education (MTB-MLE) learning modules from DepEd-Pangasinan",
+      "By recording television news broadcasts",
+      "By interviewing tourists in Session Road"
+    ],
+    "answer": 1,
+    "simpleExplanation": "They digitized discontinued MTB-MLE mother-tongue elementary modules from DepEd-Pangasinan.",
+    "deepDive": "LexiLoko 2.0 (Ragudos, Nonato et al.): Repurposed and digitized phased-out MTB-MLE learning resources from DepEd-Pangasinan to construct structured Iloko corpora.",
+    "googleQuery": "LexiLoko MTB-MLE DepEd Pangasinan Iloko corpus"
+  },
+  {
+    "id": 52,
+    "category": "domain2",
+    "question": "In Group 3's Ilocano-English translation system, what statistical machine translation toolkit was customized?",
+    "options": [
+      "Moses SMT System",
+      "Apache OpenNLP",
+      "Google Translate API",
+      "spaCy"
+    ],
+    "answer": 0,
+    "simpleExplanation": "They customized the Moses Statistical Machine Translation framework.",
+    "deepDive": "Dalos Miguel et al. (Group 3, NNLPRS 2015): Bi-directional Ilocano-English Language Translator Using Customized Moses Statistical Machine Translation System.",
+    "googleQuery": "Moses statistical machine translation system Ilocano English"
+  },
+  {
+    "id": 53,
+    "category": "domain2",
+    "question": "In Group 1's study, how many indigenous languages were identified in the Cordillera Administrative Region (CAR)?",
+    "options": [
+      "10 languages",
+      "22 languages",
+      "45 languages",
+      "100 languages"
+    ],
+    "answer": 1,
+    "simpleExplanation": "The study mapped and identified 22 indigenous languages across CAR.",
+    "deepDive": "Dalos Miguel, Andres, Batara (Group 1, 2024): Language Mapping of the Cordillera Administrative Region Using Relational Model identified 22 distinct languages.",
+    "googleQuery": "Language mapping cordillera administrative region 22 languages"
+  },
+  {
+    "id": 54,
+    "category": "domain2",
+    "question": "What Tagalog POS tagger achieved the highest accuracy (78.3%) on UNSEEN test data in Dalos Miguel and Rachel Roxas's (2007) benchmark?",
+    "options": [
+      "Tag-Alog (Rule-Based)",
+      "PTPOST4.1 (Probabilistic HMM Tagger)",
+      "MBPOST (Memory-Based)",
+      "TPOST (Template-Based)"
+    ],
+    "answer": 1,
+    "simpleExplanation": "PTPOST4.1, which uses Hidden Markov Models (HMM), scored highest (78.3%) on unseen test text.",
+    "deepDive": "Dalos Miguel & Roxas (NNLPRS 2007) / Presentation 1 Slide 55: PTPOST4.1 achieved 78.3% on unseen test data, showing HMM probabilistic models generalize best.",
+    "googleQuery": "PTPOST4.1 tagalog part of speech tagger accuracy 78.3"
+  },
+  {
+    "id": 55,
+    "category": "domain1",
+    "question": "In Kankanaey morphology (Miguel 2009), what does the reduplicated word 'taltalak' mean, derived from the root 'talak' (car)?",
+    "options": [
+      "Two cars",
+      "Toy car / miniature car",
+      "Fast car",
+      "Car driver"
+    ],
+    "answer": 1,
+    "simpleExplanation": "From root 'talak' (car), reduplication produces 'taltalak' meaning 'toy car'.",
+    "deepDive": "Presentation 2, Slide 18: 'From the root word talak which translates to car, the Kankanaey word taltalak translates to toy car.'",
+    "googleQuery": "talak taltalak kankanaey morphology toy car"
+  },
+  {
+    "id": 56,
+    "category": "domain2",
+    "question": "In Group 2's study on RoBERTa for HEI SDGs, which UN Sustainable Development Goal recorded the HIGHEST individual F1-score of 0.95?",
+    "options": [
+      "SDG 1 (No Poverty)",
+      "SDG 7 (Affordable and Clean Energy)",
+      "SDG 2 (Zero Hunger)",
+      "SDG 13 (Climate Action)"
+    ],
+    "answer": 1,
+    "simpleExplanation": "SDG 7 (Clean Energy) had the clearest distinct keywords, achieving an F1-score of 0.95.",
+    "deepDive": "Group 2 Paper, Table 3.3: SDG 7 (Affordable and Clean Energy) recorded Precision: 0.94, Recall: 0.97, F1: 0.95.",
+    "googleQuery": "SDG 7 clean energy highest F1 score RoBERTa HEI"
+  },
+  {
+    "id": 57,
+    "category": "domain2",
+    "question": "In Group 2's study, why did SDG 2 (Zero Hunger) record the lowest individual F1-score (0.55)?",
+    "options": [
+      "Because zero documents were submitted for SDG 2",
+      "Because of semantic category overlap with SDG 13 (Climate Action), sharing terms like 'agriculture' and 'sustainability'",
+      "Because the RoBERTa tokenizer cannot tokenize food terms",
+      "Because SDG 2 was excluded from the training split"
+    ],
+    "answer": 1,
+    "simpleExplanation": "Zero Hunger and Climate Action share heavy vocabulary around farming and crops, creating confusion.",
+    "deepDive": "Group 2 Presentation, Slide 13 & Paper Section 3.3: Category overlap between SDG 2 (Zero Hunger) and SDG 13 (Climate Action) sharing agricultural keywords caused cross-classification errors (SDG 2 F1 = 0.55).",
+    "googleQuery": "SDG 2 zero hunger category overlap SDG 13 climate action"
+  },
+  {
+    "id": 58,
     "category": "domain3",
-    "question": "In Question 2 of the Bag of Words exercise, what is the frequency count of the word 'Pilipinas' in the full text?",
+    "question": "In the BoW Panatang Makabayan exercise, how many total occurrences of the word 'ang' appear in the source text?",
+    "options": [
+      "3",
+      "4",
+      "6",
+      "10"
+    ],
+    "answer": 2,
+    "simpleExplanation": "The stopword 'ang' appears exactly 6 times in the pledge text.",
+    "deepDive": "BagOfWordExercise.pdf Page 1: Index 3 ('ang') has a frequency count of 6.",
+    "googleQuery": "Panatang Makabayan bag of words count of ang"
+  },
+  {
+    "id": 59,
+    "category": "domain3",
+    "question": "In the BoW Panatang Makabayan exercise, how many total occurrences of the word 'ko' appear in the source text?",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "answer": 2,
+    "simpleExplanation": "The stopword 'ko' appears 6 times in the pledge text.",
+    "deepDive": "BagOfWordExercise.pdf Page 1: Index 15 ('ko') has a count of 6 ('Iniibig ko... Dahil mahal ko... Diringgin ko... Susundin ko... Tutuparin ko... Iaalay ko').",
+    "googleQuery": "count of ko Panatang Makabayan bag of words 6"
+  },
+  {
+    "id": 60,
+    "category": "domain3",
+    "question": "In the post-stopword 37-dimensional vocabulary, what is the frequency count of 'Pilipinas' at Index 30?",
     "options": [
       "1",
       "2",
@@ -880,162 +1054,27 @@ const QUIZ_QUESTIONS = [
       "6"
     ],
     "answer": 2,
-    "simpleExplanation": "'Pilipinas' appears 3 times in the Panatang Makabayan text.",
-    "deepDive": "BagOfWordExercise.pdf Page 1, Derivation: Index 36 ('Pilipinas') has count: 3 ('Iniibig ko ang Pilipinas... Dahil mahal ko ang Pilipinas... Sa bansang Pilipinas').",
-    "googleQuery": "Pilipinas count Panatang Makabayan bag of words"
-  },
-  {
-    "id": 51,
-    "category": "domain3",
-    "question": "In the Naive Bayes fruit classification example (Banana vs Orange vs Other), which fruit won for features 'Long, Sweet, Yellow'?",
-    "options": [
-      "Orange",
-      "Other",
-      "Banana (with probability ~0.969)",
-      "Equal tie between Orange and Banana"
-    ],
-    "answer": 2,
-    "simpleExplanation": "Banana won overwhelmingly with ~96.9% probability.",
-    "deepDive": "Presentation 3, Slide 43: 'Result: P(Banana | Long, Sweet, Yellow) = 0.969231'.",
-    "googleQuery": "naive bayes fruit classification banana orange 0.969"
-  },
-  {
-    "id": 52,
-    "category": "domain1",
-    "question": "What is the primary difference between Supervised and Unsupervised POS tagging?",
-    "options": [
-      "Supervised uses a tagged corpus annotated by a linguist; unsupervised induces tags and dictionaries from untagged text",
-      "Supervised runs on GPU; unsupervised runs on CPU",
-      "Supervised only works on English; unsupervised only works on Tagalog",
-      "Supervised uses regex; unsupervised uses word embeddings"
-    ],
-    "answer": 0,
-    "simpleExplanation": "Supervised learns from human-labeled training data, while unsupervised figures out tags on its own from raw text.",
-    "deepDive": "Presentation 1, Slides 48-50: Supervised tagging uses a selected tagset and tagged corpus annotated by a linguist; unsupervised tagging induces tag sets and dictionaries directly from untagged data.",
-    "googleQuery": "supervised vs unsupervised POS tagging"
-  },
-  {
-    "id": 53,
-    "category": "domain1",
-    "question": "Brill's POS tagger is a classic example of which approach?",
-    "options": [
-      "Probabilistic HMM Tagger",
-      "Rule-based (Transformation-based) Tagger",
-      "Deep Neural Transformer",
-      "Unsupervised clustering"
-    ],
-    "answer": 1,
-    "simpleExplanation": "Brill's tagger is a rule-based, transformation-based tagger.",
-    "deepDive": "Presentation 1, Slide 52 & 67: Eric Brill (2000) authored seminal work on Rule-based POS Tagging using databases of words and transformation rules.",
-    "googleQuery": "Eric Brill transformation based rule based POS tagging"
-  },
-  {
-    "id": 54,
-    "category": "domain2",
-    "question": "Which benchmark datasets did RoBERTa consistently outperform BERT on?",
-    "options": [
-      "ImageNet and MNIST",
-      "GLUE, SQuAD, and RACE",
-      "WordNet and FrameNet",
-      "WMT14 only"
-    ],
-    "answer": 1,
-    "simpleExplanation": "RoBERTa beat BERT on GLUE, SQuAD, and RACE benchmarks.",
-    "deepDive": "Presentation Slide 8: Under RoBERTa performance, it 'Consistently outperforms BERT on GLUE, SQuAD, and RACE benchmarks.'",
-    "googleQuery": "RoBERTa GLUE SQuAD RACE benchmark performance"
-  },
-  {
-    "id": 55,
-    "category": "domain3",
-    "question": "In the BoW exercise, what was the total token count of the Panatang Makabayan text before deduplication into vocabulary?",
-    "options": [
-      "37 tokens",
-      "44 tokens",
-      "64 tokens",
-      "100 tokens"
-    ],
-    "answer": 2,
-    "simpleExplanation": "There were 64 words (tokens) in total in the text, which boiled down to 44 unique vocabulary words.",
-    "deepDive": "BagOfWordExercise.pdf Question 2 Solution: 'Counting word occurrences in the text (case-insensitively, total = 64 tokens)'.",
-    "googleQuery": "Panatang Makabayan 64 tokens 44 unique vocabulary"
-  },
-  {
-    "id": 56,
-    "category": "domain1",
-    "question": "What is Compounding in morphology?",
-    "options": [
-      "Combining an affix with a bound root",
-      "Combining two or more independent words that correspond to a single unified meaning",
-      "Reducing a word's syllable count",
-      "Discarding grammatical inflections"
-    ],
-    "answer": 1,
-    "simpleExplanation": "Compounding combines two full words to create a single concept, like 'Green House' or 'taltalak'.",
-    "deepDive": "Presentation 2, Slide 18: 'Compounding involves a sequence of two or more words but the sequence corresponds to a single meaning' (e.g. Green House, taltalak).",
-    "googleQuery": "compounding morphology linguistics"
-  },
-  {
-    "id": 57,
-    "category": "domain2",
-    "question": "In the SDG classification paper, what tool was used for web scraping institutional sustainability reports?",
-    "options": [
-      "Selenium + BeautifulSoup",
-      "Scrapy + PyTorch",
-      "Puppeteer + React",
-      "TensorFlow + Keras"
-    ],
-    "answer": 0,
-    "simpleExplanation": "Selenium and BeautifulSoup were used together to scrape the university websites.",
-    "deepDive": "Presentation Slide 6: 'Mixed collection methods: automated web scraping (Selenium + BeautifulSoup) and manual entry for security-sensitive institutions.'",
-    "googleQuery": "Selenium BeautifulSoup web scraping text data"
-  },
-  {
-    "id": 58,
-    "category": "domain3",
-    "question": "If word W appears in category C zero times, what does standard Laplace smoothing assign as its smoothed probability numerator?",
-    "options": [
-      "0",
-      "1",
-      "0.5",
-      "Vocabulary size |V|"
-    ],
-    "answer": 1,
-    "simpleExplanation": "Laplace smoothing adds 1 to the count, so 0 + 1 = 1 in the numerator.",
-    "deepDive": "Presentation 3, Slide 66 & Laplace Formula: Numerator becomes (Count + 1), so for Count = 0, the numerator is 1.",
-    "googleQuery": "Laplace add one smoothing numerator"
-  },
-  {
-    "id": 59,
-    "category": "domain1",
-    "question": "What is an infix?",
-    "options": [
-      "An affix inserted inside the root word itself",
-      "An affix placed at the very start of a word",
-      "An affix placed at the very end of a word",
-      "A word that cannot be pronounced"
-    ],
-    "answer": 0,
-    "simpleExplanation": "An infix is inserted right in the middle of a root word (like -in- in Tagalog and Kankanaey 'g-in-abyon').",
-    "deepDive": "Presentation 2, Slides 11 & 22-26: Infixation inserts an affix within a base root, common in Philippine languages (e.g. -in- in ginabyon, -um- in gumabyon).",
-    "googleQuery": "infixation morphology Philippine languages"
-  },
-  {
-    "id": 60,
-    "category": "domain2",
-    "question": "Which deep learning framework was used to train the RoBERTa model in the presented study?",
-    "options": [
-      "TensorFlow 1.x",
-      "PyTorch with Hugging Face Transformers",
-      "Apache MXNet",
-      "Caffe"
-    ],
-    "answer": 1,
-    "simpleExplanation": "They used PyTorch with Hugging Face Transformers.",
-    "deepDive": "Presentation Slide 5: Deep Learning Framework: PyTorch; Software Library: Hugging Face's Transformers; Development Environment: Google Colab.",
-    "googleQuery": "PyTorch Hugging Face Transformers RoBERTa training"
+    "simpleExplanation": "'Pilipinas' appears 3 times in the text.",
+    "deepDive": "BagOfWordExercise.pdf Page 2: Index 30 ('Pilipinas') has count 3 in the 37-word vocabulary.",
+    "googleQuery": "Pilipinas count 3 index 30 bag of words"
   }
 ];
 const FLASHCARDS = [
+  {
+    "category": "Domain 1",
+    "front": "What is the Transformer's Scaled Dot-Product formula?",
+    "back": "Attention(Q, K, V) = softmax(QK^T / \u221ad_k)V. Dividing by \u221ad_k prevents vanishing gradients caused by large dot products."
+  },
+  {
+    "category": "Domain 1",
+    "front": "Why Multi-Head Attention over Single-Head?",
+    "back": "Multi-Head Attention (h=8 heads, d_k=64) allows the model to jointly attend to information from different representation subspaces at different positions."
+  },
+  {
+    "category": "Domain 1",
+    "front": "Why does Transformer use Positional Encodings?",
+    "back": "Because the model contains no recurrence (RNNs) or convolutions, sinusoidal positional encodings are added to embeddings to inject relative/absolute token order."
+  },
   {
     "category": "Domain 1",
     "front": "What is a Morpheme?",
@@ -1063,88 +1102,38 @@ const FLASHCARDS = [
   },
   {
     "category": "Domain 1",
-    "front": "What is Compounding?",
-    "back": "A sequence of two or more words functioning as a single semantic unit. Example: 'Green House', Kankanaey 'taltalak' (toy car, from talak = car)."
-  },
-  {
-    "category": "Domain 1",
-    "front": "Why is 'gabyon' significant in Miguel (2009)?",
-    "back": "In Kankanaey, the noun 'gabyon' (farming hoe) serves as a semantic repository generating over 50 inflections, derivations, and compound incorporations."
-  },
-  {
-    "category": "Domain 1",
     "front": "Tagalog Tagsets: Rabo vs. Buban?",
     "back": "Rabo (2004) Tagset = 59 tags. Revised Tagalog Tagset by Dr. Buban = 65 tags."
   },
   {
-    "category": "Domain 1",
-    "front": "Most & Least frequent Tagalog POS tags?",
-    "back": "NNC (Common Noun) is the highest frequency tag and default for unknown words. VBOI is the least frequent tag (zero in some corpora)."
-  },
-  {
-    "category": "Domain 1",
-    "front": "HMM POS Tagging Probabilities?",
-    "back": "1. Lexical / Emission Probability: P(word | tag). 2. Contextual / Transition Probability: P(tag_i | tag_{i-1})."
+    "category": "Domain 2",
+    "front": "Group 5 (Baguio BERTopic): Why avoid English translation?",
+    "back": "Translating Tagalog/Taglish/Ilocano to English strips away cultural nuance and slang. Group 5 used a combined Tagalog-Ilocano word lexicon."
   },
   {
     "category": "Domain 2",
-    "front": "What is 'SDG-Washing'?",
-    "back": "When institutions make superficial sustainability or green claims in their reports without measurable, verifiable proof."
+    "front": "Group 5: 5 VADER Heuristics Adapted?",
+    "back": "1. Capitalization (ALL CAPS), 2. Punctuation (!!!), 3. Degree Modifiers (123 adverbs like sobra, medyo), 4. Polarity Shift ('but' / pero, ngunit, ngem), 5. Negation (62 words like hindi)."
   },
   {
     "category": "Domain 2",
-    "front": "Dataset Size in RoBERTa SDG Study?",
-    "back": "748 documents collected across 15 Philippine HEIs via Selenium/BeautifulSoup web scraping and Pytesseract OCR."
+    "front": "Group 4 (InfoSentiA): What is Project Lengua?",
+    "back": "A dedicated Node/Express/MongoDB microservice that analyzes Baguio citizen comments on ordinances using the AFINN sentiment lexicon (-5 to +5 scale)."
   },
   {
     "category": "Domain 2",
-    "front": "Why Multi-Hot Vector Encoding for SDGs?",
-    "back": "Because an institutional document can address multiple SDGs simultaneously (multi-label classification across 17 goals)."
+    "front": "Group 7: Tagalog POS Taggers Winner on Unseen Data?",
+    "back": "PTPOST4.1 (Hidden Markov Model) achieved the highest accuracy (78.3%) on unseen test data."
   },
   {
     "category": "Domain 2",
-    "front": "What is LexDG and its Ablation Result?",
-    "back": "A specialized lexicon of Philippine/regional (Ilocano) terms. In the ablation study without LexDG, the model's F1-score dropped from 0.74 to 0.68."
-  },
-  {
-    "category": "Domain 2",
-    "front": "Key Architectural Differences: BERT vs. RoBERTa?",
-    "back": "RoBERTa uses Dynamic Masking (vs Static), removes Next Sentence Prediction (NSP), trains on 160 GB data (vs 16 GB), uses Byte-level BPE 50k vocab (vs WordPiece 30k), and uses larger batch sizes."
-  },
-  {
-    "category": "Domain 2",
-    "front": "RoBERTa SDG Model Results?",
-    "back": "96.77% Weighted Accuracy, 0.80 Micro-Precision, 0.70 Micro-Recall, 0.74 Micro-F1. Outperformed baselines (LogReg 0.64, SVM 0.67, BERT 0.70)."
-  },
-  {
-    "category": "Domain 2",
-    "front": "GCP Cloud Stack & Estimated Monthly Cost?",
-    "back": "Google Cloud Vertex AI (model serving) + Firestore (NoSQL database) + Flask/Node.js web UI. Estimated cost: \u20b12,700 to \u20b18,300 per month."
-  },
-  {
-    "category": "Domain 2",
-    "front": "Category Overlap Limitation in SDG Study?",
-    "back": "Semantic overlap between SDG 2 (Zero Hunger) and SDG 13 (Climate Action) due to shared vocabulary like 'agriculture' and 'sustainability' (SDG 2 F1 = 0.55)."
-  },
-  {
-    "category": "Domain 3",
-    "front": "What is Bag of Words (BoW)?",
-    "back": "A text representation that counts the occurrence frequency of each vocabulary word in a document, completely ignoring grammar and word order."
+    "front": "Group 2: What is LexDG and its Ablation Result?",
+    "back": "A specialized lexicon of Philippine/Ilocano terms for SDG classification. Without LexDG, RoBERTa's F1-score dropped from 0.74 down to 0.68."
   },
   {
     "category": "Domain 3",
     "front": "Panatang Makabayan 44 to 37 Reduction?",
     "back": "Initial vocabulary had 44 unique words. Removing 7 stopwords (ang, at, ko, mga, nang, ng, sa) reduced dimensionality to 44 - 7 = 37 words."
-  },
-  {
-    "category": "Domain 3",
-    "front": "Which words have highest counts in the 37-D BoW?",
-    "back": "Index 1: 'aking' (count = 4). Index 30: 'Pilipinas' (count = 3). All other 35 words have count = 1."
-  },
-  {
-    "category": "Domain 3",
-    "front": "Conditional Probability Formula?",
-    "back": "P(A | B) = P(A \u2229 B) / P(B). Example: P(Female | Student) = (32/100) / (80/100) = 32/80 = 0.40."
   },
   {
     "category": "Domain 3",
@@ -1157,28 +1146,155 @@ const FLASHCARDS = [
     "back": "Adding 1 to every word frequency count so that unseen words in a category do not produce a 0 probability that zeroes out the entire product."
   },
   {
-    "category": "Domain 3",
-    "front": "Language Identification Formula?",
-    "back": "L_hat = argmax_L [ P(L) * \u220f P(w_i | L) ]. For 'naimbag nga rabii', multiply P(Ilocano) by P('naimbag'|Ilocano)*P('nga'|Ilocano)*P('rabii'|Ilocano)."
+    "category": "Domain 1",
+    "front": "Transformer Scaled Dot-Product formula?",
+    "back": "Attention(Q, K, V) = softmax(QK^T / \u221ad_k)V. Dividing by \u221ad_k prevents vanishing gradients caused by large dot products."
+  },
+  {
+    "category": "Domain 1",
+    "front": "Why Multi-Head Attention over Single-Head?",
+    "back": "Multi-Head Attention (h=8 heads, d_k=64) allows the model to jointly attend to information from different representation subspaces at different positions."
+  },
+  {
+    "category": "Domain 1",
+    "front": "Why does Transformer use Positional Encodings?",
+    "back": "Because the model contains no recurrence (RNNs) or convolutions, sinusoidal positional encodings are added to embeddings to inject token sequence order."
+  },
+  {
+    "category": "Domain 1",
+    "front": "Transformer Complexity: Attention vs. RNN?",
+    "back": "Self-attention connects all positions in O(1) sequential operations, enabling GPU parallelization, compared to O(n) sequential operations in RNNs."
+  },
+  {
+    "category": "Domain 2",
+    "front": "Group 5 (Baguio BERTopic): Why avoid English translation?",
+    "back": "Translating Tagalog/Taglish/Ilocano to English strips away cultural nuance and slang. Group 5 used a combined Tagalog-Ilocano word lexicon."
+  },
+  {
+    "category": "Domain 2",
+    "front": "Group 5: 5 VADER Heuristics Adapted?",
+    "back": "1. Capitalization (ALL CAPS), 2. Punctuation (!!!), 3. Degree Modifiers (123 adverbs like sobra, medyo), 4. Polarity Shift ('but' / pero, ngunit, ngem), 5. Negation (62 words like hindi)."
+  },
+  {
+    "category": "Domain 2",
+    "front": "Group 4 (InfoSentiA): What is Project Lengua?",
+    "back": "A dedicated Node/Express/MongoDB microservice that analyzes Baguio citizen comments on ordinances using the AFINN sentiment lexicon (-5 to +5 scale)."
+  },
+  {
+    "category": "Domain 2",
+    "front": "Group 4: How does InfoSentiA connect to citizens?",
+    "back": "Uses the Facebook Graph API to automatically post approved city resolutions to Facebook and pull comments for sentiment analysis."
+  },
+  {
+    "category": "Domain 2",
+    "front": "Group 7: Tagalog POS Taggers Winner on Unseen Data?",
+    "back": "PTPOST4.1 (Hidden Markov Model) achieved the highest accuracy (78.3%) on unseen test data."
+  },
+  {
+    "category": "Domain 2",
+    "front": "Group 6 (LexiLoko 2.0): What is the Lexicon-Pointer?",
+    "back": "A mechanism that looks up rare/out-of-vocabulary words in an MTB-MLE bilingual dictionary during Transformer neural translation to prevent translation errors."
+  },
+  {
+    "category": "Domain 2",
+    "front": "Group 1: How many CAR languages identified?",
+    "back": "Identified 22 distinct indigenous languages across the Cordillera region using a relational database model."
   }
 ];
 
-// 44-Word and 37-Word Vocabulary Tables for Interactive BoW Tool
 const BOW_VOCAB_44 = [
-  "aking", "ako", "ang", "at", "bansang", "buhay", "buong", "dahil", "diringgin", "iaalay",
-  "iniibig", "isang", "katapatan", "kinukupkop", "ko", "lahi", "lupang", "maging", "magulang", "mahal",
-  "makabayan", "malakas", "mamamayang", "marangal", "masipag", "mga", "nag-aaral", "nagdarasal", "naglilingkod", "nang",
-  "ng", "paaralan", "pagsisikap", "pangarap", "payo", "Pilipinas", "Sa", "Sinilangan", "Susundin", "Tahanan",
-  "Tinutulungang", "Tungkulin", "Tuntunin", "Tutuparin"
+  "aking",
+  "ako",
+  "ang",
+  "at",
+  "bansang",
+  "buhay",
+  "buong",
+  "dahil",
+  "diringgin",
+  "iaalay",
+  "iniibig",
+  "isang",
+  "katapatan",
+  "kinukupkop",
+  "ko",
+  "lahi",
+  "lupang",
+  "maging",
+  "magulang",
+  "mahal",
+  "makabayan",
+  "malakas",
+  "mamamayang",
+  "marangal",
+  "masipag",
+  "mga",
+  "nag-aaral",
+  "nagdarasal",
+  "naglilingkod",
+  "nang",
+  "ng",
+  "paaralan",
+  "pagsisikap",
+  "pangarap",
+  "payo",
+  "Pilipinas",
+  "Sa",
+  "Sinilangan",
+  "Susundin",
+  "Tahanan",
+  "Tinutulungang",
+  "Tungkulin",
+  "Tuntunin",
+  "Tutuparin"
 ];
-
-const BOW_STOPWORDS_7 = ["ang", "at", "ko", "mga", "nang", "ng", "sa"];
-
+const BOW_STOPWORDS_7 = [
+  "ang",
+  "at",
+  "ko",
+  "mga",
+  "nang",
+  "ng",
+  "sa"
+];
 const BOW_VOCAB_37 = [
-  "aking", "ako", "bansang", "buhay", "buong", "dahil", "diringgin", "iaalay", "iniibig", "isang",
-  "katapatan", "kinukupkop", "lahi", "lupang", "maging", "magulang", "mahal", "makabayan", "malakas", "mamamayang",
-  "marangal", "masipag", "nag-aaral", "nagdarasal", "naglilingkod", "paaralan", "pagsisikap", "pangarap", "payo", "Pilipinas",
-  "Sinilangan", "Susundin", "Tahanan", "Tinutulungang", "Tungkulin", "Tuntunin", "Tutuparin"
+  "aking",
+  "ako",
+  "bansang",
+  "buhay",
+  "buong",
+  "dahil",
+  "diringgin",
+  "iaalay",
+  "iniibig",
+  "isang",
+  "katapatan",
+  "kinukupkop",
+  "lahi",
+  "lupang",
+  "maging",
+  "magulang",
+  "mahal",
+  "makabayan",
+  "malakas",
+  "mamamayang",
+  "marangal",
+  "masipag",
+  "nag-aaral",
+  "nagdarasal",
+  "naglilingkod",
+  "paaralan",
+  "pagsisikap",
+  "pangarap",
+  "payo",
+  "Pilipinas",
+  "Sinilangan",
+  "Susundin",
+  "Tahanan",
+  "Tinutulungang",
+  "Tungkulin",
+  "Tuntunin",
+  "Tutuparin"
 ];
 
 if (typeof module !== 'undefined' && module.exports) {
