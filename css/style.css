@@ -141,6 +141,11 @@ body {
   transition: background-color 200ms var(--ease-standard), color 200ms var(--ease-standard);
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* 3. NAVBAR */
 .navbar {
   position: sticky;
@@ -467,6 +472,93 @@ body {
   font-size: 0.72rem;
 }
 
+/* 6.1 ACTION CARDS GRID */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+}
+
+.action-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.6rem 1.5rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: var(--transition);
+  color: var(--ink);
+}
+
+.action-card::after {
+  content: "+";
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-subtle);
+}
+
+.action-card:hover {
+  background: var(--surface-elevated);
+  border-color: var(--border-active);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.action-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.action-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.45rem;
+}
+
+[data-theme="light"] .action-title {
+  color: #000000;
+}
+
+.action-desc {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.action-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition);
+}
+
+[data-theme="light"] .action-btn {
+  color: #000000;
+}
+
+.action-card:hover .action-btn {
+  gap: 0.65rem;
+  color: var(--accent-primary);
+}
+
 /* 7. SECTION HEADINGS & TABS */
 .section-header {
   margin-bottom: 1.75rem;
@@ -479,9 +571,9 @@ body {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--ink);
   display: flex;
   align-items: center;
