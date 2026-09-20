@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Active Recall Flashcards | CSE 30 NLP Reviewer</title>
   <meta name="description" content="Active recall flashcards covering NLP & Morphology, Cloud-Based RoBERTa for SDGs, and Bag of Words & Naive Bayes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600;700&family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -56,7 +59,7 @@
       <!-- TOP INFO -->
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; font-weight:700; color:var(--text-secondary);">
         <span id="fc-category-badge" class="quiz-category-tag">Domain 1</span>
-        <span id="fc-counter">Card 1 of 25</span>
+        <span id="fc-counter" style="font-family:var(--font-mono); font-size:0.78rem; text-transform:uppercase;">Card 1 of 44</span>
       </div>
 
       <!-- FLASHCARD COMPONENT -->
@@ -66,14 +69,14 @@
           <div class="card-face card-front">
             <span class="card-category" id="fc-front-category">Domain 1</span>
             <div class="card-question" id="fc-question-text">Question loading...</div>
-            <div class="card-hint">💡 Tap or click anywhere to flip card</div>
+            <div class="card-hint">[SPACEBAR: FLIP] • CLICK TO REVEAL</div>
           </div>
 
           <!-- BACK -->
           <div class="card-face card-back">
-            <span class="card-category" style="color:var(--success);">Answer Key</span>
+            <span class="card-category" style="color:var(--accent-primary);">[ ANSWER KEY ]</span>
             <div class="card-answer" id="fc-answer-text">Answer loading...</div>
-            <div class="card-hint">💡 Tap to flip back</div>
+            <div class="card-hint">[SPACEBAR: FLIP BACK] • [ARROWS: NAVIGATE]</div>
           </div>
         </div>
       </div>

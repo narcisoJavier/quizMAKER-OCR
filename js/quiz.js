@@ -33,6 +33,38 @@
     if (restartBtn) {
       restartBtn.addEventListener('click', () => loadCategory(selectedCategory));
     }
+
+    // Tactical Keyboard Shortcuts: 1-4 / A-D to choose, Enter to continue
+    document.addEventListener('keydown', (e) => {
+      const activeQuiz = document.getElementById('quiz-view');
+      if (!activeQuiz || activeQuiz.style.display === 'none') return;
+
+      const nextBtn = document.getElementById('next-question-btn');
+      if (e.key === 'Enter') {
+        if (nextBtn && nextBtn.style.display !== 'none') {
+          e.preventDefault();
+          nextQuestion();
+        }
+        return;
+      }
+
+      if (!answeredInCurrent) {
+        let selectedIdx = -1;
+        const k = e.key.toLowerCase();
+        if (e.key === '1' || k === 'a') selectedIdx = 0;
+        else if (e.key === '2' || k === 'b') selectedIdx = 1;
+        else if (e.key === '3' || k === 'c') selectedIdx = 2;
+        else if (e.key === '4' || k === 'd') selectedIdx = 3;
+
+        if (selectedIdx >= 0) {
+          const btns = document.querySelectorAll('.option-btn');
+          if (btns[selectedIdx] && !btns[selectedIdx].disabled) {
+            e.preventDefault();
+            handleAnswerSelect(selectedIdx, btns[selectedIdx]);
+          }
+        }
+      }
+    });
   }
 
   function bindCategoryButtons() {
@@ -116,6 +148,7 @@
       btn.innerHTML = `
         <span class="option-letter">${letters[idx]}</span>
         <span class="option-text">${escapeHtml(opt)}</span>
+        <span class="option-key-hint" style="margin-left:auto; font-family:var(--font-mono); font-size:10px; color:var(--ink-subtle); opacity:0.6; flex-shrink:0;">[${idx + 1}]</span>
       `;
       btn.addEventListener('click', () => handleAnswerSelect(idx, btn));
       optionsContainer.appendChild(btn);
