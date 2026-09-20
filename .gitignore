@@ -2,6 +2,7 @@
 *.pdf
 **/*.pdf
 *.jpg
+*.png
 
 # Extracted scratch files
 _extracted/
