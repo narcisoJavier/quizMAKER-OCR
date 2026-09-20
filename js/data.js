@@ -16,25 +16,25 @@ const REVIEWER_MODULES = [
         "id": "core_nlp_tasks",
         "title": "1.2 Core NLP Tasks & Pipeline",
         "simple": "NLP solves problems through dedicated modular tasks: summarizing documents (Automatic Summarization), tracking pronouns (Co-reference Resolution), analyzing multi-sentence flow (Discourse Analysis), translating languages (Machine Translation), extracting entities like names and dates (NER), converting scan images to text (OCR), and labeling parts of speech (POS Tagging).",
-        "deepDive": "<b>Core NLP Tasks (Presentation 1, Slides 24\u201333):</b><ul><li><b>Automatic Summarization:</b> Generates a concise summary preserving core information. Can be <i>extractive</i> (selecting verbatim sentences) or <i>abstractive</i> (generating novel paraphrased text).</li><li><b>Co-reference Resolution:</b> Determining which linguistic expressions refer to the exact same real-world entity (e.g. 'Maria arrived. <u>She</u> sat down' &rarr; 'Maria' = 'She').</li><li><b>Discourse Analysis:</b> Modeling relationships and argumentative structures connecting sentences.</li><li><b>Morphological Segmentation:</b> Deconstructing polymorphemic words into their constituent roots and affixes.</li><li><b>Named Entity Recognition (NER):</b> Locating and classifying mentions of proper entities into predefined types (Person, Organization, Location, Date).</li><li><b>Optical Character Recognition (OCR):</b> Converting pixel data from scanned documents into machine-editable text (e.g. Pytesseract).</li><li><b>Part of Speech (POS) Tagging:</b> Assigning grammatical category tags to each token in a sentence based on syntax and lexicon.</li></ul>"
+        "deepDive": "<b>Core NLP Tasks (Presentation 1, Slides 24–33):</b><ul><li><b>Automatic Summarization:</b> Generates a concise summary preserving core information. Can be <i>extractive</i> (selecting verbatim sentences) or <i>abstractive</i> (generating novel paraphrased text).</li><li><b>Co-reference Resolution:</b> Determining which linguistic expressions refer to the exact same real-world entity (e.g. 'Maria arrived. <u>She</u> sat down' &rarr; 'Maria' = 'She').</li><li><b>Discourse Analysis:</b> Modeling relationships and argumentative structures connecting sentences.</li><li><b>Morphological Segmentation:</b> Deconstructing polymorphemic words into their constituent roots and affixes.</li><li><b>Named Entity Recognition (NER):</b> Locating and classifying mentions of proper entities into predefined types (Person, Organization, Location, Date).</li><li><b>Optical Character Recognition (OCR):</b> Converting pixel data from scanned documents into machine-editable text (e.g. Pytesseract).</li><li><b>Part of Speech (POS) Tagging:</b> Assigning grammatical category tags to each token in a sentence based on syntax and lexicon.</li></ul>"
       },
       {
         "id": "morphology_foundations",
         "title": "1.3 Morphemes, Lexemes, Paradigms & Roots",
         "simple": "A <b>morpheme</b> is the smallest meaningful unit of a language (like prefixes, suffixes, or roots). A <b>lexeme</b> is an abstract dictionary word (like SING). A <b>paradigm</b> is the entire family of forms realizing that lexeme ({sing, sang, sung, sings, singing}). The <b>root</b> is the core base morpheme before adding any affixes.",
-        "deepDive": "<b>Formal Morphological Units (Spencer & Zwicky, 1998; Presentation 2, Slides 7\u201310):</b><ul><li><b>Morpheme:</b> The minimal distinctive unit of grammar and meaning. Subdivided into:<ul><li><b>Free Morphemes:</b> Can stand alone as independent words (e.g. <i>dog</i>, <i>hoe</i>, <i>buhay</i>).</li><li><b>Bound Morphemes:</b> Must attach to another morpheme (affixes like <i>-ing</i>, <i>un-</i>, <i>-an</i>, <i>nag-</i>).</li><li><b>Lexical Morphemes:</b> Content words with referential meaning (nouns, verbs, adjectives).</li><li><b>Functional Morphemes:</b> Grammatical glue words (prepositions, conjunctions, articles).</li></ul></li><li><b>Lexeme:</b> An abstract unit of morphological analysis corresponding to a set of word forms sharing core semantics and grammatical category (conventionally capitalized, e.g. RUN).</li><li><b>Paradigm:</b> The complete set of word forms realizing a particular lexeme (e.g., the paradigm of SING is <code>{cantare', sing, sang, sung, sings, singing}</code>).</li><li><b>Root (Lexeme's Root):</b> The fundamental base morpheme from which a paradigm of phonological words is deduced.</li></ul>"
+        "deepDive": "<b>Formal Morphological Units (Spencer & Zwicky, 1998; Presentation 2, Slides 7–10):</b><ul><li><b>Morpheme:</b> The minimal distinctive unit of grammar and meaning. Subdivided into:<ul><li><b>Free Morphemes:</b> Can stand alone as independent words (e.g. <i>dog</i>, <i>hoe</i>, <i>buhay</i>).</li><li><b>Bound Morphemes:</b> Must attach to another morpheme (affixes like <i>-ing</i>, <i>un-</i>, <i>-an</i>, <i>nag-</i>).</li><li><b>Lexical Morphemes:</b> Content words with referential meaning (nouns, verbs, adjectives).</li><li><b>Functional Morphemes:</b> Grammatical glue words (prepositions, conjunctions, articles).</li></ul></li><li><b>Lexeme:</b> An abstract unit of morphological analysis corresponding to a set of word forms sharing core semantics and grammatical category (conventionally capitalized, e.g. RUN).</li><li><b>Paradigm:</b> The complete set of word forms realizing a particular lexeme (e.g., the paradigm of SING is <code>{cantare', sing, sang, sung, sings, singing}</code>).</li><li><b>Root (Lexeme's Root):</b> The fundamental base morpheme from which a paradigm of phonological words is deduced.</li></ul>"
       },
       {
         "id": "derivation_vs_inflection",
         "title": "1.4 Derivation vs. Inflection & The Closure Principle",
         "simple": "<b>Inflection</b> modifies a word's grammar (like tense or plural) without changing its part of speech or core meaning (<i>talk</i> &rarr; <i>talked</i>; both are verbs). <b>Derivation</b> creates a new word or changes its part of speech (noun <i>malice</i> &rarr; adjective <i>malicious</i>).<br><br><b>Closure Principle:</b> Inflection shuts the door! Once an inflectional suffix attaches, you cannot add further derivational affixes.",
-        "deepDive": "<b>Comprehensive Distinction (Presentation 2, Slides 12\u201315):</b><table class='study-table'><thead><tr><th>Dimension</th><th>Inflection</th><th>Derivation</th></tr></thead><tbody><tr><td><b>Part of Speech Change</b></td><td>Never changes POS (Verb &rarr; Verb: <i>fear</i> &rarr; <i>fears</i>, <i>talk</i> &rarr; <i>talked</i>)</td><td>Frequently changes POS (Noun &rarr; Adj: <i>malice</i> &rarr; <i>malicious</i>; Verb &rarr; Noun: <i>sing</i> &rarr; <i>singer</i>)</td></tr><tr><td><b>Semantic Meaning</b></td><td>Preserves core concept; modifies grammatical features (tense, aspect, number)</td><td>Produces a novel semantic concept or dictionary entry</td></tr><tr><td><b>Productivity</b></td><td>Highly regular and productive across grammatical paradigms</td><td>Variable productivity; often semantically idiosyncratic</td></tr><tr><td><b>Affix Position</b></td><td>Attaches at the outer perimeter of the word</td><td>Attaches closer to the root morpheme</td></tr></tbody></table><br><b>The Closure Principle in Morphology:</b><br><i>'Inflection closes words for further derivation, while derivation does not.'</i> (Presentation 2, Slide 15). Derivational affixes must attach first; once inflectional affixes attach to mark agreement/tense, the word is closed to subsequent derivational processes (e.g. <i>nation</i> &rarr; <i>national</i> [derivation] &rarr; <i>nationalize</i> [derivation] &rarr; <i>nationalized</i> [inflection]; *<i>nationalized-tion</i> is ungrammatical)."
+        "deepDive": "<b>Comprehensive Distinction (Presentation 2, Slides 12–15):</b><table class='study-table'><thead><tr><th>Dimension</th><th>Inflection</th><th>Derivation</th></tr></thead><tbody><tr><td><b>Part of Speech Change</b></td><td>Never changes POS (Verb &rarr; Verb: <i>fear</i> &rarr; <i>fears</i>, <i>talk</i> &rarr; <i>talked</i>)</td><td>Frequently changes POS (Noun &rarr; Adj: <i>malice</i> &rarr; <i>malicious</i>; Verb &rarr; Noun: <i>sing</i> &rarr; <i>singer</i>)</td></tr><tr><td><b>Semantic Meaning</b></td><td>Preserves core concept; modifies grammatical features (tense, aspect, number)</td><td>Produces a novel semantic concept or dictionary entry</td></tr><tr><td><b>Productivity</b></td><td>Highly regular and productive across grammatical paradigms</td><td>Variable productivity; often semantically idiosyncratic</td></tr><tr><td><b>Affix Position</b></td><td>Attaches at the outer perimeter of the word</td><td>Attaches closer to the root morpheme</td></tr></tbody></table><br><b>The Closure Principle in Morphology:</b><br><i>'Inflection closes words for further derivation, while derivation does not.'</i> (Presentation 2, Slide 15). Derivational affixes must attach first; once inflectional affixes attach to mark agreement/tense, the word is closed to subsequent derivational processes (e.g. <i>nation</i> &rarr; <i>national</i> [derivation] &rarr; <i>nationalize</i> [derivation] &rarr; <i>nationalized</i> [inflection]; *<i>nationalized-tion</i> is ungrammatical)."
       },
       {
         "id": "incorporation_clitics_compounding",
         "title": "1.5 Incorporation, Clitics & Compounding",
         "simple": "<b>Incorporation:</b> Fusing a verb with an object or pronoun into a single word (Kankanaey <i>kinanko</i> = 'ate' + 'I' &rarr; 'I ate it').<br><b>Clitics:</b> Words that cannot stand on their own phonologically and must lean onto neighbor words (like <i>'m</i> in <i>I'm</i> or Filipino <i>ba, na, pa, din</i>).<br><b>Compounding:</b> Putting two whole words together to mean one thing (like <i>Green House</i>, or Kankanaey <i>taltalak</i> = 'toy car').",
-        "deepDive": "<b>Phenomena & Case Studies (Presentation 2, Slides 16\u201318):</b><ul><li><b>Incorporation:</b> The syntactic concatenation of a verb head with another constituent (nominal argument, pronoun, or adverb) to form a single complex predicate realizing combined grammatical relations (Gerdts, 1998).<br><i>Kankanaey Examples:</i><ul><li><code>kinanko</code> = <code>kinan</code> (ate) + <code>ko</code> (I) &rarr; 'I ate it'.</li><li><code>edwani</code> = <code>ed</code> (in) + <code>nuwani</code> (present) &rarr; 'in the present time' (showing elision of the 'nu' syllable).</li></ul></li><li><b>Clitics ('Enclitics'):</b> Syntactically independent words that lack phonological stress and therefore attach phonologically to an adjacent host word.<br><i>English Examples:</i> <code>'m</code> in <i>I'm</i>, <code>'s</code> in <i>he's</i>, <code>n't</code> in <i>don't</i>/<i>can't</i>.<br><i>Philippine Enclitics:</i> Second-position discourse particles such as <i>ba, na, pa, man, din, daw</i>.</li><li><b>Compounding:</b> Combination of two or more independent lexical roots into a single compound lexeme with unified semantic interpretation.<br><i>English Example:</i> <i>Green House</i> (a building for plants, not merely a house that is green).<br><i>Kankanaey Example:</i> From root <code>talak</code> (car), partial reduplication forms <code>taltalak</code> (toy car / miniature vehicle).</li></ul>"
+        "deepDive": "<b>Phenomena & Case Studies (Presentation 2, Slides 16–18):</b><ul><li><b>Incorporation:</b> The syntactic concatenation of a verb head with another constituent (nominal argument, pronoun, or adverb) to form a single complex predicate realizing combined grammatical relations (Gerdts, 1998).<br><i>Kankanaey Examples:</i><ul><li><code>kinanko</code> = <code>kinan</code> (ate) + <code>ko</code> (I) &rarr; 'I ate it'.</li><li><code>edwani</code> = <code>ed</code> (in) + <code>nuwani</code> (present) &rarr; 'in the present time' (showing elision of the 'nu' syllable).</li></ul></li><li><b>Clitics ('Enclitics'):</b> Syntactically independent words that lack phonological stress and therefore attach phonologically to an adjacent host word.<br><i>English Examples:</i> <code>'m</code> in <i>I'm</i>, <code>'s</code> in <i>he's</i>, <code>n't</code> in <i>don't</i>/<i>can't</i>.<br><i>Philippine Enclitics:</i> Second-position discourse particles such as <i>ba, na, pa, man, din, daw</i>.</li><li><b>Compounding:</b> Combination of two or more independent lexical roots into a single compound lexeme with unified semantic interpretation.<br><i>English Example:</i> <i>Green House</i> (a building for plants, not merely a house that is green).<br><i>Kankanaey Example:</i> From root <code>talak</code> (car), partial reduplication forms <code>taltalak</code> (toy car / miniature vehicle).</li></ul>"
       },
       {
         "id": "kankanaey_case_study",
@@ -72,13 +72,13 @@ const REVIEWER_MODULES = [
         "id": "group2_sdg_roberta",
         "title": "2.1 Group 2: Cloud-Based RoBERTa for Academic Institutions' SDG Contributions",
         "simple": "<b>Problem:</b> Universities produce tons of sustainability reports, but evaluating them by hand is slow, biased, and risks 'SDG-washing' (fake green claims). Existing tools like STARS only give broad ratings and cannot map text to the 17 individual UN SDGs.<br><b>Solution:</b> A cloud web app on Google Cloud (Vertex AI + Firestore) fine-tuning RoBERTa with TF-IDF, NLTK, and <b>LexDG</b> (a dictionary of regional Ilocano/Philippine words). Achieved <b>96.77% accuracy (0.74 F1)</b>, beating standard BERT and SVM. Taking away LexDG dropped F1 to 0.68!",
-        "deepDive": "<b>Full Paper Details:</b> <i>Dalos Miguel, Jahn Crystan Abella et al. / Group 2 (Baladad, Cardenas, Domalanta, Javier, Menos, Sanchez), SLU 2026. Presented at IEEE ISCI.</i><br><br><b>Key Architecture & Results:</b><ul><li><b>Dataset:</b> 748 documents across 15 Philippine HEIs collected via Selenium/BeautifulSoup web scraping and Pytesseract OCR for scanned PDFs. Multi-hot vector encoding for 17 SDGs.</li><li><b>Preprocessing:</b> NLTK tokenization, POS-assisted lemmatization, stopword removal, random oversampling for class imbalance. Split: 80% train / 10% val / 10% test.</li><li><b>LexDG:</b> Custom domain-specific lexicon of Philippine regional terms (Ilocano) to prevent misclassification of localized phrasing.</li><li><b>BERT vs. RoBERTa Matrix:</b> RoBERTa uses <b>dynamic masking</b> (vs. static), removes Next Sentence Prediction (NSP), trains on 160 GB data (vs. 16 GB), uses Byte-level BPE 50k vocab (vs. WordPiece 30k), and scales batch sizes up to 8,000.</li><li><b>Results:</b> 96.77% Weighted Accuracy, 0.80 Micro-Precision, 0.70 Micro-Recall, 0.74 Micro-F1. Outperformed Logistic Regression (0.64 F1), SVM (0.67 F1), and BERT (0.70 F1).</li><li><b>Ablation Study:</b> Removing LexDG dropped F1 from 0.74 to 0.68.</li><li><b>Deployment:</b> Google Cloud Platform (Vertex AI, Firestore, Flask API, Node.js frontend), estimated at \u20b12,700\u2013\u20b18,300/month.</li><li><b>Limitations:</b> Category overlap between SDG 2 (Zero Hunger, lowest F1 0.55) and SDG 13 (Climate Action) due to shared agricultural keywords. Highest F1 was SDG 7 (Clean Energy, 0.95 F1).</li></ul>"
+        "deepDive": "<b>Full Paper Details:</b> <i>Dalos Miguel, Jahn Crystan Abella et al. / Group 2 (Baladad, Cardenas, Domalanta, Javier, Menos, Sanchez), SLU 2026. Presented at IEEE ISCI.</i><br><br><b>Key Architecture & Results:</b><ul><li><b>Dataset:</b> 748 documents across 15 Philippine HEIs collected via Selenium/BeautifulSoup web scraping and Pytesseract OCR for scanned PDFs. Multi-hot vector encoding for 17 SDGs.</li><li><b>Preprocessing:</b> NLTK tokenization, POS-assisted lemmatization, stopword removal, random oversampling for class imbalance. Split: 80% train / 10% val / 10% test.</li><li><b>LexDG:</b> Custom domain-specific lexicon of Philippine regional terms (Ilocano) to prevent misclassification of localized phrasing.</li><li><b>BERT vs. RoBERTa Matrix:</b> RoBERTa uses <b>dynamic masking</b> (vs. static), removes Next Sentence Prediction (NSP), trains on 160 GB data (vs. 16 GB), uses Byte-level BPE 50k vocab (vs. WordPiece 30k), and scales batch sizes up to 8,000.</li><li><b>Results:</b> 96.77% Weighted Accuracy, 0.80 Micro-Precision, 0.70 Micro-Recall, 0.74 Micro-F1. Outperformed Logistic Regression (0.64 F1), SVM (0.67 F1), and BERT (0.70 F1).</li><li><b>Ablation Study:</b> Removing LexDG dropped F1 from 0.74 to 0.68.</li><li><b>Deployment:</b> Google Cloud Platform (Vertex AI, Firestore, Flask API, Node.js frontend), estimated at ₱2,700–₱8,300/month.</li><li><b>Limitations:</b> Category overlap between SDG 2 (Zero Hunger, lowest F1 0.55) and SDG 13 (Climate Action) due to shared agricultural keywords. Highest F1 was SDG 7 (Clean Energy, 0.95 F1).</li></ul>"
       },
       {
         "id": "group5_baguio_bertopic_vader",
         "title": "2.2 Group 5: Extracting Topics & Sentiments from Baguio City Social Media Using BERTopic & VADER",
         "simple": "<b>Problem:</b> Social media comments about Baguio City (tourism, traffic, weather, ordinances) are written in a mix of English, Tagalog, and Ilocano. Previous studies translated everything to English first, which ruined cultural slang and context!<br><b>Solution:</b> Group 5 combined <b>BERTopic</b> (to find the top discussion topics without translation) and a customized <b>dual-language VADER</b> sentiment tool with 123 degree words (like <i>sobra, medyo</i>) and contrast words (like Tagalog <i>pero</i>, Ilocano <i>ngem</i>). Achieved <b>72.74% binary accuracy (0.7734 F1)</b> on 500 hand-labeled comments.",
-        "deepDive": "<b>Full Paper Details:</b> <i>Lance Gabrielle Arevalo, Christian Gabriel Bayquen, Arian Carl Cayton, Jp De los Trinos, Jaime Fernandez (SLU SAMCIS, ICITE 2023).</i><br><br><b>Methodology & Pipeline:</b><ul><li><b>Data Sources:</b> Comments gathered via web scraping from Facebook, Twitter, Instagram, YouTube, and Reddit regarding Baguio City tourism, living, and governance.</li><li><b>Word-Lexicon Dataset:</b> Merged Tagalog & Ilocano words from R's Tidytext sentiment package and Kaggle 81-language sentiment lexicons, mapped to English VADER polarity scores (-1 to +1).</li><li><b>BERTopic Topic Modeling:</b> Preprocessing via tokenization, stopword removal, lowercasing. Embeddings from BERT clustered with class-based TF-IDF (c-TF-IDF). Uses <b>Maximal Marginal Relevance (MMR)</b> with diversity value 0.8 to prevent duplicate/plural keywords. Reduced 200\u2013300 raw topics to 100 via <code>reduce_topics()</code>, then merged into <b>15 governance topics</b> (Outlier 52%, Tourism 16%, Arts/Culture 10%, Infrastructure 8%, Parks & Rec 8%, Public Safety 8%, Public Transport 6%, Food 4%, Housing 3%, Community Dev 2%, Healthcare 1%, Environment 1%). Coherence score: 0.4043 for 9 predefined topics.</li><li><b>VADER Sentiment Heuristics (5 Rules Adapted):</b><ol><li><b>Capitalization:</b> ALL CAPS receives higher emotional weight ('I AM VERY HAPPY' > 'I am very happy').</li><li><b>Punctuation:</b> Amplifies score for multiple exclamation/question marks ('I like it!!!' > 'I like it.').</li><li><b>Degree Modifiers (123 words):</b> Adverbs of manner (<i>pang-abay na pamaraan</i>) that intensify (Tagalog <i>sobra, napaka, malaki</i>) or weaken (<i>medyo, bahagya</i>) sentiment.</li><li><b>Shift in Polarity Due to 'But':</b> Initial clause overridden by contrasting conjunctions: Tagalog <i>pero, ngunit, subalit, bagkus</i>; Ilocano <i>ngem</i> (e.g. 'Mahal kita, pero ayaw na kitang makasama' &rarr; negative dominates).</li><li><b>Negation (62 words):</b> Inverting polarity when negation particles appear (e.g. Tagalog <i>hindi, huwag</i>, English <i>not, never</i>; e.g. 'Hindi ka matinong kausap').</li></ol></li><li><b>Experimental Results on 500 Annotations:</b><ul><li><b>Binary Classification:</b> Accuracy: <code>72.74%</code>, Precision: <code>0.8700</code>, Recall: <code>0.7274</code>, F1-Score: <code>0.7734</code> (MAE: Positive 45.25, Negative 6.94; RMSE: Pos 63.82, Neg 20.61).</li><li><b>Multiclass Classification (Pos, Neg, Neutral):</b> Accuracy: <code>55.98%</code>, Precision: <code>0.6698</code>, F1-Score: <code>0.5822</code>. Model struggled with neutrality because human annotators tended to score slightly positive comments as neutral.</li></ul></li></ul>"
+        "deepDive": "<b>Full Paper Details:</b> <i>Lance Gabrielle Arevalo, Christian Gabriel Bayquen, Arian Carl Cayton, Jp De los Trinos, Jaime Fernandez (SLU SAMCIS, ICITE 2023).</i><br><br><b>Methodology & Pipeline:</b><ul><li><b>Data Sources:</b> Comments gathered via web scraping from Facebook, Twitter, Instagram, YouTube, and Reddit regarding Baguio City tourism, living, and governance.</li><li><b>Word-Lexicon Dataset:</b> Merged Tagalog & Ilocano words from R's Tidytext sentiment package and Kaggle 81-language sentiment lexicons, mapped to English VADER polarity scores (-1 to +1).</li><li><b>BERTopic Topic Modeling:</b> Preprocessing via tokenization, stopword removal, lowercasing. Embeddings from BERT clustered with class-based TF-IDF (c-TF-IDF). Uses <b>Maximal Marginal Relevance (MMR)</b> with diversity value 0.8 to prevent duplicate/plural keywords. Reduced 200–300 raw topics to 100 via <code>reduce_topics()</code>, then merged into <b>15 governance topics</b> (Outlier 52%, Tourism 16%, Arts/Culture 10%, Infrastructure 8%, Parks & Rec 8%, Public Safety 8%, Public Transport 6%, Food 4%, Housing 3%, Community Dev 2%, Healthcare 1%, Environment 1%). Coherence score: 0.4043 for 9 predefined topics.</li><li><b>VADER Sentiment Heuristics (5 Rules Adapted):</b><ol><li><b>Capitalization:</b> ALL CAPS receives higher emotional weight ('I AM VERY HAPPY' > 'I am very happy').</li><li><b>Punctuation:</b> Amplifies score for multiple exclamation/question marks ('I like it!!!' > 'I like it.').</li><li><b>Degree Modifiers (123 words):</b> Adverbs of manner (<i>pang-abay na pamaraan</i>) that intensify (Tagalog <i>sobra, napaka, malaki</i>) or weaken (<i>medyo, bahagya</i>) sentiment.</li><li><b>Shift in Polarity Due to 'But':</b> Initial clause overridden by contrasting conjunctions: Tagalog <i>pero, ngunit, subalit, bagkus</i>; Ilocano <i>ngem</i> (e.g. 'Mahal kita, pero ayaw na kitang makasama' &rarr; negative dominates).</li><li><b>Negation (62 words):</b> Inverting polarity when negation particles appear (e.g. Tagalog <i>hindi, huwag</i>, English <i>not, never</i>; e.g. 'Hindi ka matinong kausap').</li></ol></li><li><b>Experimental Results on 500 Annotations:</b><ul><li><b>Binary Classification:</b> Accuracy: <code>72.74%</code>, Precision: <code>0.8700</code>, Recall: <code>0.7274</code>, F1-Score: <code>0.7734</code> (MAE: Positive 45.25, Negative 6.94; RMSE: Pos 63.82, Neg 20.61).</li><li><b>Multiclass Classification (Pos, Neg, Neutral):</b> Accuracy: <code>55.98%</code>, Precision: <code>0.6698</code>, F1-Score: <code>0.5822</code>. Model struggled with neutrality because human annotators tended to score slightly positive comments as neutral.</li></ul></li></ul>"
       },
       {
         "id": "group4_infosentia",
@@ -90,7 +90,7 @@ const REVIEWER_MODULES = [
         "id": "group1_car_mapping",
         "title": "2.4 Group 1: Language Mapping of the Cordillera (CAR) Using Relational Model",
         "simple": "<b>Summary:</b> Group 1 mapped out the diverse indigenous languages of the Cordillera Administrative Region (CAR) to specific towns and provinces using a relational database model with PSA data and native speaker translations. They identified <b>22 distinct indigenous languages</b> across CAR and built a web prototype to preserve regional cultural heritage.",
-        "deepDive": "<b>Paper:</b> <i>Dalos D. Miguel, John Austin T. Andres, Heidi F. Batara et al. (IJCSR 2024).</i><br>Maps CAR languages (Benguet, Mountain Province, Ifugao, Kalinga, Apayao, Abra) to avoid language barriers and preserve indigenous heritage. Connected to Presentation 1, Slides 68\u201372."
+        "deepDive": "<b>Paper:</b> <i>Dalos D. Miguel, John Austin T. Andres, Heidi F. Batara et al. (IJCSR 2024).</i><br>Maps CAR languages (Benguet, Mountain Province, Ifugao, Kalinga, Apayao, Abra) to avoid language barriers and preserve indigenous heritage. Connected to Presentation 1, Slides 68–72."
       },
       {
         "id": "group3_moses_smt",
@@ -140,19 +140,57 @@ const REVIEWER_MODULES = [
         "id": "conditional_probability_bayes",
         "title": "3.3 Conditional Probability & Bayes' Theorem",
         "simple": "<b>Conditional probability</b> $P(A|B)$ is the chance of $A$ happening given that $B$ already happened: $P(A|B) = \\frac{P(A \\cap B)}{P(B)}$. <b>Bayes' Rule</b> lets us flip conditional probabilities: $P(C|X) = \\frac{P(X|C)P(C)}{P(X)}$.",
-        "deepDive": "<b>Mathematical Definitions (Presentation 3, Slides 5\u201320):</b><br>$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$<br><b>Worked Problem (Slides 16\u201318):</b><br>Out of 100 school members: 80 Students, 20 Teachers/Staff; 32 Female Students.<br>$$P(\\text{Female} | \\text{Student}) = \\frac{P(\\text{Female} \\cap \\text{Student})}{P(\\text{Student})} = \\frac{32/100}{80/100} = \\frac{32}{80} = 0.40\\text{ (or }2/5\\text{)}$$<br><b>Bayes' Rule:</b><br>$$P(Y|X) = \\frac{P(X|Y) \\cdot P(Y)}{P(X)}$$"
+        "deepDive": "<b>Mathematical Definitions (Presentation 3, Slides 5–20):</b><br>$$P(A|B) = \\frac{P(A \\cap B)}{P(B)}$$<br><b>Worked Problem (Slides 16–18):</b><br>Out of 100 school members: 80 Students, 20 Teachers/Staff; 32 Female Students.<br>$$P(\\text{Female} | \\text{Student}) = \\frac{P(\\text{Female} \\cap \\text{Student})}{P(\\text{Student})} = \\frac{32/100}{80/100} = \\frac{32}{80} = 0.40\\text{ (or }2/5\\text{)}$$<br><b>Bayes' Rule:</b><br>$$P(Y|X) = \\frac{P(X|Y) \\cdot P(Y)}{P(X)}$$"
       },
       {
         "id": "naive_bayes_formula_cancellation",
         "title": "3.4 Naive Bayes Assumption & Denominator Cancellation",
         "simple": "Naive Bayes assumes all words in a sentence are completely independent of each other.<br><br><b>Why drop the denominator?</b> When deciding which class wins, the denominator $P(X)$ is identical for every candidate category. Because it divides everything by the exact same number, it never changes who wins, so we discard it completely!",
-        "deepDive": "<b>Conditional Independence Assumption:</b><br>$$P(X_1, X_2, \\dots, X_n | C) = \\prod_{i=1}^n P(X_i | C)$$<br><b>Full Formulation:</b><br>$$P(C | X_1, \\dots, X_n) = \\frac{P(C) \\prod_{i=1}^n P(X_i | C)}{P(X_1, \\dots, X_n)}$$<br><b>The Denominator Cancellation Proof (Slides 45 & 74\u201379):</b><br>Because the denominator $P(X_1, \\dots, X_n)$ is independent of category $C$ and identical across all candidate classes, it functions as a constant scaling factor. Therefore, for the <i>argmax</i> decision rule, the denominator is omitted:<br>$$\\hat{C} = \\arg\\max_{C \\in \\Gamma} \\left[ P(C) \\prod_{i=1}^n P(X_i | C) \\right]$$"
+        "deepDive": "<b>Conditional Independence Assumption:</b><br>$$P(X_1, X_2, \\dots, X_n | C) = \\prod_{i=1}^n P(X_i | C)$$<br><b>Full Formulation:</b><br>$$P(C | X_1, \\dots, X_n) = \\frac{P(C) \\prod_{i=1}^n P(X_i | C)}{P(X_1, \\dots, X_n)}$$<br><b>The Denominator Cancellation Proof (Slides 45 & 74–79):</b><br>Because the denominator $P(X_1, \\dots, X_n)$ is independent of category $C$ and identical across all candidate classes, it functions as a constant scaling factor. Therefore, for the <i>argmax</i> decision rule, the denominator is omitted:<br>$$\\hat{C} = \\arg\\max_{C \\in \\Gamma} \\left[ P(C) \\prod_{i=1}^n P(X_i | C) \\right]$$"
       },
       {
         "id": "language_identification_laplace",
         "title": "3.5 Language Identification & Laplace (+1) Smoothing",
         "simple": "We identify whether text is Ilocano, Tagalog, or Pangasinan by multiplying word likelihoods for each language and picking the highest score. If an unseen word has a chance of 0, multiplying by 0 would wipe out the whole score! We fix this using <b>Laplace (+1) Smoothing</b> by adding 1 to all word counts so nothing ever equals zero.",
-        "deepDive": "<b>Multinomial Naive Bayes Language Identification (Slides 47\u201379):</b><br>$$\\hat{L} = \\arg\\max_{L \\in \\Gamma} \\left[ P(L) \\prod_{i=1}^n P(w_i | L) \\right]$$<br><i>Example from Slide 76:</i><br>$$P(\\text{Ilocano} | \\text{'naimbag', 'nga', 'rabii'}) \\propto P(\\text{Ilocano}) \\times P(\\text{'naimbag'}|\\text{Ilocano}) \\times P(\\text{'nga'}|\\text{Ilocano}) \\times P(\\text{'rabii'}|\\text{Ilocano})$$<br><br><b>Laplace (+1) Smoothing:</b><br>$$P_{\\text{Laplace}}(w|C) = \\frac{\\text{Count}(w, C) + 1}{\\sum_{w'} \\text{Count}(w', C) + |V|}$$Slide 66 also introduces an explicit <code>'Others'</code> category with frequency count 1 to handle out-of-vocabulary words."
+        "deepDive": "<b>Multinomial Naive Bayes Language Identification (Slides 47–79):</b><br>$$\\hat{L} = \\arg\\max_{L \\in \\Gamma} \\left[ P(L) \\prod_{i=1}^n P(w_i | L) \\right]$$<br><i>Example from Slide 76:</i><br>$$P(\\text{Ilocano} | \\text{'naimbag', 'nga', 'rabii'}) \\propto P(\\text{Ilocano}) \\times P(\\text{'naimbag'}|\\text{Ilocano}) \\times P(\\text{'nga'}|\\text{Ilocano}) \\times P(\\text{'rabii'}|\\text{Ilocano})$$<br><br><b>Laplace (+1) Smoothing:</b><br>$$P_{\\text{Laplace}}(w|C) = \\frac{\\text{Count}(w, C) + 1}{\\sum_{w'} \\text{Count}(w', C) + |V|}$$Slide 66 also introduces an explicit <code>'Others'</code> category with frequency count 1 to handle out-of-vocabulary words."
+      }
+    ]
+  },
+  {
+    "id": "domain4",
+    "title": "Domain 4: Applied NLP Tooling & OCR Architecture: quizMAKER-OCR",
+    "badge": "Applied NLP & Systems",
+    "summary": "Covers applied document digitization, Optical Character Recognition (OCR), NLP question-answer extraction pipelines, automated validation heuristics, zero-build client-side quiz architecture, and pedagogical feedback loops developed by Group 2 member Narciso Javier III (quizMAKER-OCR).",
+    "sections": [
+      {
+        "id": "ocr_digitization_pipeline",
+        "title": "4.1 OCR Document Ingestion & Text Extraction Pipeline",
+        "simple": "<b>Summary:</b> How raw scanned exams, physical review books, and classroom handouts are converted into interactive digital quizzes. An OCR engine (like Tesseract) turns scanned document images into text. Then, NLP tokenization and regex pattern matching detect question stems, numbered choices, and target keys, tagging each with a provenance source.",
+        "deepDive": "<b>Applied OCR & Document Processing Pipeline (quizMAKER-OCR Architecture):</b><br><br><b>1. Image Ingestion & OCR:</b> Physical examination reviews (e.g. Mapúa Building Utilities, Urban & Regional Planning AR176-1, and Planning Exit Exams) are scanned and processed through Optical Character Recognition engines (such as Pytesseract / Tesseract OCR). The OCR engine segments page regions, analyzes bounding boxes, and generates raw character strings.<br><br><b>2. Text Normalization & Provenance Tracking:</b> Scanned dumps stored in intermediate stages (e.g. <code>to-JSON/</code>) are parsed into standardized data schemas. Each question records a <code>'source'</code> field indicating the exact provenance file (e.g. source HTML/PDF dumps) for academic traceability and verification.<br><br><b>3. NLP Chunking & Question Boundary Detection:</b> Regular expressions segment the raw character stream into:<ul><li><b>Stem:</b> Question prompt statement or scenario.</li><li><b>Options Array:</b> Candidate choices (normalized to 3 or 4 choices).</li><li><b>Ground Truth Key:</b> Target answer string.</li></ul>"
+      },
+      {
+        "id": "ocr_noise_filtering",
+        "title": "4.2 OCR Noise Filtering & Eliminating Modality Dependencies",
+        "simple": "<b>Summary:</b> Raw OCR scans are full of messy errors! Automated OCR pipelines must clean out handwritten scribbles, misrecognized symbols, and questions that depend on missing pictures or architectural diagrams (like Q53–Q55 and Q110). If an exam question says 'refer to the figure above' and there is no image, it must be removed or rewritten as text-only.",
+        "deepDive": "<b>Heuristics for Noisy Document Cleaning (quizMAKER-OCR Commits & Fixes):</b><br><br><b>1. Eliminating Figure/Diagram Dependencies:</b> In pure text-based quiz engines, items relying on visual schematics cause unrecoverable failures. In <code>quizMAKER-OCR</code>, items Q53, Q54, and Q55 were purged or rewritten into self-contained text questions to eliminate missing figure dependencies.<br><br><b>2. Pruning Unreadable Handwritten Noise:</b> Handwritten annotations (e.g. Q110 handwritten architectural acoustics notes) suffer from high Character Error Rates (CER) and Word Error Rates (WER) in standard OCR. These items are pruned to maintain high corpus validity.<br><br><b>3. Structural Schema Repair:</b> Automated string splitting occasionally stores multiple choices as a single concatenated string. A crucial NLP validation pass detects single-string choices (e.g., Weber's agglomeration Q33 and Ancient Greek city planning Q38) and transforms them into discrete string arrays: <code>['Choice A', 'Choice B', 'Choice C', 'Choice D']</code>.<br><br><b>4. Exact Invariant Assertion:</b> Enforces the constraint that <code>question.answer</code> MUST exactly match one item in <code>question.choices</code> character-for-character ($answer \\in choices$), preventing UI runtime rendering exceptions."
+      },
+      {
+        "id": "quiz_state_architecture",
+        "title": "4.3 Client-Side State Persistence & Resumption Lifecycle",
+        "simple": "<b>Summary:</b> Rather than requiring a heavy database or login, the quiz engine runs 100% inside the student's browser and saves progress to <code>localStorage</code> after every single question! If a student accidentally closes the browser tab or refreshes, the app offers a 'Resume Last Quiz' button and restores their exact shuffled question order, score, and answered cards.",
+        "deepDive": "<b>State Machine & LocalStorage Serialization (app.js Architecture):</b><br><br><b>1. Fisher-Yates Shuffling with Order Persistence:</b> When starting a quiz, questions are shuffled using the Fisher-Yates algorithm. To ensure that refreshing the browser doesn't reset the test order, the exact shuffled permutation is serialized to <code>localStorage</code> along with the active index and cumulative score.<br><br><b>2. Auto-Persist Hooks:</b> Every user interaction triggers state serialization:<ul><li><code>selectAnswer(index)</code>: Saves selected option, whether correct, and updates score.</li><li><code>skipQuestion()</code>: Pushes the current item ID into the secondary <code>skippedQuestions[]</code> queue.</li><li><code>renderQuestion()</code>: Updates the persisted active question pointer.</li></ul><br><b>3. Tactile UX & Micro-Interactions:</b> Features keyboard accessibility (<code>1–4</code> or <code>A–D</code> for direct choice selection, <code>Enter</code> to proceed), active button press feedback (<code>transform: scale(0.97)</code>), and CSS staggered choice button cascade entrances (50ms transition delay per button)."
+      },
+      {
+        "id": "error_driven_pedagogy",
+        "title": "4.4 Error-Driven Pedagogy: Inline Feedback, Search Queries & Mini-Quizzes",
+        "simple": "<b>Summary:</b> Getting an answer wrong is the best way to learn! When a student makes a mistake, the app immediately displays an inline explanation popup and generates an automated Google Search link tailored with domain keywords (using a configurable <code>SEARCH_SUFFIX</code>). It also saves all wrong answers so the student can take a 'Retry Incorrect' mini-quiz at the end.",
+        "deepDive": "<b>Pedagogical Architecture & Automated Information Retrieval:</b><br><br><b>1. Dynamic Query Generation (SEARCH_SUFFIX):</b> To facilitate immediate student research without leaving context, the engine generates an automated search link:$$\\text{URL} = \\text{'https://www.google.com/search?q='} + \\text{encodeURIComponent}(q.\\text{question} + \\text{' '} + \\text{SEARCH_SUFFIX})$$For example, in building utilities, <code>SEARCH_SUFFIX = 'building utilities plumbing Mapúa'</code> ensures Google retrieves authoritative technical references rather than generic ads.<br><br><b>2. Two-Phase Question Queueing:</b> Hard questions skipped during the test are automatically pooled and presented in a dedicated <i>Revisit Round</i> after the initial set.<br><br><b>3. 'Retry Incorrect' Targeted Mini-Quiz:</b> Upon completing the examination, all items where $\\text{userChoice} \\neq \\text{correctAnswer}$ are isolated into a dedicated review array $\\mathcal{Q}_{\\text{missed}}$. The student can immediately launch a mini-quiz targeting only their weaknesses, reinforcing active recall."
+      },
+      {
+        "id": "zero_build_deployment",
+        "title": "4.5 Zero-Build Static Deployment & Configurable Multi-Exam Routing",
+        "simple": "<b>Summary:</b> <code>quizMAKER-OCR</code> is built with pure HTML, CSS, and vanilla JavaScript—zero frameworks, zero build steps, and zero npm packages! It deploys in seconds to Vercel (<code>vercel --yes</code>). A single codebase powers three completely different exams (Building Utilities, Urban Planning, and Planning Exit Exam) just by switching the JSON data pointer.",
+        "deepDive": "<b>Systems Architecture & Modularity:</b><br><br><b>1. Decoupled Data Layer:</b> The presentation engine (<code>app.js</code> and <code>style.css</code>) is fully decoupled from the question bank. Individual exam pages (<code>utilities.html</code>, <code>planning-exam.html</code>, <code>urban-planning.html</code>) define configuration constants:<ul><li><code>DATA_FILE = 'main/data/quiz_data.json'</code> (or <code>planning_data.json</code>)</li><li><code>SEARCH_SUFFIX = '...'</code></li></ul>This eliminates code duplication across multiple subject areas.<br><br><b>2. Zero-Build Vercel Edge Hosting:</b> Deployed with pure static assets via <code>vercel --yes</code>. Eliminates node runtime overhead, build step failures, dependency vulnerabilities, and server cold starts, ensuring instant Time to First Byte (TTFB) on global CDNs."
       }
     ]
   }
@@ -298,20 +336,20 @@ const QUIZ_QUESTIONS = [
     "category": "domain1",
     "question": "In 'Attention Is All You Need' (Vaswani et al., 2017), what is the formula for Scaled Dot-Product Attention?",
     "options": [
-      "Attention(Q, K, V) = softmax(QK^T / \u221ad_k) V",
+      "Attention(Q, K, V) = softmax(QK^T / √d_k) V",
       "Attention(Q, K, V) = sigmoid(QK) / V",
       "Attention(Q, K, V) = tanh(Q + K) W_v",
-      "Attention(Q, K, V) = argmax(Q \u00b7 K \u00b7 V)"
+      "Attention(Q, K, V) = argmax(Q · K · V)"
     ],
     "answer": 0,
-    "simpleExplanation": "Attention multiplies Query by Key transpose, scales by dividing by \u221ad_k, applies softmax, and multiplies by Value.",
-    "deepDive": "Vaswani et al. (2017), Section 3.2.1, Equation 1: Attention(Q, K, V) = softmax(QK^T / \u221ad_k)V.",
+    "simpleExplanation": "Attention multiplies Query by Key transpose, scales by dividing by √d_k, applies softmax, and multiplies by Value.",
+    "deepDive": "Vaswani et al. (2017), Section 3.2.1, Equation 1: Attention(Q, K, V) = softmax(QK^T / √d_k)V.",
     "googleQuery": "scaled dot product attention formula transformer"
   },
   {
     "id": 11,
     "category": "domain1",
-    "question": "Why did Vaswani et al. divide the dot products by \u221ad_k in Scaled Dot-Product Attention?",
+    "question": "Why did Vaswani et al. divide the dot products by √d_k in Scaled Dot-Product Attention?",
     "options": [
       "To speed up matrix multiplication by 50%",
       "To prevent the dot products from growing large in magnitude, which pushes softmax into regions with vanishingly small gradients",
@@ -319,8 +357,8 @@ const QUIZ_QUESTIONS = [
       "To enforce recurrence across time steps"
     ],
     "answer": 1,
-    "simpleExplanation": "Without dividing by \u221ad_k, big numbers make the softmax output extremely flat with tiny gradients, ruining learning.",
-    "deepDive": "Vaswani et al. (2017), Section 3.2.1: For large values of d_k, dot products grow large, pushing softmax into regions where gradients are extremely small. Scaling by 1/\u221ad_k counteracts this.",
+    "simpleExplanation": "Without dividing by √d_k, big numbers make the softmax output extremely flat with tiny gradients, ruining learning.",
+    "deepDive": "Vaswani et al. (2017), Section 3.2.1: For large values of d_k, dot products grow large, pushing softmax into regions where gradients are extremely small. Scaling by 1/√d_k counteracts this.",
     "googleQuery": "why scale by sqrt d_k in attention"
   },
   {
@@ -695,7 +733,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 1,
     "simpleExplanation": "P(Female | Student) = P(Female and Student) / P(Student) = (32/100) / (80/100) = 32 / 80 = 0.40.",
-    "deepDive": "Presentation 3, Slides 16-18: P(Female|student) = P(Female \u2229 Student) / P(Student) = (32/100) / (80/100) = 32/80 = 2/5 = 0.40.",
+    "deepDive": "Presentation 3, Slides 16-18: P(Female|student) = P(Female ∩ Student) / P(Student) = (32/100) / (80/100) = 32/80 = 2/5 = 0.40.",
     "googleQuery": "conditional probability female student 32 80"
   },
   {
@@ -710,7 +748,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 1,
     "simpleExplanation": "The denominator is the exact same number for every class you test, so dividing by it doesn't change who wins!",
-    "deepDive": "Presentation 3, Slides 45 & 74-79: 'Because the denominator of the formula for computing the probability of each category Y given features X1, X2, \u2026 Xn are the same for each Y, the denominator is discarded.'",
+    "deepDive": "Presentation 3, Slides 45 & 74-79: 'Because the denominator of the formula for computing the probability of each category Y given features X1, X2, … Xn are the same for each Y, the denominator is discarded.'",
     "googleQuery": "naive bayes why drop denominator argmax"
   },
   {
@@ -725,7 +763,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 1,
     "simpleExplanation": "It's called 'naive' because it assumes words don't depend on each other at all once you know the topic/language.",
-    "deepDive": "Presentation 3, Slide 23 & 63: Naive Bayes assumes conditional independence: P(X1, ..., Xn | C) = \u220f P(Xi | C).",
+    "deepDive": "Presentation 3, Slide 23 & 63: Naive Bayes assumes conditional independence: P(X1, ..., Xn | C) = ∏ P(Xi | C).",
     "googleQuery": "conditional independence assumption naive bayes"
   },
   {
@@ -748,9 +786,9 @@ const QUIZ_QUESTIONS = [
     "category": "domain3",
     "question": "In the class workshop on Philippine language identification, which formula determines the winning language L for text X?",
     "options": [
-      "L_hat = argmax_L [ P(L) * \u220f P(wi | L) ]",
-      "L_hat = argmin_L [ P(L) / \u220f P(wi | L) ]",
-      "L_hat = \u2211 [ P(wi | L) + P(L) ]",
+      "L_hat = argmax_L [ P(L) * ∏ P(wi | L) ]",
+      "L_hat = argmin_L [ P(L) / ∏ P(wi | L) ]",
+      "L_hat = ∑ [ P(wi | L) + P(L) ]",
       "L_hat = det(Matrix(X, L))"
     ],
     "answer": 0,
@@ -795,7 +833,7 @@ const QUIZ_QUESTIONS = [
     "options": [
       "FFN(x) = max(0, xW1 + b1)W2 + b2",
       "FFN(x) = sigmoid(xW1) + tanh(xW2)",
-      "FFN(x) = softmax(xW1) \u00b7 xW2",
+      "FFN(x) = softmax(xW1) · xW2",
       "FFN(x) = xW1 + xW2 + b"
     ],
     "answer": 0,
@@ -806,7 +844,7 @@ const QUIZ_QUESTIONS = [
   {
     "id": 44,
     "category": "domain1",
-    "question": "Why is the Self-Attention sub-layer in the Transformer DECODER modified with masking (setting to -\u221e)?",
+    "question": "Why is the Self-Attention sub-layer in the Transformer DECODER modified with masking (setting to -∞)?",
     "options": [
       "To prevent rightward information flow and preserve the autoregressive property (preventing positions from attending to subsequent positions)",
       "To discard words with low frequencies",
@@ -815,7 +853,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 0,
     "simpleExplanation": "Masking prevents the decoder from cheating by looking ahead at future words during generation.",
-    "deepDive": "Vaswani et al. (2017), Section 3.2.3: In decoder self-attention, masking out (setting to -\u221e) all connections to subsequent positions preserves the auto-regressive property so predictions for position i can depend only on known outputs at positions less than i.",
+    "deepDive": "Vaswani et al. (2017), Section 3.2.3: In decoder self-attention, masking out (setting to -∞) all connections to subsequent positions preserves the auto-regressive property so predictions for position i can depend only on known outputs at positions less than i.",
     "googleQuery": "transformer masked self attention autoregressive property"
   },
   {
@@ -1190,7 +1228,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 0,
     "simpleExplanation": "The learning rate increases linearly for the first 4,000 warmup steps, then gradually decreases based on the inverse square root of the step number.",
-    "deepDive": "Vaswani et al. (2017), Section 5.3, Equation 3: lrate = d_model^-0.5 \u00b7 min(step_num^-0.5, step_num \u00b7 warmup_steps^-1.5) with warmup_steps = 4000.",
+    "deepDive": "Vaswani et al. (2017), Section 5.3, Equation 3: lrate = d_model^-0.5 · min(step_num^-0.5, step_num · warmup_steps^-1.5) with warmup_steps = 4000.",
     "googleQuery": "transformer learning rate schedule warmup steps 4000 inverse square root"
   },
   {
@@ -1235,7 +1273,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 0,
     "simpleExplanation": "A bigram tagger looks back just 1 tag: the chance of tag t_i depends only on tag t_{i-1}.",
-    "deepDive": "Presentation 1, Slide 54: The Markov Assumption simplifies the tag sequence probability. In a bigram model, P(t_i | t_1, ..., t_{i-1}) \u2248 P(t_i | t_{i-1}).",
+    "deepDive": "Presentation 1, Slide 54: The Markov Assumption simplifies the tag sequence probability. In a bigram model, P(t_i | t_1, ..., t_{i-1}) ≈ P(t_i | t_{i-1}).",
     "googleQuery": "Markov assumption bigram POS tagging P(t_i | t_{i-1})"
   },
   {
@@ -1496,7 +1534,7 @@ const QUIZ_QUESTIONS = [
   {
     "id": 90,
     "category": "domain3",
-    "question": "If P(A \u2229 B) = 0.15 and P(B) = 0.50, what is the conditional probability P(A | B)?",
+    "question": "If P(A ∩ B) = 0.15 and P(B) = 0.50, what is the conditional probability P(A | B)?",
     "options": [
       "0.075",
       "0.30",
@@ -1505,7 +1543,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 1,
     "simpleExplanation": "P(A | B) = P(A and B) / P(B) = 0.15 / 0.50 = 0.30.",
-    "deepDive": "Presentation 3, Slide 6: P(A | B) = P(A \u2229 B) / P(B) = 0.15 / 0.50 = 0.30 (or 30%).",
+    "deepDive": "Presentation 3, Slide 6: P(A | B) = P(A ∩ B) / P(B) = 0.15 / 0.50 = 0.30 (or 30%).",
     "googleQuery": "conditional probability calculation 0.15 0.50"
   },
   {
@@ -1520,7 +1558,7 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 0,
     "simpleExplanation": "Multiply the prior by all 3 likelihoods: 0.50 * 0.8 * 0.7 * 0.9 = 0.252.",
-    "deepDive": "Presentation 3, Slides 34\u201336: P(Banana | Long, Sweet, Yellow) \u221d P(Banana) * P(Long|Banana) * P(Sweet|Banana) * P(Yellow|Banana) = 0.50 * 0.8 * 0.7 * 0.9 = 0.252.",
+    "deepDive": "Presentation 3, Slides 34–36: P(Banana | Long, Sweet, Yellow) ∝ P(Banana) * P(Long|Banana) * P(Sweet|Banana) * P(Yellow|Banana) = 0.50 * 0.8 * 0.7 * 0.9 = 0.252.",
     "googleQuery": "naive bayes fruit classification banana likelihood calculation 0.252"
   },
   {
@@ -1580,15 +1618,165 @@ const QUIZ_QUESTIONS = [
     ],
     "answer": 0,
     "simpleExplanation": "The denominator in Laplace smoothing adds the vocabulary size |V| to the total count: 5000 + 1000 = 6000.",
-    "deepDive": "Presentation 3, Slide 66 & Formula: Denominator = \u2211 Count(w', C) + |V| = 5000 + 1000 = 6000. This ensures all probabilities sum up to 1.0.",
+    "deepDive": "Presentation 3, Slide 66 & Formula: Denominator = ∑ Count(w', C) + |V| = 5000 + 1000 = 6000. This ensures all probabilities sum up to 1.0.",
     "googleQuery": "laplace smoothing denominator total count plus vocabulary size"
+  },
+  {
+    "id": 96,
+    "category": "domain4",
+    "question": "In an automated OCR question-generation pipeline, what is the primary purpose of tracking the 'source' attribute for each extracted question item?",
+    "options": [
+      "To ensure provenance and traceability back to the original source HTML or scanned document dump",
+      "To encrypt the question data preventing students from viewing source code",
+      "To calculate the bounding box coordinates for rendering the question in a PDF viewer",
+      "To rank questions by difficulty using TF-IDF weights"
+    ],
+    "answer": 0,
+    "simpleExplanation": "Tracking the source lets developers trace every question back to its original document to verify accuracy and fix transcription errors.",
+    "deepDive": "In narcisoJavier/quizMAKER-OCR, a 'source' field was added across all 102 questions referencing the raw extraction file in to-JSON/ for full provenance and traceability.",
+    "googleQuery": "ocr question generation document provenance traceability to-JSON"
+  },
+  {
+    "id": 97,
+    "category": "domain4",
+    "question": "Why were items Q53, Q54, and Q55 removed or rewritten into text-based questions in the quizMAKER-OCR repository?",
+    "options": [
+      "To remove external image/figure dependencies and maintain a 100% text-based model",
+      "Because the questions were identified as duplicates of plumbing questions",
+      "Because their vocabulary exceeded the 50,000 Byte-Pair Encoding limit",
+      "To reduce the quiz question count to an even multiple of ten"
+    ],
+    "answer": 0,
+    "simpleExplanation": "In a text-only quiz engine, questions that say 'refer to the figure above' break if the image is missing, so they were rewritten to be self-contained text.",
+    "deepDive": "Git commit history (feat: JSON cleanup, UI enhancements): 'Replace Q53/Q54/Q55 with text-based questions (removed figure dependencies)' ensures the quiz operates without external image hosting.",
+    "googleQuery": "quizmaker ocr replace questions with text based removed figure dependencies"
+  },
+  {
+    "id": 98,
+    "category": "domain4",
+    "question": "In OCR text extraction and schema validation, what bug occurred in Q33 (Weber's agglomeration) and Q38 (Greek city planning) that required structural repair?",
+    "options": [
+      "The choices were stored as a single concatenated string instead of a discrete array of strings",
+      "The correct answer contained non-ASCII characters that crashed the JSON parser",
+      "The question stem was missing punctuation causing regex tokenization to fail",
+      "The question IDs were duplicated causing localStorage keys to overwrite each other"
+    ],
+    "answer": 0,
+    "simpleExplanation": "The choices were saved as one long text line rather than an array of individual options, causing the quiz UI to display zero buttons!",
+    "deepDive": "In quizMAKER-OCR commit 'Fix Q33/Q38 missing choices': Choices stored as a single string instead of an array broke the options rendering loop; flipping and parsing them into proper arrays restored the buttons.",
+    "googleQuery": "quizmaker ocr fix choices stored as a single string instead of an array"
+  },
+  {
+    "id": 99,
+    "category": "domain4",
+    "question": "What core invariant must hold true between a question's 'answer' field and its 'choices' array in an automated quiz JSON schema?",
+    "options": [
+      "The answer string must match one of the items in the choices array exactly (character-for-character)",
+      "The answer must always be placed at index 0 of the choices array",
+      "The choices array must always contain exactly 5 options",
+      "The answer string must be shorter in character length than all incorrect choices"
+    ],
+    "answer": 0,
+    "simpleExplanation": "The answer string must match one of the choices word-for-word, otherwise the code won't recognize it as the correct option!",
+    "deepDive": "System invariant: answer ∈ choices. If an exact string match fails due to trailing whitespace or typos, choice validation logic evaluates all selections as incorrect.",
+    "googleQuery": "quiz json schema invariant answer must match choices exactly"
+  },
+  {
+    "id": 100,
+    "category": "domain4",
+    "question": "Why does the quiz state engine serialize the shuffled question order to localStorage alongside the user's progress?",
+    "options": [
+      "To preserve the exact test sequence so closing or refreshing the tab allows resuming without reshuffling",
+      "To send telemetry data back to a remote MongoDB database on Heroku",
+      "To prevent the user from opening browser developer tools",
+      "To enable offline caching of image assets in a service worker"
+    ],
+    "answer": 0,
+    "simpleExplanation": "Saving the shuffled list ensures that when a student refreshes their browser, their test stays in the exact same order with their current score and answers intact.",
+    "deepDive": "quizMAKER-OCR AGENTS.md & app.js: Questions are shuffled on quiz start and persisted in localStorage. Save-state auto-persists on every interaction; 'Resume Last Quiz' restores the exact sequence and progress.",
+    "googleQuery": "quizmaker ocr save state resume last quiz localstorage shuffled order"
+  },
+  {
+    "id": 101,
+    "category": "domain4",
+    "question": "How does quizMAKER-OCR generate automated Google search links for wrong-answer feedback?",
+    "options": [
+      "It appends a domain-specific SEARCH_SUFFIX to the question query and URL-encodes the URI string",
+      "It queries the Google Custom Search JSON API via an authenticated backend proxy",
+      "It executes a local headless Chromium instance to scrape Google SERP snippets",
+      "It runs a cosine similarity vector search over an offline PDF knowledge base"
+    ],
+    "answer": 0,
+    "simpleExplanation": "It takes the question text, tacks on domain keywords (SEARCH_SUFFIX like 'building utilities Mapúa'), and encodes it into a direct Google search URL.",
+    "deepDive": "In app.js: encodeURIComponent(q.question + ' ' + SEARCH_SUFFIX) creates targeted search links to authoritative resources without requiring paid search API keys.",
+    "googleQuery": "quizmaker ocr app js SEARCH_SUFFIX encodeURIComponent google search link"
+  },
+  {
+    "id": 102,
+    "category": "domain4",
+    "question": "Why was Q110 (handwritten architectural acoustics question) removed during the document preprocessing phase of quizMAKER-OCR?",
+    "options": [
+      "Handwritten text extraction has high error rates and noise in standard OCR compared to printed typography",
+      "The question exceeded the maximum character length permitted by localStorage",
+      "Architectural acoustics is not part of the Building Utilities curriculum",
+      "The question was written in a regional dialect not supported by UTF-8"
+    ],
+    "answer": 0,
+    "simpleExplanation": "Handwritten notes often produce messy, unreadable gibberish when scanned by standard OCR, so noisy handwritten questions were pruned.",
+    "deepDive": "quizMAKER-OCR commit 'Remove Q110 (handwritten architectural acoustics question)': Standard OCR engines (Tesseract) achieve near 99% accuracy on clean printed fonts but degrade significantly on cursive/handwritten text, necessitating manual pruning or specialized HTR.",
+    "googleQuery": "handwritten text extraction noise pruning ocr question generation"
+  },
+  {
+    "id": 103,
+    "category": "domain4",
+    "question": "In quizMAKER-OCR's pedagogical design, how are skipped questions and incorrect answers handled?",
+    "options": [
+      "Skipped questions are served in a dedicated round at the end, and incorrect answers can be retried as a targeted mini-quiz",
+      "Skipped questions are penalized with negative marks, while incorrect answers immediately end the quiz",
+      "Both skipped and incorrect questions are permanently deleted from the student's question bank",
+      "Skipped questions are automatically replaced with simpler true-or-false questions"
+    ],
+    "answer": 0,
+    "simpleExplanation": "Skipped questions are saved for a second chance after the main quiz, and wrong answers can be retested through a 'Retry Incorrect' button.",
+    "deepDive": "AGENTS.md: 'Skipped questions are collected and presented in a dedicated round after the main quiz. \"Retry Incorrect\" mode creates a mini-quiz from only the wrong answers.'",
+    "googleQuery": "quizmaker ocr retry incorrect mode mini quiz skipped questions"
+  },
+  {
+    "id": 104,
+    "category": "domain4",
+    "question": "What architectural approach enables quizMAKER-OCR to serve three different examinations (utilities, planning-exam, urban-planning) without server-side code?",
+    "options": [
+      "Decoupled static HTML entry points that load a shared app.js engine with custom DATA_FILE JSON pointers",
+      "A Docker container running Node.js Express microservices behind an Nginx reverse proxy",
+      "A serverless GraphQL schema with dynamic resolvers on AWS Lambda",
+      "A monolithic PHP Laravel backend with MySQL database migrations"
+    ],
+    "answer": 0,
+    "simpleExplanation": "It uses static HTML pages that share one JavaScript engine (app.js) but simply point to different JSON data files.",
+    "deepDive": "Multi-exam architecture: index.html routes to utilities.html, planning-exam.html, and urban-planning.html, each setting DATA_FILE and SEARCH_SUFFIX before loading the shared app.js logic. Zero build step, static hosting on Vercel.",
+    "googleQuery": "quizmaker ocr DATA_FILE SEARCH_SUFFIX decoupled static html entry points"
+  },
+  {
+    "id": 105,
+    "category": "domain4",
+    "question": "In the CSE 30 NLP coursework at Saint Louis University, what is the connection between Narciso Javier III, Group 2, and the Bag of Words exercise?",
+    "options": [
+      "Narciso Javier III is a Group 2 student author on the RoBERTa SDG paper and author of the Panatang Makabayan Bag of Words exercise",
+      "Narciso Javier III is the lead professor who created the 65-tag Tagalog tagset",
+      "Narciso Javier III developed the original 1998 Eric Brill rule-based POS tagger",
+      "Narciso Javier III authored the 2017 'Attention Is All You Need' transformer paper"
+    ],
+    "answer": 0,
+    "simpleExplanation": "Narciso Javier III is one of the student researchers in Group 2 (SDG RoBERTa study) and the student who submitted the Panatang Makabayan Bag of Words exercise!",
+    "deepDive": "Course provenance: JavierNarcisoBagOfWordExercise.pdf (Panatang Makabayan BoW exercise) and Group 2 presentation (Baladad, Cardenas, Domalanta, Javier, Menos, Sanchez) under Dalos D. Miguel at SLU SAMCIS.",
+    "googleQuery": "narciso javier bag of word exercise panatang makabayan roberta slu"
   }
 ];
 const FLASHCARDS = [
   {
     "category": "Domain 1",
     "front": "What is the Transformer's Scaled Dot-Product formula?",
-    "back": "Attention(Q, K, V) = softmax(QK^T / \u221ad_k)V. Dividing by \u221ad_k prevents vanishing gradients caused by large dot products."
+    "back": "Attention(Q, K, V) = softmax(QK^T / √d_k)V. Dividing by √d_k prevents vanishing gradients caused by large dot products."
   },
   {
     "category": "Domain 1",
@@ -1663,7 +1851,7 @@ const FLASHCARDS = [
   {
     "category": "Domain 3",
     "front": "Why discard denominator in Naive Bayes?",
-    "back": "Because the denominator P(X1, ..., Xn) is identical for all candidate categories C, so it does not affect the argmax ranking: argmax P(C)\u220fP(Xi|C)."
+    "back": "Because the denominator P(X1, ..., Xn) is identical for all candidate categories C, so it does not affect the argmax ranking: argmax P(C)∏P(Xi|C)."
   },
   {
     "category": "Domain 3",
@@ -1673,7 +1861,7 @@ const FLASHCARDS = [
   {
     "category": "Domain 1",
     "front": "Transformer Scaled Dot-Product formula?",
-    "back": "Attention(Q, K, V) = softmax(QK^T / \u221ad_k)V. Dividing by \u221ad_k prevents vanishing gradients caused by large dot products."
+    "back": "Attention(Q, K, V) = softmax(QK^T / √d_k)V. Dividing by √d_k prevents vanishing gradients caused by large dot products."
   },
   {
     "category": "Domain 1",
@@ -1738,7 +1926,7 @@ const FLASHCARDS = [
   {
     "category": "Domain 1",
     "front": "Why Masked Self-Attention in Decoder?",
-    "back": "Masking out future tokens (-\u221e) preserves the autoregressive property, preventing positions from attending to subsequent future words during generation."
+    "back": "Masking out future tokens (-∞) preserves the autoregressive property, preventing positions from attending to subsequent future words during generation."
   },
   {
     "category": "Domain 2",
@@ -1764,9 +1952,48 @@ const FLASHCARDS = [
     "category": "Domain 3",
     "front": "Laplace Smoothing Denominator Formula?",
     "back": "Denominator = Total Token Count in Category + Vocabulary Size |V|. Guarantees smoothed probabilities sum to 1."
+  },
+  {
+    "category": "Domain 4",
+    "front": "quizMAKER-OCR: Document Ingestion Pipeline?",
+    "back": "Scanned review exams/PDFs -> Tesseract OCR text extraction -> Noise cleaning (strip handwriting/figures) -> Regex parsing into Q&A JSON schemas ({id, question, choices, answer, source})."
+  },
+  {
+    "category": "Domain 4",
+    "front": "quizMAKER-OCR: Why remove Q53-Q55 and Q110?",
+    "back": "Q53-Q55 had missing figure/diagram dependencies, and Q110 was handwritten notes with noisy OCR. Pruned to maintain a 100% self-contained, clean text-only question bank."
+  },
+  {
+    "category": "Domain 4",
+    "front": "quizMAKER-OCR: Core Schema Invariant?",
+    "back": "'answer' must match one of the items in 'choices' character-for-character (answer ∈ choices). Choices must be an array of strings, not a single comma-separated string (fixed in Q33 & Q38)."
+  },
+  {
+    "category": "Domain 4",
+    "front": "quizMAKER-OCR: LocalStorage State Persistence?",
+    "back": "Auto-persists current index, score, and the shuffled question order on every action (select, skip, render). Allows 'Resume Last Quiz' without losing test sequence."
+  },
+  {
+    "category": "Domain 4",
+    "front": "quizMAKER-OCR: Automated Google Search Query?",
+    "back": "Constructs: encodeURIComponent(q.question + ' ' + SEARCH_SUFFIX). Appending domain keywords (e.g. 'building utilities Mapúa') directs students straight to authoritative references."
+  },
+  {
+    "category": "Domain 4",
+    "front": "quizMAKER-OCR: Two-Phase Review & Retry Flow?",
+    "back": "Skipped questions are pooled and served in a dedicated round after the main quiz. Final results screen offers 'Retry Incorrect' to generate a targeted mini-quiz of missed questions."
+  },
+  {
+    "category": "Domain 4",
+    "front": "quizMAKER-OCR: Zero-Build Static Architecture?",
+    "back": "Pure vanilla HTML/CSS/JS with zero build steps or npm dependencies. Multiple exams share one app.js engine by swapping DATA_FILE and SEARCH_SUFFIX pointers. Deploys via 'vercel --yes'."
+  },
+  {
+    "category": "Domain 4",
+    "front": "Who is Narciso Javier III in CSE 30?",
+    "back": "Group 2 student researcher on the RoBERTa SDG paper, author of the Panatang Makabayan Bag of Words exercise, and creator of the quizMAKER-OCR exam study platform."
   }
 ];
-
 const BOW_VOCAB_44 = [
   "aking",
   "ako",
