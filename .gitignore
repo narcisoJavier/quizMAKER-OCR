@@ -1,6 +1,7 @@
 # Ignore all PDF files (Do not push PDFs to repo)
 *.pdf
 **/*.pdf
+*.jpg
 
 # Extracted scratch files
 _extracted/
