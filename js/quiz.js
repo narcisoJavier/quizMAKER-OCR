@@ -209,6 +209,12 @@
     const deepDiveContent = document.getElementById('feedback-deep-dive-text');
     deepDiveContent.innerHTML = q.deepDive;
     deepDiveContent.classList.remove('open');
+    const deepDiveBtn = document.querySelector('button[onclick*="feedback-deep-dive-text"]') || deepDiveContent.previousElementSibling;
+    if (deepDiveBtn && deepDiveBtn.classList.contains('deep-dive-toggle')) {
+      deepDiveBtn.classList.remove('active');
+      const arrow = deepDiveBtn.querySelector('.toggle-arrow') || deepDiveBtn.querySelector('span:last-child');
+      if (arrow) arrow.textContent = '▼';
+    }
 
     // Google Search Shortcut (From diagram.png)
     const googleSearchBtn = document.getElementById('feedback-google-search-btn');
@@ -296,12 +302,20 @@
     })[m]);
   }
 
-  window.toggleDeepDive = function (contentId) {
-    const el = document.getElementById(contentId);
-    if (el) {
-      el.classList.toggle('open');
-    }
-  };
+  if (!window.toggleDeepDive) {
+    window.toggleDeepDive = function (contentId, btn) {
+      let el = (typeof contentId === 'string') ? document.getElementById(contentId) : contentId;
+      let targetBtn = btn || (window.event && window.event.currentTarget);
+      if (!el && targetBtn) el = targetBtn.nextElementSibling;
+      if (!el) return;
+      const isOpen = el.classList.toggle('open');
+      if (targetBtn) {
+        targetBtn.classList.toggle('active', isOpen);
+        const arrow = targetBtn.querySelector('.toggle-arrow') || targetBtn.querySelector('span:last-child');
+        if (arrow) arrow.textContent = isOpen ? '▲' : '▼';
+      }
+    };
+  }
 
   window.addEventListener('DOMContentLoaded', initQuiz);
 })();

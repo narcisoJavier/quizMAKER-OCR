@@ -689,7 +689,7 @@ body {
 }
 
 .deep-dive-content.open {
-  display: block;
+  display: block !important;
   animation: fadeIn 0.2s var(--ease-snappy);
 }
 

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;600;700&family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.1">
 </head>
 <body>
 
@@ -108,9 +108,23 @@
     <p style="margin-top:0.4rem; font-size:0.8rem;">Prepared for student review based on lecture presentations, exercises, and research materials.</p>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/data.js?v=2.1"></script>
+  <script src="js/app.js?v=2.1"></script>
   <script>
+    // Ensure toggleDeepDive is available globally immediately
+    window.toggleDeepDive = window.toggleDeepDive || function (contentId, btn) {
+      let el = (typeof contentId === 'string') ? document.getElementById(contentId) : contentId;
+      let targetBtn = btn || (window.event && window.event.currentTarget);
+      if (!el && targetBtn) el = targetBtn.nextElementSibling;
+      if (!el) return;
+      const isOpen = el.classList.toggle('open');
+      if (targetBtn) {
+        targetBtn.classList.toggle('active', isOpen);
+        const arrow = targetBtn.querySelector('.toggle-arrow') || targetBtn.querySelector('span:last-child');
+        if (arrow) arrow.textContent = isOpen ? '▲' : '▼';
+      }
+    };
+
     // Render Reviewer Modules with Dual Explanation
     document.addEventListener('DOMContentLoaded', () => {
       const container = document.getElementById('modules-container');

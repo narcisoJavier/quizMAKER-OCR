@@ -40,25 +40,38 @@
 
   // Global Deep Dive Accordion Toggle
   window.toggleDeepDive = function (contentId, btn) {
-    const el = document.getElementById(contentId);
-    if (!el) {
-      console.warn('Deep dive target element not found:', contentId);
-      return;
+    let el = null;
+    if (typeof contentId === 'string') {
+      el = document.getElementById(contentId);
+    } else if (contentId && contentId.nodeType) {
+      el = contentId;
     }
-    const isOpen = el.classList.toggle('open');
 
-    // Update button styling and arrow
     let targetBtn = btn;
     if (!targetBtn && window.event && window.event.currentTarget) {
       targetBtn = window.event.currentTarget;
     }
+
+    // Fallback: search next sibling if element not found by ID
+    if (!el && targetBtn) {
+      el = targetBtn.nextElementSibling;
+    }
+
+    if (!el) {
+      console.warn('Deep dive target element not found:', contentId);
+      return;
+    }
+
+    const isOpen = el.classList.toggle('open');
+
+    // Update button styling and arrow
     if (targetBtn) {
       targetBtn.classList.toggle('active', isOpen);
       const arrow = targetBtn.querySelector('.toggle-arrow') || targetBtn.querySelector('span:last-child');
       if (arrow && (arrow.textContent.includes('▼') || arrow.textContent.includes('▲'))) {
         arrow.textContent = isOpen ? '▲' : '▼';
       }
-    } else {
+    } else if (typeof contentId === 'string') {
       const toggleBtns = document.querySelectorAll(`button[onclick*="${contentId}"]`);
       toggleBtns.forEach(b => {
         b.classList.toggle('active', isOpen);
@@ -69,6 +82,18 @@
       });
     }
   };
+
+  // Delegated fallback listener for any .deep-dive-toggle element
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.deep-dive-toggle');
+    if (!btn) return;
+    // If the button already has an onclick attribute that executed toggleDeepDive, avoid double-toggling
+    if (btn.hasAttribute('onclick')) return;
+    const content = btn.nextElementSibling;
+    if (content && content.classList.contains('deep-dive-content')) {
+      window.toggleDeepDive(content, btn);
+    }
+  });
 
   // Global Helpers
   window.App = {
