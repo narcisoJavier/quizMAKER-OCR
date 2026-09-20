@@ -4,7 +4,8 @@ An interactive, comprehensive, zero-dependency web reviewer and examination simu
 
 Meticulously aligned with course lecture presentations by **Engr. Dalos D. Miguel**, class research presentations, and the Panatang Makabayan Bag of Words exercise.
 
-**Live Reviewer:** [https://quizmaker-vacv8tip6-uznir.vercel.app](https://quizmaker-vacv8tip6-uznir.vercel.app)
+**Live Reviewer (100% Public, No Login Required):** [https://narcisojavier.github.io/quizMAKER-OCR/](https://narcisojavier.github.io/quizMAKER-OCR/)  
+**Vercel Preview Deployment:** [https://quizmaker-vacv8tip6-uznir.vercel.app](https://quizmaker-vacv8tip6-uznir.vercel.app)
 
 ---
 
